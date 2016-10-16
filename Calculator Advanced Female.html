@@ -1,0 +1,89 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return false" onchange="fatweight.value=(bodyfat.valueAsNumber/100)*weight.valueAsNumber; BMR.value=665+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber);
+leanweight.value=weight.valueAsNumber-fatweight.value;
+protein.value = proteinMult.value*leanweight.value;
+fat.value = fatMult.value*leanweight.value;
+carb.value = (BMR.value-fat.value*9-protein.value*4)/4; 
+calories.value=goal.value*4+fat.value*9+protein.value*4;
+">
+
+
+  <legend>Female Macro Calculator</legend>
+
+  <p><label for="height">Your height in inches:</label>
+  <input type="number" min="0" id="height" value=0 name="height"></p>
+
+  <p><label for="weight">Your weight:</label>
+  <input type="number" min="0" id="weight" value=0 name="weight"></p>
+
+  <p><label for="age">Your age:</label>
+  <input type="number" min="0" id="age" value=0 name="age"></p>
+
+  <p><label for="bodyfat">Your Body Fat %:</label>
+  <input type="number" min="0" id="bodyfat" value=0 name="bodyfat"></p>
+
+  <p><label for="proteinMult">Protein Multiplier:</label>
+  <input type="radio" id="proteinMult" value=1 name="proteinMult">1g
+  <input type="radio" id="proteinMult" value=1.5 name="proteinMult">1.5g</p>
+
+  <p><label for="fatMult">Fat Multiplier:</label>
+  <input type="radio" id="fatMult" value=.35 name="fatMult">.35g
+  <input type="radio" id="fatMult" value=.5 name="fatMult">.5g</p>
+
+   <p><label for="goal">Fat Multiplier:</label>
+  <p><input type="radio" id="goal" value=50 name="goal">Excessive Fat Loss</p>
+  <p><input type="radio" id="goal" value=100 name="goal">Fat Loss</p>
+  <p><input type="radio" id="goal" value=150 name="goal">Maintain</p>
+  <p><input type="radio" id="goal" value=250 name="goal">Weight Gain</p>
+ <p><input type="radio" id="goal" value=300 name="goal">Excessive Weight Gain</p>
+
+
+
+  <p>FatWeight: <strong><output style="display:inline" name="fatweight" for="bodyfat weight">0</output></strong></p>
+
+  <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age">0</output></strong></p>
+
+  <p>LeanWeight: <strong><output style="display:inline" name="leanweight" for="weight fatweight">0</output></strong></p>
+
+  <p>Protein: <strong><output style="display:inline" name="protein" for="proteinMult leanweight">0</output></strong></p>
+
+  <p>Fat: <strong><output style="display:inline" name="fat" for="fatMult leanweight">0</output></strong></p>
+
+  <p>Functioning Carbs: <strong><output style="display:inline" name="carb" for="BMR fat protein">0</output></strong></p>
+
+  <p>Calories: <strong><output style="display:inline" name="calories" for="goal fat protein">0</output></strong></p>
+
+
+</form>
+</body>
+</html>
+
+      <footer>
+        <p>&copy; 2016 FitGo, Beep Boop.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

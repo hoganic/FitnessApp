@@ -12,12 +12,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form onsubmit="return false" onchange="fatweight.value=(bodyfat.valueAsNumber/100)*weight.valueAsNumber; BMR.value=665+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber);
-leanweight.value=weight.valueAsNumber-fatweight.value;
-protein.value = proteinMult.value*leanweight.value;
-fat.value = fatMult.value*leanweight.value;
-carb.value = (BMR.value-fat.value*9-protein.value*4)/4; 
-calories.value=goal.value*4+fat.value*9+protein.value*4;
+<form onsubmit="return false" onchange="BMR.value=((655+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber))*activity.value).toFixed(0);
+protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
+fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
+carbs.value=((((BMR.value)*(goal.value))-protein.value*4-fat.value*9)/4).toFixed(0); 
+calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 ">
 
 
@@ -43,28 +42,31 @@ calories.value=goal.value*4+fat.value*9+protein.value*4;
   <input type="radio" id="fatMult" value=.35 name="fatMult">.35g
   <input type="radio" id="fatMult" value=.5 name="fatMult">.5g</p>
 
-   <p><label for="goal">Fat Multiplier:</label>
-  <p><input type="radio" id="goal" value=50 name="goal">Excessive Fat Loss</p>
-  <p><input type="radio" id="goal" value=100 name="goal">Fat Loss</p>
-  <p><input type="radio" id="goal" value=150 name="goal">Maintain</p>
-  <p><input type="radio" id="goal" value=250 name="goal">Weight Gain</p>
- <p><input type="radio" id="goal" value=300 name="goal">Excessive Weight Gain</p>
+   <p><label for="goal">Goal:</label>
+  <p><input type="radio" id="goal" value=.8 name="goal">Excessive Fat Loss</p>
+  <p><input type="radio" id="goal" value=.9 name="goal">Fat Loss</p>
+  <p><input type="radio" id="goal" value=1 name="goal">Maintain</p>
+  <p><input type="radio" id="goal" value=1.1 name="goal">Weight Gain</p>
+ <p><input type="radio" id="goal" value=1.2 name="goal">Excessive Weight Gain</p>
+
+   <p><label for="activity">Level of Activity:</label>
+  <p><input type="radio" id="activity" value=1.2 name="activity">Little or No exercise</p>
+  <p><input type="radio" id="activity" value=1.375 name="activity">Light exercise/sports 1-3 days/week</p>
+  <p><input type="radio" id="activity" value=1.55 name="activity">Moderate exercise/sports 3-5 days/week</p>
+  <p><input type="radio" id="activity" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
+ <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
 
 
 
-  <p>FatWeight: <strong><output style="display:inline" name="fatweight" for="bodyfat weight">0</output></strong></p>
+  <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age activity">0</output></strong></p>
 
-  <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age">0</output></strong></p>
+  <p>Protein: <strong><output style="display:inline" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
 
-  <p>LeanWeight: <strong><output style="display:inline" name="leanweight" for="weight fatweight">0</output></strong></p>
+  <p>Fat: <strong><output style="display:inline" name="fat" for="fatMult bodyfat weight">0</output></strong></p>
 
-  <p>Protein: <strong><output style="display:inline" name="protein" for="proteinMult leanweight">0</output></strong></p>
+  <p>Carbs: <strong><output style="display:inline" name="carbs" for="BMR fat protein goal">0</output></strong></p>
 
-  <p>Fat: <strong><output style="display:inline" name="fat" for="fatMult leanweight">0</output></strong></p>
-
-  <p>Functioning Carbs: <strong><output style="display:inline" name="carb" for="BMR fat protein">0</output></strong></p>
-
-  <p>Calories: <strong><output style="display:inline" name="calories" for="goal fat protein">0</output></strong></p>
+  <p>Calories: <strong><output style="display:inline" name="calories" for="carbs fat protein">0</output></strong></p>
 
 
 </form>

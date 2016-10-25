@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="container-fluid" style="background-color:rgb(51,51,51);"
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -51,26 +51,58 @@
     </ul>
   </div>
 </nav>
-
-<div style="background-image: url(./food_image_1280x720.jpeg);height: 630px;background-repeat:no-repeat;background-position:center;background-color:rgb(51,51,51);"></div>
+</div>
+<div style="background-image:url(./food_image_640x360.jpeg);height: 360px;background-repeat:no-repeat;background-position:center;background-color:rgb(51,51,51);position:relative;">
+  <img id="logo" src="./logo.png">
+  <style>
+    #logo {
+      height:100px;
+      display:block;
+      margin:0;
+      position:absolute;
+      top:50%;
+      left:50%;
+      -ms-transform:translate(-160%, -90%) rotate(-14deg);
+      -webkit-transform:rotate(-14deg);
+      transform:translate(-160%, -90%) rotate(-14deg);
+    }
+  </style>
+</div> 
 
 <div class="container-fluid">
-<h1>Main Page</h1>
-<p>Stuff Stuff Stuff Stuff Stuff .</p>
-<div class="row">
-  <div class="col-xs-4">
-    <li>Stuff Stuff Stuff </li><br>
-    <li>Stuff Stuff Stuff Stuff </li><br>
-    <li>Stuff Stuff Stuff </li><br>
-    <li>Stuff Stuff Stuff Stuff </li><br>
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+      <h1>Welcome to FitGo!</h1>
+    </div>
+    <div class="col-xs-2"></div>
   </div>
-  <div class="col-xs-8">
-    <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li><br>
-    <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li><br>
-    <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li><br>
-    <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li>
-</div>
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+      <p>Macronutrition brought to the masses. We make nutrition simple so all you have to worry about, <strong>is working out!<strong></p><br>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-4">
+      <h3>How can we help?</h3>
+      <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li><br>
+      <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li><br>
+      <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li><br>
+      <li>Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff </li>
+    </div>
+    <div class="col-xs-6">
+      <h2>Three easy steps to get to your goal:</h2>
+      <li>Sign up and create an account using Facebook</li><br>
+      <li>Enter you current information into the calculator<br>(Don't worry if you don't know, or know how to get, all your information. We can walk you through it.)</li><br>
+      <li>Set a goal. Do you want to build ten pounds of lean mass or lose 5 pounds of fat for beach season? It's up to you.</li><br>
+      <li>If you're ready to get started you can sign up here, or feel free to look around the website to learn what it is we do and how we do it to help you reach your goals.</li><br>
+    </div>
+  </div>
+</div>
 <div id="status">
 </div>
 
@@ -163,6 +195,10 @@
     //});
   }
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

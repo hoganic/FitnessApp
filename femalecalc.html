@@ -12,11 +12,9 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form onsubmit="return false" onchange="BMR.value=((655+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber))*activity.value).toFixed(0);
-protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
+<form onsubmit="return false" onchange="BMR.value=((655+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber))*activity.value).toFixed(0); protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
-carbs.value=((((BMR.value)*(goal.value))-protein.value*4-fat.value*9)/4).toFixed(0); 
-calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
+carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.value*9)/4).toFixed(0); calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 ">
 
 
@@ -43,11 +41,11 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
   <input type="radio" id="fatMult" value=.5 name="fatMult">.5g</p>
 
    <p><label for="goal">Goal:</label>
-  <p><input type="radio" id="goal" value=.8 name="goal">Excessive Fat Loss</p>
-  <p><input type="radio" id="goal" value=.9 name="goal">Fat Loss</p>
-  <p><input type="radio" id="goal" value=1 name="goal">Maintain</p>
-  <p><input type="radio" id="goal" value=1.1 name="goal">Weight Gain</p>
- <p><input type="radio" id="goal" value=1.2 name="goal">Excessive Weight Gain</p>
+  <p><input type="radio" id="goal" value=-500 name="goal">Lose 1 pound/week</p>
+  <p><input type="radio" id="goal" value=-250 name="goal">Lose .5 pound/week</p>
+  <p><input type="radio" id="goal" value=0 name="goal">Maintain</p>
+  <p><input type="radio" id="goal" value=250 name="goal">Gain .5 pound/week</p>
+ <p><input type="radio" id="goal" value=500 name="goal">Gain 1 pound/week</p>
 
    <p><label for="activity">Level of Activity:</label>
   <p><input type="radio" id="activity" value=1.2 name="activity">Little or No exercise</p>
@@ -55,7 +53,6 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
   <p><input type="radio" id="activity" value=1.55 name="activity">Moderate exercise/sports 3-5 days/week</p>
   <p><input type="radio" id="activity" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
  <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
-
 
 
   <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age activity">0</output></strong></p>

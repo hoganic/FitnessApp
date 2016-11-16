@@ -54,43 +54,153 @@
 </nav>
 
 <?php
-  $servername = "localhost";
-  $username = "fitgo";
-  $password = "fitgo";
-  $dbname = "users";
+  $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+  $username = "db_user";
+  $password = "fitgoapp";
+  $dbname = "user_db";
 
-  #$conn = new mysqli($servername, $username, $password, $dbname);
-  #if ($conn->connect_error) {
-  #  die("Connection failed: " . $conn->connect_error);
-  #}
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
 
-  #$sql = "SELECT firstname, lasname FROM facebook_info";
-  #      $result = $conn->query($sql);
-  #      $row = $result->fetch_assoc();
+  try {
+    $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
+          $result = $conn->query($sql);
+          $row = $result->fetch_assoc();
+  } catch (Exception $e) {
+    
+  }
+
+  $FirstName = $LastName = $height = $weight = $age = $gender = $bfp = $goal = "";
+  $fnerr = $lnerr = $heighterr = $weighterr = $ageerr = $gendererr = $bfperr = "";
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["FirstName"])) {
+      $fnerr = "First Name is required";
+    } else {
+      $FirstName = test_input($_POST["FirstName"]);
+      if (!preg_match("/^[a-zA-Z ]*$/", $FirstName)) {
+        $fnerr = "Only letters and white space allowed";
+        $FirstName = "";
+      }
+    }
+    if (empty($_POST["LastName"])) {
+      $lnerr = "Last Name is required";
+    } else {
+      $LastName = test_input($_POST["LastName"]);
+      if (!preg_match("/^[a-zA-Z ]*$/", $LastName)) {
+        $lnerr = "Only letters and white space allowed";
+        $LastName = "";
+      }
+    }
+    if (empty($_POST["height"])) {
+      $heighterr = "Height is required";
+    } else {
+      $height = test_input($_POST["height"]);
+    }
+    if (empty($_POST["weight"])) {
+      $weighterr = "Weight is required";
+    } else {
+      $weight = test_input($_POST["weight"]);
+    }
+    if (empty($_POST["age"])) {
+      $ageerr = "Age is required";
+    } else {
+      $age = test_input($_POST["age"]);
+    }
+    if (empty($_POST["gender"])) {
+      $gendererr = "Gender is required";
+    } else {
+      $gender = test_input($_POST["gender"]);
+    }
+    $bfp = test_input($_POST["bfp"]);
+    $goal = test_input($_POST["goal"]);
+
+
+  }
+
+  function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
 ?>
 
 <div class="container-fluid">
   <h1>Profile</h1>
   <p>Your profile</p>
-  <div class="row">
+  <div class="row" style="padding-bottom: 5px">
     <div id="profilePic" class="col-xs-4"></div>
   </div>
-  <div class="row"><br>
-    <div class="col-xs-1">First Name:</div>
-    <div class="col-xs-1">
-      <?php
-        echo $row["firstname"];
-      ?>
-    </div><br>
-  </div>
-  <div class="row">
-    <div class="col-xs-1">Last Name:</div>
-    <div class="col-xs-1">
-      <?php
-        echo $row["lasname"];
-      ?>
+  <style>.error {color: #FF0000;}</style>
+  <form id="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus()">
+    <div class="row" style="padding-bottom: 5px"><br>
+      <div class="col-xs-8"><span class="error"> * required field.</span></div>
+      <div class="col-xs-8">First Name: <input type="text" name="FirstName" value=<?php echo $row["first_name"]; ?>>
+      <span class="error">* <?php echo $fnerr;?></span></div>
     </div>
-  </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Last Name: <input type="text" name="LastName" value=<?php echo $row["last_name"]; ?>>
+      <span class="error">* <?php echo $lnerr;?></span></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Height (in): <input type="number" name="height" min="1" value=<?php echo $row["height"]; ?>>
+      <span class="error">* <?php echo $heighterr;?></span></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Weight: <input type="number" name="weight" min="1" value=<?php echo $row["weight"]; ?>>
+      <span class="error">* <?php echo $weighterr;?></span></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Age: <input type="number" name="age" min="1" value=<?php echo $row["age"]; ?>>
+      <span class="error">* <?php echo $ageerr;?></span></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Gender: 
+        <input type="radio" name="gender" <?php if (isset($row["gender"]) && $row["gender"]=="female") echo "checked";?> value="female">Female
+        <input type="radio" name="gender" <?php if (isset($row["gender"]) && $row["gender"]=="male") echo "checked";?> value="male">Male
+        <span class="error">* <?php echo $gendererr;?></span>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Body Fat Percentage: <input type="number" name="bfp" min="0" value=<?php echo $row["bfp"]; ?>>
+      <span class="error"> <?php echo $bfperr;?></span></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Goal:</div>
+      <div class="col-xs-8"><textarea name="goal" rows="2" cols="40"><?php echo $row["goal"]; ?></textarea></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <input type="hidden" name="fbuid" value=<?php echo $row["facebook_uid"]; ?>>
+      <div class="col-xs-8"><input type="submit" id="submitButton" value="Save"></button></div>
+    </div>
+    <div class="row" style="padding-bottom: 5px">
+      <div class="col-xs-8">Must be logged into Facebook to submit.</div>
+    </div>
+  </form>
+
+<br><br>
+<?php
+echo "<h3>Your Inputs</h3>";
+echo $FirstName;
+echo "<br>";
+echo $LastName;
+echo "<br>";
+echo $height;
+echo "<br>";
+echo $weight;
+echo "<br>";
+echo $age;
+echo "<br>";
+echo $gender;
+echo "<br>";
+echo $bfp;
+echo "<br>";
+echo $goal;
+?>
+<br><br>
 
   <br><br><div id="status"></div>
 
@@ -102,6 +212,34 @@
   </div>
 </div>
 <script>
+
+  var logState = false;
+
+  function checkfbstatus(){
+    console.log('checkfbstatus');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback2(response);
+    });
+    console.log(logState);
+    return logState;
+  }
+
+  function statusChangeCallback2(response) {
+    console.log('statusChangeCallback2');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      logState = true;
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      logState = false;
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      logState = false;
+    }
+  }
+
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');

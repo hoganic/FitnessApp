@@ -165,6 +165,7 @@ foreach($array["hits"] as $hits){
         <td>&nbsp;</td>
         <td><b>Meal Number</b></td>
         <td><b>Food</b></td>
+        <td><b>Serving Size (Units)</b></td>
         <td><b>Amount</b></td>
         <td><b>Carbs</b></td>
         <td><b>Protein</b></td>

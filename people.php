@@ -75,7 +75,7 @@
 }
 </style>
 
-<body>
+<body onload= "addData('myTableData')";>
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <form method="POST" action="<?php echo $_SERVER['$PHP_SELF'];?>">

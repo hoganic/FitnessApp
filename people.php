@@ -75,7 +75,7 @@
 }
 </style>
 
-<body onload="load()">
+<body>
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <form method="POST" action="<?php echo $_SERVER['$PHP_SELF'];?>">
@@ -193,8 +193,7 @@
     </tr>
 </table>
 </div>
-</body>
-<body>
+	
 <div id="mydata">
 <b>Your Current Plan</b>
 <table id="myTableData"  border="1" cellpadding="2">

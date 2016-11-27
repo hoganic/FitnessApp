@@ -58,6 +58,7 @@
 <style type="text/css">
 .right-message {
     position:absolute;
+    top:5px;
     right:5px;
 }
 </style>

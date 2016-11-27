@@ -154,7 +154,7 @@ foreach($array["hits"] as $hits){
 			exit("No Query submitted");
 		else
 			$request_url = $this -> $api_url.$query.'?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%
-2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Cnf_calories%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc';
+2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc';
 			echo $request_url;
 			$ch = curl_init();
 			$timeout = 5;

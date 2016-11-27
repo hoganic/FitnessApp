@@ -1,39 +1,24 @@
+<!DOCTYPE html>
 <html>
-<head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+    <head>
+        <title>JSON Sandbox</title>
+        <script src="jquery-1.8.2.min.js"></script>
+    </head>
+    <body>
+        <h2>JSON Sandbox</h2>
 
-<script>
+        <p id="demo"></p>
 
-    $(function() {
+        <script type="text/javascript">
+            var obj = new Object();
+            var error = new Object();
+            $.getJSON('test.js').done(function (data) {
+                obj = data;
+                document.getElementById("demo").innerHTML = obj.name + "<br>" + obj.street + "<br>" + obj.phone;
+            }).error(function (err) {
+                error = err;
+            });
 
-
-   var people = [];
-
-   $.getJSON('food.json', function(json) {
-       console.log(json)});
-});
-
-</script>
-</head>
-
-<body>
-
-<div class="wrapper">
-<div class="profile">
-   <table id= "userdata" border="2">
-  <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Address</th>
-            <th>City</th>
-        </thead>
-      <tbody>
-
-       </tbody>
-   </table>
-
-</div>
-</div>
-
-</body>
+        </script>
+    </body>
 </html>

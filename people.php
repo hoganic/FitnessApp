@@ -70,7 +70,7 @@
 .flex-item{
     flex-grow: 1;
     position:absolute;
-    top:5px;
+    top:100px;
     right:5px;
 }
 </style>

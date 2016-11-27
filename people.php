@@ -59,8 +59,6 @@
 .right-message {
     position:absolute;
     right:5px;
-    top:5px;
-    width:50%;
 }
 </style>
 

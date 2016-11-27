@@ -129,12 +129,7 @@
 <div class="flex-item">
 <?php
 $query = $_POST["query"];
-echo $query;
-$api_url = "http://api.nutritionix.com/v1_1/search/";
-$request_url = $this -> $api_url.$query.'?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%
-2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Cnf_calories%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc';
-echo $request_url;
-	
+echo $query;	
 	
 $returned_content = get_data($query);
 $array = json_decode($returned_content, TRUE);
@@ -147,7 +142,6 @@ foreach($array["hits"] as $hits){
 	echo "Total carbs: ".$hits["fields"]["nf_total_carbohydrate"]."<br>";
 	echo "Total protein: ".$hits["fields"]["nf_protein"]."<br>";
 	echo "Total fat: ".$hits["fields"]["nf_total_fat"]."<br>";
-	echo "Calories per Serving: ".$hits["fields"]["nf_calories"]."<br><br>";
 	$name = $hits["fields"]["item_name"];
 	$serving_size_unit = $hits["fields"]["nf_serving_size_unit"];
 	$carbs = $hits["fields"]["nf_total_carbohydrate"];

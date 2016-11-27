@@ -12,7 +12,7 @@
         <script type="text/javascript">
             var obj = new Object();
             var error = new Object();
-            $.getJSON('food.js').done(function (data) {
+            $.getJSON('food.json').done(function (data) {
                 obj = data;
                 document.getElementById("demo").innerHTML = obj.name + "<br>" + obj.street + "<br>" + obj.phone;
             }).error(function (err) {

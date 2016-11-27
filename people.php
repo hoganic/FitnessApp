@@ -76,7 +76,7 @@
 </style>
 
 <body onload="load()">
-<<div class="fixed">
+<div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <form action="people.php" method="POST">
 	Food Search <input type="text" name="query" />
@@ -128,7 +128,7 @@
 	
 <div class="flex-item">
 
-/* <?php
+<?php
 $query = $_POST["query"];
 echo $query;	
 	
@@ -166,7 +166,7 @@ foreach($array["hits"] as $hits){
 			curl_close($ch);
 			return $data;
 	}
-?> */
+?> 
 	</div>
 	
 <div id="mydata">

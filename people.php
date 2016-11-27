@@ -65,10 +65,13 @@
     display: flex;
 }
 .fixed{
-    width: 200px;
+    width: 500px;
 }
 .flex-item{
     flex-grow: 1;
+    position:absolute;
+    top:5px;
+    right:5px;
 }
 </style>
 

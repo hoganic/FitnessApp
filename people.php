@@ -144,7 +144,6 @@ foreach($array["hits"] as $hits){
 	$carbs = $hits["fields"]["nf_total_carbohydrate"];
 	$protein = $hits["fields"]["nf_protein"];
 	$fat = $hits["fields"]["nf_total_fat"];
-	echo $fat;
 }
 	function get_data($url) {
 		$ch = curl_init();

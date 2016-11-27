@@ -2,6 +2,7 @@ function addRow() {
     
     var mealno = document.getElementById("mealno");      
     var myFood = document.getElementById("food");
+    var serving_size_unit = document.getElementById("serving_size_unit");
     var amount = document.getElementById("amount");
     var carbs = document.getElementById("carbs");
     var protein = document.getElementById("protein");
@@ -15,6 +16,7 @@ function addRow() {
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;
+    row.insertCell(3).innerHTML= serving_size_unit.value;
     row.insertCell(3).innerHTML= amount.value;
     row.insertCell(4).innerHTML= carbs.value;
     row.insertCell(5).innerHTML= protein.value;

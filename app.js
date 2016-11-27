@@ -7,7 +7,6 @@ function addRow() {
     var carbs = document.getElementById("carbs");
     var protein = document.getElementById("protein");
     var fat = document.getElementById("fat");
-    var calories = document.getElementById("calories");
     var table = document.getElementById("myTableData");
  
     var rowCount = table.rows.length;
@@ -21,7 +20,6 @@ function addRow() {
     row.insertCell(5).innerHTML= carbs.value;
     row.insertCell(6).innerHTML= protein.value;
     row.insertCell(7).innerHTML= fat.value;
-    row.insertCell(8).innerHTML= calories.value;
  
 }
  

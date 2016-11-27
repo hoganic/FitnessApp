@@ -82,67 +82,6 @@
 	Food Search <input type="text" name="query" />
 <input type="Submit" value="Search" />
 </form>
-<table>
-    <tr>
-        <td>Meal Number</td>
-        <td><input type="text" id="mealno"></td>
-    </tr>
-
-    <tr>
-        <td>Food:</td>
-        <td><input type="text" id="food" value="<?php echo htmlspecialchars($name); ?>" ></td>
-    </tr>
-    <tr>
-        <td>Serving Size (Units):</td>
-        <td><input type="text" id="serving_size_unit" value="<?php echo htmlspecialchars($serving_size_unit); ?>"></td>
-    </tr>
-    <tr>
-        <td>Carbs:</td>
-        <td><input type="text" id="carbs" value="<?php echo htmlspecialchars($carbs); ?>"></td>
-    </tr>
-    <tr>
-        <td>Protein:</td>
-        <td><input type="text" id="protein" value="<?php echo htmlspecialchars($protein); ?>"></td>
-    </tr>
-    <tr>
-        <td>Fat:</td>
-        <td><input type="text" id="fat" value="<?php echo htmlspecialchars($fat); ?>"></td>
-    </tr>
-    <tr>
-        <td>Amount:</td>
-        <td><input type="text" id="amount">
-        <td><input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
-    </tr>
-
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-</table>
-</div>
-
-<div id="mydata">
-<b>Your Current Plan</b>
-<table id="myTableData"  border="1" cellpadding="2">
-    <tr>
-        <td>&nbsp;</td>
-        <td><b>Meal Number</b></td>
-        <td><b>Food</b></td>
-        <td><b>Serving Size (Units)</b></td>
-        <td><b>Amount</b></td>
-        <td><b>Carbs</b></td>
-        <td><b>Protein</b></td>
-        <td><b>Fat</b></td>
-    </tr>
-</table>
-&nbsp;
- 
-</div>	
 	
 <div class="flex-item">
 	
@@ -206,6 +145,68 @@
 		this is where we can change it.
 	Currently set for only 1 result for simplicity
   -->
+	
+<table>
+    <tr>
+        <td>Meal Number</td>
+        <td><input type="text" id="mealno"></td>
+    </tr>
+
+    <tr>
+        <td>Food:</td>
+        <td><input type="text" id="food" value="<?php echo htmlspecialchars($name); ?>" ></td>
+    </tr>
+    <tr>
+        <td>Serving Size (Units):</td>
+        <td><input type="text" id="serving_size_unit" value="<?php echo htmlspecialchars($serving_size_unit); ?>"></td>
+    </tr>
+    <tr>
+        <td>Carbs:</td>
+        <td><input type="text" id="carbs" value="<?php echo htmlspecialchars($carbs); ?>"></td>
+    </tr>
+    <tr>
+        <td>Protein:</td>
+        <td><input type="text" id="protein" value="<?php echo htmlspecialchars($protein); ?>"></td>
+    </tr>
+    <tr>
+        <td>Fat:</td>
+        <td><input type="text" id="fat" value="<?php echo htmlspecialchars($fat); ?>"></td>
+    </tr>
+    <tr>
+        <td>Amount:</td>
+        <td><input type="text" id="amount">
+        <td><input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+
+<div id="mydata">
+<b>Your Current Plan</b>
+<table id="myTableData"  border="1" cellpadding="2">
+    <tr>
+        <td>&nbsp;</td>
+        <td><b>Meal Number</b></td>
+        <td><b>Food</b></td>
+        <td><b>Serving Size (Units)</b></td>
+        <td><b>Amount</b></td>
+        <td><b>Carbs</b></td>
+        <td><b>Protein</b></td>
+        <td><b>Fat</b></td>
+    </tr>
+</table>
+&nbsp;
+ 
+</div>	
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

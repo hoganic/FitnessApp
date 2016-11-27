@@ -53,6 +53,7 @@
     </ul>
   </div>
 </nav>
+	</div>
 
 <style type="text/css">
 .right-message {

@@ -141,7 +141,7 @@
 
 	Currently set for only 1 result for simplicity
   -->
-
+<div class="right-message">
 <?php
 $returned_content = get_data("https://api.nutritionix.com/v1_1/search/pop%20tart?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc");
 $array = json_decode($returned_content, TRUE);
@@ -166,7 +166,7 @@ foreach($array["hits"] as $hits){
 		return $data;
 	}
 ?>
-
+	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../../dist/js/bootstrap.min.js"></script>

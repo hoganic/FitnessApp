@@ -193,7 +193,8 @@
     </tr>
 </table>
 </div>
-
+</body>
+<body>
 <div id="mydata">
 <b>Your Current Plan</b>
 <table id="myTableData"  border="1" cellpadding="2">

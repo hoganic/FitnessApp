@@ -147,7 +147,8 @@
 <div class="flex-item">
 	
 <?php	
-$returned_content = get_data($query);
+$returned_content = get_data("https://api.nutritionix.com/v1_1/search/chicken?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%
+2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc");
 $array = json_decode($returned_content, TRUE);
 foreach($array["hits"] as $hits){
 	echo "Item name: ".$hits["fields"]["item_name"]."<br>";
@@ -164,8 +165,20 @@ foreach($array["hits"] as $hits){
 	$protein = $hits["fields"]["nf_protein"];
 	$fat = $hits["fields"]["nf_total_fat"];
 }
-	function get_data($query) {
-		$api_url = "http://api.nutritionix.com/v1_1/search";
+	
+	function get_data($url) {
+		$ch = curl_init();
+		$timeout = 5;
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		$data = curl_exec($ch);
+		curl_close($ch);
+		return $data;
+	}
+	
+	function get_da($query) {
+		$api_url = "https://api.nutritionix.com/v1_1/search";
 		$request_url =  $api_url.'/'.$query.'?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%
 2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc';
 		$ch = curl_init();

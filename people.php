@@ -127,7 +127,8 @@
 </div>
 	
 <div class="flex-item">
-<?php
+
+/* <?php
 $query = $_POST["query"];
 echo $query;	
 	
@@ -165,7 +166,7 @@ foreach($array["hits"] as $hits){
 			curl_close($ch);
 			return $data;
 	}
-?>
+?> */
 	</div>
 	
 <div id="mydata">

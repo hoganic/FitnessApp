@@ -109,10 +109,6 @@
         <td><input type="text" id="fat" value="<?php echo htmlspecialchars($fat); ?>"></td>
     </tr>
     <tr>
-        <td>Calories:</td>
-        <td><input type="text" id="calories"></td>
-    </tr>
-    <tr>
         <td>Amount:</td>
         <td><input type="text" id="amount">
         <td><input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
@@ -190,7 +186,6 @@ foreach($array["hits"] as $hits){
         <td><b>Carbs</b></td>
         <td><b>Protein</b></td>
         <td><b>Fat</b></td>
-        <td><b>Calories</b></td>
     </tr>
 </table>
 &nbsp;

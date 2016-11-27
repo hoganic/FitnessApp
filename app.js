@@ -17,11 +17,11 @@ function addRow() {
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;
     row.insertCell(3).innerHTML= serving_size_unit.value;
-    row.insertCell(3).innerHTML= amount.value;
-    row.insertCell(4).innerHTML= carbs.value;
-    row.insertCell(5).innerHTML= protein.value;
-    row.insertCell(6).innerHTML= fat.value;
-    row.insertCell(7).innerHTML= calories.value;
+    row.insertCell(4).innerHTML= amount.value;
+    row.insertCell(5).innerHTML= carbs.value;
+    row.insertCell(6).innerHTML= protein.value;
+    row.insertCell(7).innerHTML= fat.value;
+    row.insertCell(8).innerHTML= calories.value;
  
 }
  

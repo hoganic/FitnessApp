@@ -80,7 +80,7 @@
 <b><strong>MEAL PLANNING</strong></b>
 <form action="people.php" method="POST">
 	Food Search <input type="text" name="query" />
-<input type="Search" />
+<input type="Submit" value="Search" />
 </form>
 <table>
     <tr>

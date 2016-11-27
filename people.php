@@ -75,7 +75,7 @@
 }
 </style>
 
-<body onload="load()">
+<body onkeydown>
 <<div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <table>

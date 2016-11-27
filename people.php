@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FitGO</title>
+  <title> Meal Planning Page</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -52,6 +52,70 @@
     </ul>
   </div>
 </nav>
+</div>
+
+<body onload="load()">
+<div id="myform">
+<b><strong>MEAL PLANNING</strong></b>
+<table>
+    <tr>
+        <td>Meal Number</td>
+        <td><input type="text" id="mealno"></td>
+    </tr>
+
+    <tr>
+        <td>Food:</td>
+        <td><input type="text" id="food"></td>
+    </tr>
+
+    <tr>
+        <td>Amount:</td>
+        <td><input type="text" id="amount">
+    </tr>
+    <tr>
+        <td>Carbs:</td>
+        <td><input type="text" id="carbs"></td>
+    </tr>
+    <tr>
+        <td>Protein:</td>
+        <td><input type="text" id="protein"></td>
+    </tr>
+    <tr>
+        <td>Fat:</td>
+        <td><input type="text" id="fat"></td>
+    </tr>
+    <tr>
+        <td>Calories:</td>
+        <td><input type="text" id="calories"></td>
+        <td><input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+<div id="mydata">
+<b>Your Current Plan</b>
+<table id="myTableData"  border="1" cellpadding="2">
+    <tr>
+        <td>&nbsp;</td>
+        <td><b>Meal Number</b></td>
+        <td><b>Food</b></td>
+        <td><b>Amount</b></td>
+        <td><b>Carbs</b></td>
+        <td><b>Protein</b></td>
+        <td><b>Fat</b></td>
+        <td><b>Calories</b></td>
+    </tr>
+</table>
+&nbsp;
+ 
 </div>
 
 

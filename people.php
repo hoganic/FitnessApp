@@ -78,7 +78,7 @@
 <body onload="load()">
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
-<form action="people.php" method="POST">
+<form action="food.php" method="POST">
 	Food Search <input type="text" name="query" />
 <input type="Submit" value="Search" />
 </form>
@@ -142,10 +142,7 @@
 </table>
 &nbsp;
  
-</div>
-	
-<div class="flex-item">
-	
+</div>	
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

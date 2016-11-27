@@ -129,10 +129,12 @@
 	The rest of the search specifies the return items we need for the database, fat, protein, carbs, ...
 	Aastha's API ID and Key are right at the end of the serach. If we need to update or use a different key
 		this is where we can change it.
+
+	Currently set for only 1 result for simplicity
   -->
 
 <?php
-$returned_content = get_data("https://api.nutritionix.com/v1_1/search/pop%20tart?results=0%3A5&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc");
+$returned_content = get_data("https://api.nutritionix.com/v1_1/search/pop%20tart?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc");
 $array = json_decode($returned_content, TRUE);
 foreach($array["hits"] as $hits){
 	echo "Item name: ".$hits["fields"]["item_name"]."<br>";

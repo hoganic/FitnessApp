@@ -86,9 +86,28 @@
 
     <tr>
         <td>Food:</td>
-        <td><input type="text" id="food"></td>
+        <td><input type="text" id="food" value="<?php echo htmlspecialchars($name); ?>" ></td>
     </tr>
-
+    <tr>
+        <td>Serving Size (Units):</td>
+        <td><input type="text" id="serving_size_unit" value="<?php echo htmlspecialchars($serving_size_unit); ?>"></td>
+    </tr>
+    <tr>
+        <td>Carbs:</td>
+        <td><input type="text" id="carbs" value="<?php echo htmlspecialchars($carbs); ?>"></td>
+    </tr>
+    <tr>
+        <td>Protein:</td>
+        <td><input type="text" id="protein" value="<?php echo htmlspecialchars($protein); ?>"></td>
+    </tr>
+    <tr>
+        <td>Fat:</td>
+        <td><input type="text" id="fat" value="<?php echo htmlspecialchars($fat); ?>"></td>
+    </tr>
+    <tr>
+        <td>Calories:</td>
+        <td><input type="text" id="calories"></td>
+    </tr>
     <tr>
         <td>Amount:</td>
         <td><input type="text" id="amount">
@@ -120,6 +139,11 @@ foreach($array["hits"] as $hits){
 	echo "Total carbs: ".$hits["fields"]["nf_total_carbohydrate"]."<br>";
 	echo "Total protein: ".$hits["fields"]["nf_protein"]."<br>";
 	echo "Total fat: ".$hits["fields"]["nf_total_fat"]."<br><br>";
+	$name = $hits["fields"]["item_name"];
+	$serving_size_unit = $hits["fields"]["nf_serving_size_unit"];
+	$carbs = $hits["fields"]["nf_total_carbohydrate"];
+	$protein = $hits["fields"]["nf_protein"];
+	$fat = $hits["fields"]["nf_total_fat"];
 }
 	function get_data($url) {
 		$ch = curl_init();

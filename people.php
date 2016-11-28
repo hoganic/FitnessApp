@@ -11,6 +11,7 @@
 	function search_request(){
 		var query=document.getElementById('query').value;
 		var dataString = 'Query=' + query;
+		console.log(query);
 		$.ajax({
 			type:"post",
 			url: "food.php",

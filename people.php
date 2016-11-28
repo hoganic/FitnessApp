@@ -95,7 +95,7 @@
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <form>
-	Food Search <input type="text" name="query" />
+	Food Search <input type="text" name="query" id="query" />
 <input type="Submit" value="Search" onclick="return get_data()">
 <p id="mealPlan"></p>	
 </form>

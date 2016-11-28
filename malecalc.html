@@ -76,7 +76,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
       $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
       $username = "db_user";
       $password = "fitgoapp";
-      $dbname = "db_user";
+      $dbname = "user_db";
 
       $conn = mysqli_connect($servername, $username, $password, $dbname);
       if (!$conn) {

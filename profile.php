@@ -352,7 +352,25 @@ echo $goal;
       pP.innerHTML = '<img src=' + response.data.url + '>';
     });
 
-    row = <?php echo json_encode($row) ?>;
+    row = <?php 
+      $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+      $username = "db_user";
+      $password = "fitgoapp";
+      $dbname = "user_db";
+
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+
+      try {
+        $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
+              $result = $conn->query($sql);
+              $row = $result->fetch_assoc();
+      } catch (Exception $e) {
+        
+      }
+      ?>;
     console.log("test print row")
     console.log(row);
     console.log(row["facebook_uid"][0]);

@@ -1,8 +1,9 @@
 <?php
  $query = $_POST['query'];
- $returned_content = get_data($query);
+ echo "Query: ".$query;
+ //$returned_content = get_data($query);
  //$returned_content = get_data("https://api.nutritionix.com/v1_1/search/chicken?results=0%3A5&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc");	
- $array = json_decode($returned_content, TRUE);
+/* $array = json_decode($returned_content, TRUE);
  foreach($array["hits"] as $hits){
  	echo "Item name: ".$hits["fields"]["item_name"]."<br>";
 	 echo "Brand name: ".$hits["fields"]["brand_name"]."<br>";
@@ -17,7 +18,7 @@
 	 $carbs = $hits["fields"]["nf_total_carbohydrate"];
 	 $protein = $hits["fields"]["nf_protein"];
 	 $fat = $hits["fields"]["nf_total_fat"];
- }
+ }*/
 	
 	/*function get_data($url) {
 		$ch = curl_init();
@@ -30,7 +31,7 @@
 		return $data;
 	}*/
 	
-	 function get_data($query) {
+	 /*function get_data($query) {
 		 if ($query == NULL){
 			 return NULL;
 		 } else {
@@ -47,5 +48,5 @@
 			 curl_close($ch);
 			 return $data;
 		 }
-	 }
+	 }*/
 ?> 

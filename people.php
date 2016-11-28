@@ -13,7 +13,7 @@
 		var dataString = 'Query=' + query;
 		$.ajax({
 			type:"post",
-			url: "food.php"
+			url: "food.php",
 			data:dataString,
 			cache:false,
 			success: function(html){

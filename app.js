@@ -8,7 +8,8 @@ function addRow() {
     var protein = document.getElementById("protein");
     var fat = document.getElementById("fat");
     var table = document.getElementById("myTableData");
- 
+    var calories = (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+    
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     
@@ -17,17 +18,25 @@ function addRow() {
     row.insertCell(2).innerHTML= myFood.value;
     row.insertCell(3).innerHTML= serving_size_unit.value;
     row.insertCell(4).innerHTML= amount.value;
-    row.insertCell(5).innerHTML= carbs.value;
-    row.insertCell(6).innerHTML= protein.value;
-    row.insertCell(7).innerHTML= fat.value;
-    row.insertCell(8).innerHTML= fat.value*9 + carbs.value*4 + protein.value*4;
+    row.insertCell(5).innerHTML= carbs.value*amount.value;
+    row.insertCell(6).innerHTML= protein.value*amount.value;
+    row.insertCell(7).innerHTML= fat.value*amount.value;
+    row.insertCell(8).innerHTML= calories.value;
+    
 }
 
 function macros() {
     var carbsM = document.getElementsbyId("food").value + document.getElementsbyId("carbsM").value;
     var proteinM = document.getElementsbyId("protein").value + document.getElementsbyId("proteinM").value;
     var fatM = document.getElementsbyId("fat").value + document.getElementsbyId("fatM").value;
-    var caloriesM = document.getElementsbyId("food").value + document.getElementsbyId("caloriesM").value;
+    var caloriesM = document.getElementsbyId("calories").value + document.getElementsbyId("caloriesM").value;
+
+    var row = table.insertRow(1);
+    
+    row.insertCell(0).innerHTML=carbsM.value;
+    row.insertCell(1).innerHTML=proteinM.value;
+    row.insertCell(2).innerHTML=fatM.value;
+    row.insertCell(3).innerHTML=caloriesM.value;
 
 }
 

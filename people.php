@@ -91,7 +91,7 @@
 }
 </style>
 
-<body onload= "addData('myTableData')";>
+<body>
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <form>

@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+	function get_data(){
+		var query=document.getElementById('query').value;
+		var dataString = 'Query=' + query;
+		$.ajax({
+			type:"post",
+			url: "food.php"
+			data:dataString,
+			cache:false,
+			success: function(html){
+			    $('#mealPlan').html(html);
+			}
+		});
+		return false;
+	}
+  </script>
 </head>
 <body>
 <div class="container-fluid" style="background-color:rgb(51,51,51);"
@@ -74,28 +90,13 @@
     right:5px;
 }
 </style>
-<script>
-	function get_data(){
-		var query=document.getElementById('query').value;
-		var dataString = 'Query=' + query;
-		$.ajax({
-			type:"post",
-			url: "food.php"
-			data:dataString,
-			cache:false,
-			success: function(html){
-			    $('#mealPlan').html(html);
-			}
-		});
-		return false;
-	}
-</script>
+
 <body onload= "addData('myTableData')";>
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
 <form>
 	Food Search <input type="text" name="query" />
-<input type="Submit" value="Search" onclick="return get_data()"/>
+<input type="Submit" value="Search" onclick="return get_data()">
 </form>
 	
 <div class="flex-item">

@@ -77,10 +77,11 @@
 <script>
 	function get_data(){
 		var query=document.getElementById('query').value;
+		var dataString = 'Query=' + query;
 		$.ajax({
-			type:"post:,
+			type:"post",
 			url: "food.php"
-			data:query,
+			data:dataString,
 			cache:false,
 			success: function(html){
 			    $('#mealPlan').html(html);

@@ -22,7 +22,15 @@ function addRow() {
     row.insertCell(7).innerHTML= fat.value;
  
 }
- 
+
+function macros() {
+    var carbsM = document.getElementsbyId("food").value + document.getElementsbyId("carbsM").value;
+    var proteinM = document.getElementsbyId("protein").value + document.getElementsbyId("proteinM").value;
+    var fatM = document.getElementsbyId("fat").value + document.getElementsbyId("fatM").value;
+    var caloriesM = document.getElementsbyId("food").value + document.getElementsbyId("caloriesM").value;
+
+}
+
 function deleteRow(obj) {
       
     var index = obj.parentNode.parentNode.rowIndex;

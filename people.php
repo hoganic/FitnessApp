@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
 	function get_data(){
-		var query=document.getElementById('query').value;
+		var query=document.getElementById("query").value;
 		var dataString = 'Query=' + query;
 		$.ajax({
 			type:"post",
@@ -97,10 +97,10 @@
 <form>
 	Food Search <input type="text" name="query" />
 <input type="Submit" value="Search" onclick="return get_data()">
+<p id="mealPlan"></p>	
 </form>
 	
 <div class="flex-item">
-	<p id="mealPlan"></p>	
 <?php
 /* $query = $_POST["query"];
  $returned_content = get_data($query);

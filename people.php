@@ -74,19 +74,33 @@
     right:5px;
 }
 </style>
-
+<script>
+	function get_data(){
+		var query=document.getElementById('query').value;
+		$.ajax({
+			type:"post:,
+			url: "food.php"
+			data:query,
+			cache:false,
+			success: function(html){
+			    $('#mealPlan').html(html);
+			}
+		});
+		return false;
+	}
+</script>
 <body onload= "addData('myTableData')";>
 <div class="fixed">
 <b><strong>MEAL PLANNING</strong></b>
-<form method="POST" action="<?php echo $_SERVER['$PHP_SELF'];?>">
+<form>
 	Food Search <input type="text" name="query" />
-<input type="Submit" value="Search" />
+<input type="Submit" value="Search" onclick="return get_data()"/>
 </form>
 	
 <div class="flex-item">
-	
+	<p id="mealPlan"></p>	
 <?php
- $query = $_POST["query"];
+/* $query = $_POST["query"];
  $returned_content = get_data($query);
  //$returned_content = get_data("https://api.nutritionix.com/v1_1/search/chicken?results=0%3A5&cal_min=0&cal_max=50000&fields=nf_total_carbohydrate%2Cnf_protein%2Cnf_total_fat%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_serving_weight_grams%2Citem_name%2Cbrand_name&appId=550ff872&appKey=c6944198d0b40c218890bc459c700fdc");	
  $array = json_decode($returned_content, TRUE);
@@ -104,7 +118,7 @@
 	 $carbs = $hits["fields"]["nf_total_carbohydrate"];
 	 $protein = $hits["fields"]["nf_protein"];
 	 $fat = $hits["fields"]["nf_total_fat"];
- }
+ }*/
 	
 	/*function get_data($url) {
 		$ch = curl_init();
@@ -117,7 +131,7 @@
 		return $data;
 	}*/
 	
-	 function get_data($query) {
+	/* function get_data($query) {
 		 if ($query == NULL){
 			 return NULL;
 		 } else {
@@ -134,7 +148,7 @@
 			 curl_close($ch);
 			 return $data;
 		 }
-	 }
+	 }*/
 ?> 
 	
 	</div>

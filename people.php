@@ -97,8 +97,8 @@
 <form>
 	Food Search <input type="text" name="query" id="query" />
 <input type="Submit" value="Search" onclick="return get_data()">
-</form>
 <p id="mealPlan"></p>	
+</form>
 
 <div class="flex-item">
 <?php

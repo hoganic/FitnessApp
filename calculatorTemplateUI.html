@@ -151,6 +151,39 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
   <p>Carbs: <strong><output style="display:inline" name="carbs" for="BMR fat protein goal">0</output></strong></p>
 
   <p>Calories: <strong><output style="display:inline" name="calories" for="carbs fat protein">0</output></strong></p>
+	
+	
+
+  <!-- If submit, push the data into mysql database -->
+ <p><input type="submit" name="submit" value="Save Your Macros" /></p>
+
+ <?php
+     if (isset($_POST['submit'])):
+       $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+       $username = "db_user";
+       $password = "fitgoapp";
+       $dbname = "db_user";
+ 
+       $conn = mysqli_connect($servername, $username, $password, $dbname);
+       if (!$conn) {
+         die("Connection failed: " . mysqli_connect_error());
+       }
+ 
+       $bmr = $_POST['BMR'];
+       $protein = $_POST['protein'];
+       $carbs = $_POST['carbs'];
+       $fat = $_POST['fat'];
+       $calories = $_POST['calories'];
+       $sql = "INSERT INTO user_macro (bmr, protein, carbs, fat, calories)
+       VALUES ($bmr, $protein, $carbs, $fat, $calories)";
+       if (mysqli_query($conn, $sql)) {
+         echo "New record created successfully";
+       } else {
+         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+       }
+       mysqli_close($conn);
+   ?>
+   
 
 </form>
 

@@ -9,9 +9,9 @@ function addRow() {
     var fat = document.getElementById("fat");
     var table = document.getElementById("myTableData");
  
-    var rowCount = table.rows.length+1;
+    var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
- 
+    console.log("table rows = " + rowCount);
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;

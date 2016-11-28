@@ -30,6 +30,7 @@ function macros() {
     var proteinM = document.getElementsbyId("protein").value + document.getElementsbyId("proteinM").value;
     var fatM = document.getElementsbyId("fat").value + document.getElementsbyId("fatM").value;
     var caloriesM = document.getElementsbyId("calories").value + document.getElementsbyId("caloriesM").value;
+    var table = document.getElementById("macroTable");
 
     var row = table.insertRow(1);
     

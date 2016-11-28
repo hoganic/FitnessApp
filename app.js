@@ -9,7 +9,7 @@ function addRow() {
     var fat = document.getElementById("fat");
     var table = document.getElementById("myTableData");
  
-    var rowCount = table.rows.length;
+    var rowCount = table.rows.length+1;
     var row = table.insertRow(rowCount);
  
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';

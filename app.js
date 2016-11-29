@@ -35,10 +35,10 @@ function addmacRow() {
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
     try {
-         var curCarbs = table.rows[1].cell[0].innerHTML;
-         var curProtein = table.rows[1].cell[1].innerHTML;
-         var curFat = table.rows[1].cell[2].innerHTML;
-         var curCalories = table.rows[1].cell[3].innerHTML;
+         var curCarbs = table.rows[1].cell[0].value;
+         var curProtein = table.rows[1].cell[1].value;
+         var curFat = table.rows[1].cell[2].value;
+         var curCalories = table.rows[1].cell[3].value;
         
          table.deleteRow(1);
          var row = table.insertRow(1);

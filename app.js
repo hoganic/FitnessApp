@@ -34,14 +34,19 @@ function addmacRow() {
     var fat = document.getElementById("fat");
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
-
+    var curCarbs = table.row(1).cell(0).innerHTML;
+    var curProtein = table.row(1).cell(1).innerHTML;
+    var curFat = table.row(1).cell(2).innerHTML;
+    var curCalories = table.row(1).cell(3).innerHTML;
+    
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     console.log(row);
-    row.insertCell(0).innerHTML= carbs.value*amount.value;
-    row.insertCell(1).innerHTML= protein.value*amount.value;
-    row.insertCell(2).innerHTML= fat.value*amount.value;
-    row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+    
+    row.insertCell(0).innerHTML= curCarbs.value + carbs.value*amount.value;
+    row.insertCell(1).innerHTML= curProtein.value + protein.value*amount.value;
+    row.insertCell(2).innerHTML= curFat.value + fat.value*amount.value;
+    row.insertCell(3).innerHTML= curCalories.value +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 
 function deleteRow(obj) {
@@ -51,7 +56,45 @@ function deleteRow(obj) {
     table.deleteRow(index);
     
 }
- 
+
+function edit_row(no) {
+ document.getElementById("edit_button"+no).style.display="none";
+ document.getElementById("save_button"+no).style.display="block";
+
+ var mealno = document.getElementById("mealno"+no);      
+ var myFood = document.getElementById("food"+no);
+ var serving_size_unit = document.getElementById("serving_size_unit"+no);
+ var amount = document.getElementById("amount"+no);
+ var carbs = document.getElementById("carbs"+no);
+ var protein = document.getElementById("protein"+no);
+ var fat = document.getElementById("fat"+no);
+    
+ var mealno_data = mealno.innerHTML;      
+ var myFood_data = myFood.innerHTML;
+ var serving_size_unit_data = serving_size_unit.innerHTML;
+ var amount_data = amount.innerHTML;
+ var carbs_data = carbs.innerHTML;
+ var protein_data = protein.innerHTML;
+ var fat_data = fat.innerHTML;
+    
+ mealno.innerHTML="<input type='text' id='mealno_text"+no+"' value='"+mealno_data+"'>";
+ amount.innerHTML="<input type='text' id='amount_text"+no+"' value='"+amount_data+"'>";
+}
+
+function save_row(no) {
+ var name_val=document.getElementById("name_text"+no).value;
+ var country_val=document.getElementById("country_text"+no).value;
+ var age_val=document.getElementById("age_text"+no).value;
+
+ document.getElementById("name_row"+no).innerHTML=name_val;
+ document.getElementById("country_row"+no).innerHTML=country_val;
+ document.getElementById("age_row"+no).innerHTML=age_val;
+
+ document.getElementById("edit_button"+no).style.display="block";
+ document.getElementById("save_button"+no).style.display="none";
+}
+
+
 function addTable() {
       
     var myTableDiv = document.getElementById("myDynamicTable");

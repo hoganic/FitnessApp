@@ -11,7 +11,6 @@ function addRow() {
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    console.log(row);
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;
@@ -22,9 +21,6 @@ function addRow() {
     row.insertCell(7).innerHTML= fat.value*amount.value;
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
     
-    var macroTable = document.getElementById("macroTable");
-    var macroRow = macroTable.insertRow(1);
-    console.log(macroTable);
 }
 
 function addmacRow() {

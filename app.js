@@ -29,42 +29,30 @@ function addmacRow() {
     var fat = document.getElementById("fat");
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
-    try {
-         var row = table.insertRow(1);
-         //row.insertCell(0).innerHTML= carbs.value*amount.value;
-         //row.insertCell(1).innerHTML= protein.value*amount.value;
-         //row.insertCell(2).innerHTML= fat.value*amount.value;
-         //row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-         console.log(table.rows[1].cells[0].innerHTML);
-         console.log(table.rows[1].cells[1].innerHTML);
-         console.log(table.rows[1].cells[2].innerHTML);
-         console.log(table.rows[1].cells[3].innerHTML);
-         //alert(table.rows[r].cells[c].innerHTML);
-         /*var curCarbs = table.rows[1].cells[0].innerHTML;
-         var curProtein = table.rows[1].cells[1].innerHTML;
-         var curFat = table.rows[1].cells[2].innerHTML;
-         var curCalories = table.rows[1].cells[3].innerHTML;*/
     
-         while(table.rows.length > 1) {
-            table.deleteRow(1);
-         }
-        
-         /*row.insertCell(0).innerHTML= parseFloat(curCarbs) + carbs.value*amount.value;
-         row.insertCell(1).innerHTML= parseFloat(curProtein) + protein.value*amount.value;
-         row.insertCell(2).innerHTML= parseFloat(curFat) + fat.value*amount.value;
-         row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;*/
-         console.log("I tried");
-   } 
-   catch (e) {
-            console.log(e);
-            var row = table.insertRow(1);
-            row.insertCell(0).innerHTML= carbs.value*amount.value;
-            row.insertCell(1).innerHTML= protein.value*amount.value;
-            row.insertCell(2).innerHTML= fat.value*amount.value;
-            row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-            console.log("I Caught it");
-      
-    }  
+     var row = table.insertRow(1);
+     //row.insertCell(0).innerHTML= carbs.value*amount.value;
+     //row.insertCell(1).innerHTML= protein.value*amount.value;
+     //row.insertCell(2).innerHTML= fat.value*amount.value;
+     //row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+     console.log(table.rows[1].cells[0].innerHTML);
+     console.log(table.rows[1].cells[1].innerHTML);
+     console.log(table.rows[1].cells[2].innerHTML);
+     console.log(table.rows[1].cells[3].innerHTML);
+     //alert(table.rows[r].cells[c].innerHTML);
+     var curCarbs = table.rows[1].cells[0].innerHTML;
+     var curProtein = table.rows[1].cells[1].innerHTML;
+     var curFat = table.rows[1].cells[2].innerHTML;
+     var curCalories = table.rows[1].cells[3].innerHTML;
+
+     while(table.rows.length > 1) {
+        table.deleteRow(1);
+     }
+
+     row.insertCell(0).innerHTML= parseFloat(curCarbs) + carbs.value*amount.value;
+     row.insertCell(1).innerHTML= parseFloat(curProtein) + protein.value*amount.value;
+     row.insertCell(2).innerHTML= parseFloat(curFat) + fat.value*amount.value;
+     row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 
 function deleteRow(obj) {

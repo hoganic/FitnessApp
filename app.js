@@ -32,15 +32,16 @@ function addmacRow() {
     var carbs = document.getElementById("carbs");
     var protein = document.getElementById("protein");
     var fat = document.getElementById("fat");
+    var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     console.log(row);
-    row.insertCell(0).innerHTML= carbs.value;
-    row.insertCell(1).innerHTML= protein.value;
-    row.insertCell(2).innerHTML= fat.value;
-    row.insertCell(3).innerHTML= carbs.value*4 + protein.value*4 + fat.value*9;
+    row.insertCell(0).innerHTML= carbs.value*amount.value;
+    row.insertCell(1).innerHTML= protein.value*amount.value;
+    row.insertCell(2).innerHTML= fat.value*amount.value;
+    row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 
 function deleteRow(obj) {

@@ -27,17 +27,19 @@ function addRow() {
     console.log(macroTable);
 }
 
-function macros() {
-    var carbsM = document.getElementsbyId("food");
-    var proteinM = document.getElementsbyId("protein");
-    var fatM = document.getElementsbyId("fat").value;
-    var caloriesM = document.getElementsbyId("calories");
+function addmacRow() {
     
-    row.insertCell(0).innerHTML=carbsM.value;
-    row.insertCell(1).innerHTML=proteinM.value;
-    row.insertCell(2).innerHTML=fatM.value;
-    row.insertCell(3).innerHTML=caloriesM.value;
+    var carbs = document.getElementById("carbs");
+    var protein = document.getElementById("protein");
+    var fat = document.getElementById("fat");
+    var table = document.getElementById("macroTable");
 
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    console.log(row);
+    row.insertCell(0).innerHTML= carbs.value;
+    row.insertCell(1).innerHTML= protein.value;
+    row.insertCell(2).innerHTML= fat.value;
 }
 
 function deleteRow(obj) {

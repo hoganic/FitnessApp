@@ -56,7 +56,7 @@ function addmacRow() {
          row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
     }
     
-    console.log(curCarbs.value);
+    console.log(curCarbs);
     console.log(carbs.value);
 }
 

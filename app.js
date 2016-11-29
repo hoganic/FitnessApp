@@ -34,7 +34,7 @@ function addmacRow() {
     var fat = document.getElementById("fat");
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
-    try {
+    /*try {
          var curCarbs = table.rows[1].cell[0].innerHTML;
          var curProtein = table.rows[1].cell[1].innerHTML;
          var curFat = table.rows[1].cell[2].innerHTML;
@@ -53,7 +53,7 @@ function addmacRow() {
     row.insertCell(0).innerHTML= curCarbs.value + carbs.value*amount.value;
     row.insertCell(1).innerHTML= curProtein.value + protein.value*amount.value;
     row.insertCell(2).innerHTML= curFat.value + fat.value*amount.value;
-    row.insertCell(3).innerHTML= curCalories.value +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+    row.insertCell(3).innerHTML= curCalories.value +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;*/
 }
 
 function deleteRow(obj) {

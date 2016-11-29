@@ -34,10 +34,17 @@ function addmacRow() {
     var fat = document.getElementById("fat");
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
-    var curCarbs = table.rows[1].cell[0].innerHTML;
-    var curProtein = table.rows[1].cell[1].innerHTML;
-    var curFat = table.rows[1].cell[2].innerHTML;
-    var curCalories = table.rows[1].cell[3].innerHTML;
+    try {
+         var curCarbs = table.rows[1].cell[0].innerHTML;
+         var curProtein = table.rows[1].cell[1].innerHTML;
+         var curFat = table.rows[1].cell[2].innerHTML;
+         var curCalories = table.rows[1].cell[3].innerHTML;
+    } catch (...) {
+         var curCarbs = 0;
+         var curProtein = 0;
+         var curFat = 0;
+         var curCalories = 0;
+    }
     
     var rowCount = table.rows.length;
     var row = table.insertRow(1);

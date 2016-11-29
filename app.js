@@ -34,7 +34,7 @@ function addmacRow() {
     var fat = document.getElementById("fat");
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
-   // try {
+    try {
          var row = table.insertRow(1);
          //row.insertCell(0).innerHTML= carbs.value*amount.value;
          //row.insertCell(1).innerHTML= protein.value*amount.value;
@@ -56,15 +56,15 @@ function addmacRow() {
          row.insertCell(2).innerHTML= parseFloat(curFat) + fat.value*amount.value;
          row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
          console.log("I tried");
-   // } 
-   /* catch () {
+    } 
+    catch (e if e instanceof TypeError) {
          var row = table.insertRow(1);
          row.insertCell(0).innerHTML= carbs.value*amount.value;
          row.insertCell(1).innerHTML= protein.value*amount.value;
          row.insertCell(2).innerHTML= fat.value*amount.value;
          row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
          console.log("I Caught it");
-    }*/   
+    }  
 }
 
 function deleteRow(obj) {

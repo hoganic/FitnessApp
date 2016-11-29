@@ -46,7 +46,7 @@ function addmacRow() {
          var curFat = table.rows[1].cells[2].innerHTML;
          var curCalories = table.rows[1].cells[3].innerHTML;
     
-        while(table.rows.length > 0) {
+        while(table.rows.length > 1) {
             table.deleteRow(1);
         }
          var row = table.insertRow(1);

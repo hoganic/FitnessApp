@@ -39,7 +39,7 @@ function addmacRow() {
          console.log(table.rows[1].cells[1].innerHTML);
          console.log(table.rows[1].cells[2].innerHTML);
          console.log(table.rows[1].cells[3].innerHTML);
-        
+         //alert(table.rows[r].cells[c].innerHTML);
          /*var curCarbs = table.rows[1].cells[0].innerHTML;
          var curProtein = table.rows[1].cells[1].innerHTML;
          var curFat = table.rows[1].cells[2].innerHTML;

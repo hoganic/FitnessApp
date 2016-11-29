@@ -25,10 +25,10 @@ function addRow() {
 }
 
 function macros() {
-    var carbsM = document.getElementsbyId("food").value;
-    var proteinM = document.getElementsbyId("protein").value;
+    var carbsM = document.getElementsbyId("food");
+    var proteinM = document.getElementsbyId("protein");
     var fatM = document.getElementsbyId("fat").value;
-    var caloriesM = document.getElementsbyId("calories").value;
+    var caloriesM = document.getElementsbyId("calories");
     var table = document.getElementById("macroTable");
     console.log("oh hai fam");
     var row = table.insertRow(1);

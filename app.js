@@ -52,6 +52,7 @@ function addmacRow() {
          console.log("I tried");
    } 
    catch (e) {
+            console.log(e);
             var row = table.insertRow(1);
             row.insertCell(0).innerHTML= carbs.value*amount.value;
             row.insertCell(1).innerHTML= protein.value*amount.value;

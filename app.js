@@ -20,7 +20,7 @@ function addRow() {
     row.insertCell(6).innerHTML= protein.value*amount.value;
     row.insertCell(7).innerHTML= fat.value*amount.value;
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-    
+    addmacRow();
 }
 
 function addmacRow() {

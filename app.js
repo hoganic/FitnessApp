@@ -40,10 +40,10 @@ function addmacRow() {
      console.log(table.rows[0].cells[2].innerHTML);
      console.log(table.rows[0].cells[3].innerHTML);
      //alert(table.rows[r].cells[c].innerHTML);
-     var curCarbs = table.rows[1].cells[0].innerHTML;
-     var curProtein = table.rows[1].cells[1].innerHTML;
-     var curFat = table.rows[1].cells[2].innerHTML;
-     var curCalories = table.rows[1].cells[3].innerHTML;
+     var curCarbs = parseFloat(table.rows[1].cells[0].innerHTML);
+     var curProtein = parseFloat(table.rows[1].cells[1].innerHTML);
+     var curFat = parseFloat(table.rows[1].cells[2].innerHTML);
+     var curCalories = parseFloat(table.rows[1].cells[3].innerHTML);
 
      while(table.rows.length > 1) {
         table.deleteRow(1);

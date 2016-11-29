@@ -21,7 +21,7 @@ function addRow() {
     row.insertCell(7).innerHTML= fat.value*amount.value;
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
-
+/*
 function addmacRow() {
     
     var carbs = document.getElementById("carbs");
@@ -66,7 +66,7 @@ function addmacRow() {
         }
     }  
 }
-
+*/
 function deleteRow(obj) {
     var index = obj.parentNode.parentNode.rowIndex;
     var table = document.getElementById("myTableData");

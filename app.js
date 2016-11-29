@@ -35,22 +35,17 @@ function addmacRow() {
     var amount = document.getElementById("amount");
     var table = document.getElementById("macroTable");
     try {
-         //var curCarbs = table.rows[1].cell[0].value;
-         //var curProtein = table.rows[1].cell[1].value;
-         //var curFat = table.rows[1].cell[2].value;
-         //var curCalories = table.rows[1].cell[3].value;
+         var curCarbs = table.rows[1].cell[0].innerHTML;
+         var curProtein = table.rows[1].cell[1].innerHTML;
+         var curFat = table.rows[1].cell[2].innerHTML;
+         var curCalories = table.rows[1].cell[3].innHTML;
          //table.deleteRow(1);
          var row = table.insertRow(1);
-         row.insertCell(0).innerHTML= carbs.value*amount.value;
-         row.insertCell(1).innerHTML= protein.value*amount.value;
-         row.insertCell(2).innerHTML= fat.value*amount.value;
-         row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-         alert(table.rows[1].cells[1].innerHTML)
-
-         //row.insertCell(0).innerHTML= curCarbs.value + carbs.value*amount.value;
-         //row.insertCell(1).innerHTML= curProtein.value + protein.value*amount.value;
-         //row.insertCell(2).innerHTML= curFat.value + fat.value*amount.value;
-         //row.insertCell(3).innerHTML= curCalories.value +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+         row.insertCell(0).innerHTML= curCarbs.value + carbs.value*amount.value;
+         row.insertCell(1).innerHTML= curProtein.value + protein.value*amount.value;
+         row.insertCell(2).innerHTML= curFat.value + fat.value*amount.value;
+         row.insertCell(3).innerHTML= curCalories.value +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+         console.log("I tried");
     } 
     catch (e) {
          var row = table.insertRow(1);
@@ -58,10 +53,8 @@ function addmacRow() {
          row.insertCell(1).innerHTML= protein.value*amount.value;
          row.insertCell(2).innerHTML= fat.value*amount.value;
          row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-    }
-    
-    console.log(curCarbs);
-    console.log(carbs.value);
+        console.log("I Caught it");
+    }    
 }
 
 function deleteRow(obj) {

@@ -35,12 +35,12 @@ function addmacRow() {
      //row.insertCell(1).innerHTML= protein.value*amount.value;
      //row.insertCell(2).innerHTML= fat.value*amount.value;
      //row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-     console.log(table.rows[0].cells[0].innerHTML);
-     console.log(table.rows[0].cells[1].innerHTML);
-     console.log(table.rows[0].cells[2].innerHTML);
-     console.log(table.rows[0].cells[3].innerHTML);
+     console.log(table.rows[1].cells[0].innerHTML);
+     console.log(table.rows[1].cells[1].innerHTML);
+     console.log(table.rows[1].cells[2].innerHTML);
+     console.log(table.rows[1].cells[3].innerHTML);
      //alert(table.rows[r].cells[c].innerHTML);
-     var curCarbs = parseFloat(table.rows[1].cells[0].innerHTML);
+     /*var curCarbs = parseFloat(table.rows[1].cells[0].innerHTML);
      var curProtein = parseFloat(table.rows[1].cells[1].innerHTML);
      var curFat = parseFloat(table.rows[1].cells[2].innerHTML);
      var curCalories = parseFloat(table.rows[1].cells[3].innerHTML);
@@ -52,7 +52,7 @@ function addmacRow() {
      row.insertCell(0).innerHTML= parseFloat(curCarbs) + carbs.value*amount.value;
      row.insertCell(1).innerHTML= parseFloat(curProtein) + protein.value*amount.value;
      row.insertCell(2).innerHTML= parseFloat(curFat) + fat.value*amount.value;
-     row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+     row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;*/
 }
 
 function deleteRow(obj) {

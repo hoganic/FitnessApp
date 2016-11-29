@@ -9,7 +9,8 @@ function addRow() {
     var fat = document.getElementById("fat");
     var table = document.getElementById("myTableData");
     var calories = fat.value*9 + carbs.value*4 + protein.value*4;
-    
+    console.log(calories.value);
+    console.log(amount.value);
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     
@@ -26,10 +27,10 @@ function addRow() {
 }
 
 function macros() {
-    var carbsM = document.getElementsbyId("food").value + document.getElementsbyId("carbsM").value;
-    var proteinM = document.getElementsbyId("protein").value + document.getElementsbyId("proteinM").value;
-    var fatM = document.getElementsbyId("fat").value + document.getElementsbyId("fatM").value;
-    var caloriesM = document.getElementsbyId("calories").value + document.getElementsbyId("caloriesM").value;
+    var carbsM = document.getElementsbyId("food").value;
+    var proteinM = document.getElementsbyId("protein").value;
+    var fatM = document.getElementsbyId("fat").value;
+    var caloriesM = document.getElementsbyId("calories").value;
     var table = document.getElementById("macroTable");
     console.log("oh hai fam");
     var row = table.insertRow(1);

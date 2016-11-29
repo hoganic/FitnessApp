@@ -41,7 +41,7 @@
         <ul class="dropdown-menu">
           <li><a href="profile.php">Profile</a></li>
           <li><a href="api.php">Nutritionix Test</a></li>
-          <li><a href="#">Me too!</a></li>
+          <li><a href="people.html">Meal Plan</a></li>
           <li><a href="#">Not me...</a></li>
         </ul>
       </li>
@@ -135,45 +135,45 @@
     <div id="profilePic" class="col-xs-4"></div>
   </div>
   <style>.error {color: #FF0000;}</style>
-  <form id="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus()">
+  <form id="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus('teststr')">
     <div class="row" style="padding-bottom: 5px"><br>
       <div class="col-xs-8"><span class="error"> * required field.</span></div>
-      <div class="col-xs-8">First Name: <input type="text" name="FirstName" value=<?php echo $row["first_name"]; ?>>
+      <div class="col-xs-8">First Name: <input type="text" id="FirstName" name="FirstName" value="">
       <span class="error">* <?php echo $fnerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Last Name: <input type="text" name="LastName" value=<?php echo $row["last_name"]; ?>>
+      <div class="col-xs-8">Last Name: <input type="text" id="LastName" name="LastName" value="">
       <span class="error">* <?php echo $lnerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Height (in): <input type="number" name="height" min="1" value=<?php echo $row["height"]; ?>>
+      <div class="col-xs-8">Height (in): <input type="number" id="height" name="height" min="1" value="">
       <span class="error">* <?php echo $heighterr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Weight: <input type="number" name="weight" min="1" value=<?php echo $row["weight"]; ?>>
+      <div class="col-xs-8">Weight: <input type="number" id="weight" name="weight" min="1" value="">
       <span class="error">* <?php echo $weighterr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Age: <input type="number" name="age" min="1" value=<?php echo $row["age"]; ?>>
+      <div class="col-xs-8">Age: <input type="number" id="age" name="age" min="1" value="">
       <span class="error">* <?php echo $ageerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
       <div class="col-xs-8">Gender: 
-        <input type="radio" name="gender" <?php if (isset($row["gender"]) && $row["gender"]=="female") echo "checked";?> value="female">Female
-        <input type="radio" name="gender" <?php if (isset($row["gender"]) && $row["gender"]=="male") echo "checked";?> value="male">Male
+        <input type="radio" id="gender_female" name="gender" value="female">Female
+        <input type="radio" id="gender_male" name="gender" value="male">Male
         <span class="error">* <?php echo $gendererr;?></span>
       </div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Body Fat Percentage: <input type="number" name="bfp" min="0" value=<?php echo $row["bfp"]; ?>>
+      <div class="col-xs-8">Body Fat Percentage: <input type="number" id="bfp" name="bfp" min="0" value="">
       <span class="error"> <?php echo $bfperr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
       <div class="col-xs-8">Goal:</div>
-      <div class="col-xs-8"><textarea name="goal" rows="2" cols="40"><?php echo $row["goal"]; ?></textarea></div>
+      <div class="col-xs-8"><textarea id="goal" name="goal" rows="2" cols="40"></textarea></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <input type="hidden" name="fbuid" value=<?php echo $row["facebook_uid"]; ?>>
+      <input type="hidden" id="fbuid" name="fbuid" value="">
       <div class="col-xs-8"><input type="submit" id="submitButton" value="Save"></button></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
@@ -213,7 +213,10 @@ echo $goal;
 </div>
 <script>
 
+  var foundUserFlag = false;
   var logState = false;
+  var fbuid;
+  var row;
 
   function checkfbstatus(){
     console.log('checkfbstatus');
@@ -221,6 +224,29 @@ echo $goal;
       statusChangeCallback2(response);
     });
     console.log(logState);
+    var createNew;
+    if(foundUserFlag){
+      createNew = "no";
+    }else{
+      createNew = "yes";
+    }
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    console.log("This is what the link is building to...");
+    console.log("userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew);
+    xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
+    xmlhttp.send();
+
     return logState;
   }
 
@@ -250,6 +276,8 @@ echo $goal;
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      fbuid = response.authResponse.userID;
+      console.log("Found fbuid of "+fbuid);
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -324,6 +352,61 @@ echo $goal;
       pP.innerHTML = '<img src=' + response.data.url + '>';
     });
 
+    row = <?php 
+      $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+      $username = "db_user";
+      $password = "fitgoapp";
+      $dbname = "user_db";
+
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+
+      try {
+        $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+      } catch (Exception $e) {
+
+      }
+      echo $sql_out;
+      ?>;
+    console.log("test print row")
+    console.log(row);
+    console.log(row[1]["facebook_uid"]);
+    console.log(Object.keys(row).length);
+    for(var i = 0; i < Object.keys(row).length; i++){
+      if( row[i]["facebook_uid"] == fbuid){
+        foundUserFlag = true;
+        console.log("FirstName: "+row[i]["first_name"]);
+        document.getElementById("FirstName").value = row[i]["first_name"];
+        document.getElementById("LastName").value = row[i]["last_name"];
+        document.getElementById("height").value = row[i]["height"];
+        document.getElementById("weight").value = row[i]["weight"];
+        document.getElementById("age").value = row[i]["age"];
+        if(row[i]["gender"] == "male"){
+          document.getElementById("gender_male").checked = true;
+        }
+        if(row[i]["gender"] == "female"){
+          document.getElementById("gender_female").checked = false;
+        }
+        document.getElementById("bfp").value = row[i]["bfp"];
+        document.getElementById("goal").value = row[i]["goal"];
+        document.getElementById("fbuid").value = row[i]["facebook_uid"];
+      }
+    }
   }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

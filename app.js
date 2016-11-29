@@ -8,21 +8,42 @@ function addRow() {
     var protein = document.getElementById("protein");
     var fat = document.getElementById("fat");
     var table = document.getElementById("myTableData");
- 
+
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
- 
+    console.log(row);
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;
     row.insertCell(3).innerHTML= serving_size_unit.value;
     row.insertCell(4).innerHTML= amount.value;
-    row.insertCell(5).innerHTML= carbs.value;
-    row.insertCell(6).innerHTML= protein.value;
-    row.insertCell(7).innerHTML= fat.value;
- 
+    row.insertCell(5).innerHTML= carbs.value*amount.value;
+    row.insertCell(6).innerHTML= protein.value*amount.value;
+    row.insertCell(7).innerHTML= fat.value*amount.value;
+    row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+    
+    var macroTable = document.getElementById("macroTable");
+    var macroRow = macroTable.insertRow(1);
+    console.log(macroTable);
 }
- 
+
+function addmacRow() {
+    
+    var carbs = document.getElementById("carbs");
+    var protein = document.getElementById("protein");
+    var fat = document.getElementById("fat");
+    var amount = document.getElementById("amount");
+    var table = document.getElementById("macroTable");
+
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    console.log(row);
+    row.insertCell(0).innerHTML= carbs.value*amount.value;
+    row.insertCell(1).innerHTML= protein.value*amount.value;
+    row.insertCell(2).innerHTML= fat.value*amount.value;
+    row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+}
+
 function deleteRow(obj) {
       
     var index = obj.parentNode.parentNode.rowIndex;

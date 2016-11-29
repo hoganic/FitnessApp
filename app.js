@@ -57,13 +57,16 @@ function addmacRow() {
          row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
          console.log("I tried");
     } 
-    catch (e if e instanceof TypeError) {
-         var row = table.insertRow(1);
-         row.insertCell(0).innerHTML= carbs.value*amount.value;
-         row.insertCell(1).innerHTML= protein.value*amount.value;
-         row.insertCell(2).innerHTML= fat.value*amount.value;
-         row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-         console.log("I Caught it");
+    catch (e) {
+        if ( e is instanceof TypeError ) {
+            var row = table.insertRow(1);
+            row.insertCell(0).innerHTML= carbs.value*amount.value;
+            row.insertCell(1).innerHTML= protein.value*amount.value;
+            row.insertCell(2).innerHTML= fat.value*amount.value;
+            row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+            console.log("I Caught it");
+        }
+        else{ console.log("Oh God"); }
     }  
 }
 

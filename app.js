@@ -35,10 +35,10 @@ function addmacRow() {
          //row.insertCell(1).innerHTML= protein.value*amount.value;
          //row.insertCell(2).innerHTML= fat.value*amount.value;
          //row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-         console.log(table.row[1].cells[0].innerHTML);
-         console.log(table.row[1].cells[1].innerHTML);
-         console.log(table.row[1].cells[2].innerHTML);
-         console.log(table.row[1].cells[3].innerHTML);
+         console.log(table.rows[1].cells[0].innerHTML);
+         console.log(table.rows[1].cells[1].innerHTML);
+         console.log(table.rows[1].cells[2].innerHTML);
+         console.log(table.rows[1].cells[3].innerHTML);
         
          /*var curCarbs = table.rows[1].cells[0].innerHTML;
          var curProtein = table.rows[1].cells[1].innerHTML;

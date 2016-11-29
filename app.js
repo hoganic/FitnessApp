@@ -61,7 +61,7 @@ function addmacRow() {
 }
 
 function deleteRow(obj) {
-      
+    console.log(obj);
     var index = obj.parentNode.parentNode.rowIndex;
     var table = document.getElementById("myTableData");
     table.deleteRow(index);

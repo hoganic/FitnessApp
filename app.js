@@ -40,6 +40,7 @@ function addmacRow() {
     row.insertCell(0).innerHTML= carbs.value;
     row.insertCell(1).innerHTML= protein.value;
     row.insertCell(2).innerHTML= fat.value;
+    row.insertCell(3).innerHTML= carbs.value*4 + protein.value*4 + fat.value*9;
 }
 
 function deleteRow(obj) {

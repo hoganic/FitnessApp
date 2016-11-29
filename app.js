@@ -41,7 +41,7 @@ function addmacRow() {
          var curFat = table.rows[1].cells[2].innerHTML;
          var curCalories = table.rows[1].cells[3].innerHTML;
     
-        /* while(table.rows.length > 1) {
+         while(table.rows.length > 1) {
             table.deleteRow(1);
          }
         
@@ -49,7 +49,7 @@ function addmacRow() {
          row.insertCell(1).innerHTML= parseFloat(curProtein) + protein.value*amount.value;
          row.insertCell(2).innerHTML= parseFloat(curFat) + fat.value*amount.value;
          row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-         console.log("I tried");*/
+         console.log("I tried");
    } 
    catch (e) {
             var row = table.insertRow(1);

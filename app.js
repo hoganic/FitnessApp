@@ -39,10 +39,14 @@ function addmacRow() {
          //var curProtein = table.rows[1].cell[1].value;
          //var curFat = table.rows[1].cell[2].value;
          //var curCalories = table.rows[1].cell[3].value;
-         alert(table.rows[0].cells[1].innerHTML)
-         table.deleteRow(1);
+         //table.deleteRow(1);
          var row = table.insertRow(1);
-        
+         row.insertCell(0).innerHTML= carbs.value*amount.value;
+         row.insertCell(1).innerHTML= protein.value*amount.value;
+         row.insertCell(2).innerHTML= fat.value*amount.value;
+         row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+         alert(table.rows[1].cells[1].innerHTML)
+
          //row.insertCell(0).innerHTML= curCarbs.value + carbs.value*amount.value;
          //row.insertCell(1).innerHTML= curProtein.value + protein.value*amount.value;
          //row.insertCell(2).innerHTML= curFat.value + fat.value*amount.value;

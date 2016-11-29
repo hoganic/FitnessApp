@@ -47,10 +47,10 @@ function addmacRow() {
          var curCalories = table.rows[1].cells[3].innHTML;
          //table.deleteRow(1);
          var row = table.insertRow(1);
-         row.insertCell(0).innerHTML= curCarbs.value + carbs.value*amount.value;
-         row.insertCell(1).innerHTML= curProtein.value + protein.value*amount.value;
-         row.insertCell(2).innerHTML= curFat.value + fat.value*amount.value;
-         row.insertCell(3).innerHTML= curCalories.value +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+         row.insertCell(0).innerHTML= curCarbs + carbs.value*amount.value;
+         row.insertCell(1).innerHTML= curProtein + protein.value*amount.value;
+         row.insertCell(2).innerHTML= curFat + fat.value*amount.value;
+         row.insertCell(3).innerHTML= curCalories +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
          console.log("I tried");
    /* } 
     catch (e) {

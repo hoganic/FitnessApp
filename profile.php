@@ -366,31 +366,45 @@ echo $goal;
       try {
         $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
               $result = $conn->query($sql);
-              $row = $result->fetch_assoc();
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
       } catch (Exception $e) {
-        
+
       }
+      echo $sql_out;
       ?>;
     console.log("test print row")
     console.log(row);
-    console.log(row["facebook_uid"][0]);
-    for(var i = 0; i < row["facebook_uid"].length; i++){
-      if( row["facebook_uid"] == fbuid ){
+    console.log(row[1]["facebook_uid"]);
+    console.log(Object.keys(row).length);
+    for(var i = 0; i < Object.keys(row).length; i++){
+      if( row[i]["facebook_uid"] == fbuid){
         foundUserFlag = true;
-        document.getElementById("FirstName").defaultValue = row["first_name"];
-        document.getElementById("LastName").defaultValue = row["last_name"];
-        document.getElementById("height").defaultValue = row["height"];
-        document.getElementById("weight").defaultValue = row["weight"];
-        document.getElementById("age").defaultValue = row["age"];
-        if(row["gender"] == "male"){
+        console.log("FirstName: "+row[i]["first_name"]);
+        document.getElementById("FirstName").value = row[i]["first_name"];
+        document.getElementById("LastName").value = row[i]["last_name"];
+        document.getElementById("height").value = row[i]["height"];
+        document.getElementById("weight").value = row[i]["weight"];
+        document.getElementById("age").value = row[i]["age"];
+        if(row[i]["gender"] == "male"){
           document.getElementById("gender_male").checked = true;
         }
-        if(row["gender"] == "female"){
+        if(row[i]["gender"] == "female"){
           document.getElementById("gender_female").checked = false;
         }
-        document.getElementById("bfp").defaultValue = row["bfp"];
-        document.getElementById("goal").defaultValue = row["goal"];
-        document.getElementById("fbuid").defaultValue = row["facebook_uid"];
+        document.getElementById("bfp").value = row[i]["bfp"];
+        document.getElementById("goal").value = row[i]["goal"];
+        document.getElementById("fbuid").value = row[i]["facebook_uid"];
       }
     }
   }

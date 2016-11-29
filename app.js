@@ -8,12 +8,10 @@ function addRow() {
     var protein = document.getElementById("protein");
     var fat = document.getElementById("fat");
     var table = document.getElementById("myTableData");
-    var calories = fat.value*9 + carbs.value*4 + protein.value*4;
-    console.log(calories.value);
-    console.log(amount.value);
+
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    
+    console.log((fat.value*9 + carbs.value*4 + protein.value*4)*amount.value);
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;
@@ -22,7 +20,7 @@ function addRow() {
     row.insertCell(5).innerHTML= carbs.value*amount.value;
     row.insertCell(6).innerHTML= protein.value*amount.value;
     row.insertCell(7).innerHTML= fat.value*amount.value;
-    row.insertCell(8).innerHTML= calories.value*amount.value;
+    row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
     
 }
 

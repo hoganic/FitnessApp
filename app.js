@@ -21,7 +21,7 @@ function addRow() {
     row.insertCell(7).innerHTML= fat.value*amount.value;
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
-/*
+
 function addmacRow() {
     
     var carbs = document.getElementById("carbs");
@@ -52,7 +52,7 @@ function addmacRow() {
          row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
          console.log("I tried");
     } 
-    catch (e) {
+   /* catch (e) {
         if ( e is instanceof TypeError ) || ( e is instanceof ReferenceError) {
             var row = table.insertRow(1);
             row.insertCell(0).innerHTML= carbs.value*amount.value;
@@ -64,9 +64,9 @@ function addmacRow() {
         else{ 
             console.log("Oh God"); 
         }
-    }  
+    }*/  
 }
-*/
+
 function deleteRow(obj) {
     var index = obj.parentNode.parentNode.rowIndex;
     var table = document.getElementById("myTableData");

@@ -47,7 +47,7 @@ function addmacRow() {
          var curCalories = table.rows[1].cells[3].innerHTML;
     
         while(table.rows.length > 0) {
-            table.deleteRow(0);
+            table.deleteRow(1);
         }
          var row = table.insertRow(1);
          row.insertCell(0).innerHTML= parseFloat(curCarbs) + carbs.value*amount.value;

@@ -24,7 +24,7 @@ function addRow() {
     
     var macroTable = document.getElementById("macroTable");
     var macroRow = macroTable.insertRow(1);
-
+    console.log(macroRow);
 }
 
 function macros() {

@@ -11,16 +11,36 @@ function addRow() {
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    row.className = 'rowDataSd';
-    row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
-    row.insertCell(1).innerHTML= mealno.value;
-    row.insertCell(2).innerHTML= myFood.value;
-    row.insertCell(3).innerHTML= serving_size_unit.value;
-    row.insertCell(4).innerHTML= amount.value;
-    row.insertCell(5).innerHTML= carbs.value*amount.value;
-    row.insertCell(6).innerHTML= protein.value*amount.value;
-    row.insertCell(7).innerHTML= fat.value*amount.value;
-    row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
+    
+    var cell0 = row.insertCell(0);
+    var cell1 = row.insertCell(1);
+    var cell2 = row.insertCell(2);
+    var cell3 = row.insertCell(3);
+    var cell4 = row.insertCell(4);
+    var cell5 = row.insertCell(5);
+    var cell6 = row.insertCell(6);
+    var cell7 = row.insertCell(7);
+    var cell8 = row.insertCell(8);
+
+    cell0.className = 'colTotal';
+    cell1.className = 'colTotal';
+    cell2.className = 'colTotal';
+    cell3.className = 'colTotal';
+    cell4.className = 'colTotal';
+    cell5.className = 'colTotal';
+    cell6.className = 'colTotal';
+    cell7.className = 'colTotal';
+    cell8.className = 'colTotal';
+	
+    cell0.innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+    cell1.innerHTML= mealno.value;
+    cell2.innerHTML= myFood.value;
+    cell3.innerHTML= serving_size_unit.value;
+    cell4.innerHTML= amount.value;
+    cell5.innerHTML= carbs.value*amount.value;
+    cell6.innerHTML= protein.value*amount.value;
+    cell7.innerHTML= fat.value*amount.value;
+    cell8.innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 function finishTable() {
     var tableElemName = "myTableData";

@@ -11,20 +11,16 @@ function addRow() {
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-
+    row.className = 'rowDataSd';
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;
     row.insertCell(3).innerHTML= serving_size_unit.value;
     row.insertCell(4).innerHTML= amount.value;
     row.insertCell(5).innerHTML= carbs.value*amount.value;
-    row.insertCell(5).className = 'rowdataSD';
     row.insertCell(6).innerHTML= protein.value*amount.value;
-    row.insertCell(6).className = 'rowdataSD';
     row.insertCell(7).innerHTML= fat.value*amount.value;
-    row.insertCell(7).className = 'rowdataSD';
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-    row.insertCell(8).className = 'rowdataSD';
 }
 function finishTable() {
     var tableElemName = "myTableData";

@@ -21,8 +21,7 @@ function addRow() {
     row.insertCell(7).innerHTML= fat.value*amount.value;
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
-
-window.onload = function finishTable() {
+function finishTable() {
     var tableElemName = "myTableData";
     
     var totalCarbs = computeTableColumnTotal(tableElemName, 5);

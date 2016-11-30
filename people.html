@@ -162,7 +162,7 @@
 
   <script>
         var totals = [0,0,0,0];
-        $(document).click(function(){
+        $(document).on(submit)(function(){
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               console.log("yes?");
               $dataRows.each(function() {

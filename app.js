@@ -22,11 +22,6 @@ function addRow() {
     var cell7 = row.insertCell(7);
     var cell8 = row.insertCell(8);
 
-    cell0.className = 'colTotal';
-    cell1.className = 'colTotal';
-    cell2.className = 'colTotal';
-    cell3.className = 'colTotal';
-    cell4.className = 'colTotal';
     cell5.className = 'colTotal';
     cell6.className = 'colTotal';
     cell7.className = 'colTotal';

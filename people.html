@@ -164,15 +164,14 @@
         var totals = [0,0,0,0];
     $(document).ready(function () {
         $('#add').click(function(){
+              var totals = [0,0,0,0];
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
-              console.log("yes?");
               $dataRows.each(function() {
                   $(this).find('.colTotal').each(function(i){
                       totals[i]=parseFloat( $(this).html());
                   });
               });
               $("#myTableData td.totalC").each(function(i){
-                  console.log(i);
                   $(this).html("Total:"+totals[i]);
               });
           });

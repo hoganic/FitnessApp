@@ -27,7 +27,7 @@ function addRow() {
     cell7.className = 'colTotal';
     cell8.className = 'colTotal';
 	
-    cell0.innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+    cell0.innerHTML= '<input type="button" value = "Delete" id = "delete onClick="Javacsript:deleteRow(this)">';
     cell1.innerHTML= mealno.value;
     cell2.innerHTML= myFood.value;
     cell3.innerHTML= serving_size_unit.value;

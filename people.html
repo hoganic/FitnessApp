@@ -164,7 +164,7 @@
         var totals = [0,0,0,0];
         $(document).ready(function(){
               var $dataRows=$("#myTableData tr:not('.totalColumn, .titlerow')");
-          
+              console.log("fuck");
               $dataRows.each(function() {
                   $(this).find().each(function(i){
                       totals[i]+=parseFloat( $(this).html());

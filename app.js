@@ -11,6 +11,11 @@ function addRow() {
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
+    row.insertCell(5).className = 'rowdataSD';
+    row.insertCell(6).className = 'rowdataSD';
+    row.insertCell(7).className = 'rowdataSD';
+    row.insertCell(8).className = 'rowdataSD';
+
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= mealno.value;
     row.insertCell(2).innerHTML= myFood.value;

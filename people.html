@@ -132,7 +132,7 @@
 <b>Your Current Plan</b>
 <table id="myTableData"  border="1" cellpadding="2">
   <tbody>
-    <tr>
+    <tr class="titlerow">
         <td>&nbsp;</td>
         <td><b>Meal Number</b></td>
         <td><b>Food</b></td>
@@ -143,12 +143,39 @@
         <td><b>Fat</b></td>
         <td><b>Calories</b></td>
     </tr>
+    <tr class="totalColumn">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="totalCol">Total:</td>
+        <td class="totalCol">Total:</td>
+        <td class="totalCol">Total:</td>
+        <td class="totalCol">Total:</td>
+    </tr>
   </tbody>
 </table>
 &nbsp;
  
 </div>  
- 
+
+  <script>
+        var totals = [0,0,0];
+        $(document).ready(function(){
+              var $dataRows=$("#myTableData tr:not('.totalColumn, .titlerow')");
+          
+              $dataRows.each(function() {
+                  $(this).find('.rowDataSd').each(function(i){
+                      totals[i]+=parseFloat( $(this).html());
+                  });
+              });
+              $("#myTableData td.totalCol").each(function(i){
+                  $(this).html("total:" +totals[i]);
+              });
+          });
+</script> 
+  
   <table id="sum_table" width="300" border="1">
         <tr class="titlerow">
             <td>Apple</td>
@@ -156,19 +183,19 @@
             <td>Watermelon</td>
         </tr>
         <tr>
-            <td class="rowDataSd">1</td>
-            <td class="rowDataSd">2</td>
-            <td class="rowDataSd">3</td>
+            <td class="rowDataS">1</td>
+            <td class="rowDataS">2</td>
+            <td class="rowDataS">3</td>
         </tr>
         <tr>
-            <td class="rowDataSd">1</td>
-            <td class="rowDataSd">2</td>
-            <td class="rowDataSd">3</td>
+            <td class="rowDataS">1</td>
+            <td class="rowDataS">2</td>
+            <td class="rowDataS">3</td>
         </tr>
         <tr>
-            <td class="rowDataSd">1</td>
-            <td class="rowDataSd">5</td>
-            <td class="rowDataSd">3</td>
+            <td class="rowDataS">1</td>
+            <td class="rowDataS">5</td>
+            <td class="rowDataS">3</td>
         </tr>
         <tr class="totalColumn">
             <td class="totalCol">Total:</td>
@@ -182,7 +209,7 @@
               var $dataRows=$("#sum_table tr:not('.totalColumn, .titlerow')");
           
               $dataRows.each(function() {
-                  $(this).find('.rowDataSd').each(function(i){
+                  $(this).find('.rowDataS').each(function(i){
                       totals[i]+=parseFloat( $(this).html());
                   });
               });

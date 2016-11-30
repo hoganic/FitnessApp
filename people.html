@@ -149,10 +149,10 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td class="totalCol">Total:</td>
-        <td class="totalCol">Total:</td>
-        <td class="totalCol">Total:</td>
-        <td class="totalCol">Total:</td>
+        <td class="totalCol"></td>
+        <td class="totalCol"></td>
+        <td class="totalCol"></td>
+        <td class="totalCol"></td>
     </tr>
   </tbody>
 </table>
@@ -166,7 +166,7 @@
               var $dataRows=$("#myTableData tr:not('.totalColumn, .titlerow')");
           
               $dataRows.each(function() {
-                  $(this).find('.rowDataSd').each(function(i){
+                  $(this).find().each(function(i){
                       totals[i]+=parseFloat( $(this).html());
                   });
               });

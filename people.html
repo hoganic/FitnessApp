@@ -167,7 +167,7 @@
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               console.log("yes?");
               $dataRows.each(function() {
-                  $(this).find('.colTotal').each(function(i){
+                  $(this).find('.colTotal').each(function(i-1){
                       totals[i]+=parseFloat( $(this).html());
                   });
               });

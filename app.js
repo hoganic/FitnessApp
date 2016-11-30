@@ -22,37 +22,57 @@ function addRow() {
     row.insertCell(8).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 
-function addmacRow() {
+function finishTable() {
+    var tableElemName = "myTableData";
     
-    var carbs = document.getElementById("carbs");
-    var protein = document.getElementById("protein");
-    var fat = document.getElementById("fat");
-    var amount = document.getElementById("amount");
-    var table = document.getElementById("macroTable");
+    var totalCarbs = computeTableColumnTotal(tableElemName, 5);
+    var totalProtein = computeTableColumnTotal(tableElemName, 6);
+    var totalFat = computeTableColumnTotal(tableElemName, 7);
+    var totalCal = computeTableColumnTotal(tableElemName, 8);
+	
+    try {
+         var totalCarbsElem = window.document.getElementById("totalCarbs");
+         var totalProteinElem = window.document.getElementById("totalProtein");
+         var totalFatElem = window.document.getElementById("totalFat");
+         var totalCalElem = window.document.getElementById("totalCal");
+
+         totalCarbsElem.innerHTML = totalCarbs;
+         totalProteinElem.innerHTML = totalProtein;
+         totalFatElem.innerHTML = totalFat;
+         totalCalElem.innerHTML = totalCal;
+    }
+    catch (ex) {
+     window.alert("Exception in function finishTable()\n" + ex);
+   }
+    return;
+}
+
+function computeTableColumnTotal(tableId, colNumber){
+    var result = 0;
     
-     var row = table.insertRow(1);
-     //row.insertCell(0).innerHTML= carbs.value*amount.value;
-     //row.insertCell(1).innerHTML= protein.value*amount.value;
-     //row.insertCell(2).innerHTML= fat.value*amount.value;
-     //row.insertCell(3).innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
-     console.log(table.rows[1].cells[0].value);
-     console.log(table.rows[1].cells[1].value);
-     console.log(table.rows[1].cells[2].value);
-     console.log(table.rows[1].cells[3].value);
-     //alert(table.rows[r].cells[c].innerHTML);
-     /*var curCarbs = parseFloat(table.rows[1].cells[0].innerHTML);
-     var curProtein = parseFloat(table.rows[1].cells[1].innerHTML);
-     var curFat = parseFloat(table.rows[1].cells[2].innerHTML);
-     var curCalories = parseFloat(table.rows[1].cells[3].innerHTML);
+    try{
+        var tableElem = window.document.getElementById(tableId);
+        var tableBody = tableElem.getElementsByTagName("tbody").item(0);
+        var i;
+        var howManyRows = tableBody.rows.length;
+        for (i=1; i<(howManyRows-1); i++) {
+            var thisTrElem = tableBody.rows[i];
+            var thisTextNode = thisTdElem.childNodes.item(0);
 
-     while(table.rows.length > 1) {
-        table.deleteRow(1);
-     }
-
-     row.insertCell(0).innerHTML= parseFloat(curCarbs) + carbs.value*amount.value;
-     row.insertCell(1).innerHTML= parseFloat(curProtein) + protein.value*amount.value;
-     row.insertCell(2).innerHTML= parseFloat(curFat) + fat.value*amount.value;
-     row.insertCell(3).innerHTML= parseFloat(curCalories) +(fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;*/
+            // try to convert text to numeric
+            var thisNumber = parseFloat(thisTextNode.data);
+            // if you didn't get back the value NaN (i.e. not a number), add into result
+            if (!isNaN(thisNumber))
+                result += thisNumber;
+	    } // end for
+	} // end try
+  catch (ex) {
+     window.alert("Exception in function computeTableColumnTotal()\n" + ex);
+     result = 0;
+  }
+  finally {
+     return result;
+  }  
 }
 
 function deleteRow(obj) {

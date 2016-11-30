@@ -176,48 +176,6 @@
           });
 </script> 
   
-  <table id="sum_table" width="300" border="1">
-        <tr class="titlerow">
-            <td>Apple</td>
-            <td>Orange</td>
-            <td>Watermelon</td>
-        </tr>
-        <tr>
-            <td class="rowDataS">1</td>
-            <td class="rowDataS">2</td>
-            <td class="rowDataS">3</td>
-        </tr>
-        <tr>
-            <td class="rowDataS">1</td>
-            <td class="rowDataS">2</td>
-            <td class="rowDataS">3</td>
-        </tr>
-        <tr>
-            <td class="rowDataS">1</td>
-            <td class="rowDataS">5</td>
-            <td class="rowDataS">3</td>
-        </tr>
-        <tr class="totalColumn">
-            <td class="totalCol">Total:</td>
-            <td class="totalCol">Total:</td>
-            <td class="totalCol">Total:</td>
-        </tr>
-    </table> 
-<script>
-        var totals = [0,0,0];
-        $(document).ready(function(){
-              var $dataRows=$("#sum_table tr:not('.totalColumn, .titlerow')");
-          
-              $dataRows.each(function() {
-                  $(this).find('.rowDataS').each(function(i){
-                      totals[i]+=parseFloat( $(this).html());
-                  });
-              });
-              $("#sum_table td.totalCol").each(function(i){
-                  $(this).html("total:" +totals[i]);
-              });
-          });
-</script> 
 <script>
     var results;
     function search_request(){

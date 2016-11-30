@@ -162,7 +162,8 @@
 
   <script>
         var totals = [0,0,0,0];
-        $(button:add).on(click)(function(){
+    $(document).ready(function () {
+        $('#add').click(function(){
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               console.log("yes?");
               $dataRows.each(function() {
@@ -175,6 +176,7 @@
                   $(this).html("Total:"+totals[i]);
               });
           });
+    });
 </script> 
   
 <script>

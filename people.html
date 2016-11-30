@@ -149,10 +149,10 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td class="totalCol"></td>
-        <td class="totalCol"></td>
-        <td class="totalCol"></td>
-        <td class="totalCol"></td>
+        <td class="totalC"></td>
+        <td class="totalC"></td>
+        <td class="totalC"></td>
+        <td class="totalC"></td>
     </tr>
   </tbody>
 </table>
@@ -164,14 +164,14 @@
         var totals = [0,0,0,0];
         $(document).click(function(){
               var $dataRows=$("#myTableData tr:not('.totalColumn, .titlerow')");
-              console.log("fuck");
+              console.log("yes?");
               $dataRows.each(function() {
-                  $(this).find().each(function(i){
+                  $(this).find('').each(function(i){
                       totals[i]+=parseFloat( $(this).html());
                   });
               });
-              $("#myTableData td.totalCol").each(function(i){
-                  $(this).html("total:" +totals[i]);
+              $("#myTableData td.totalC").each(function(i){
+                  $(this).html(totals[i]);
               });
           });
 </script> 

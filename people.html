@@ -103,6 +103,9 @@
           </select></td>
     </tr>
     <tr>
+      <td><input type="text" value="" id="servings"></td>  
+    </tr>
+    <tr>
         <td>Serving Size (Units):</td>
         <td><input type="text" id="serving_size_unit" value=""></td>
     </tr>
@@ -177,7 +180,7 @@
 </div>  
   <script>
         function updateText(type) {
-             var id = type+'Text';
+             var id = 'servings';
              document.getElementByID(id).value = document.getElementById(type).value;
         }
   </script>

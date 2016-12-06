@@ -138,39 +138,39 @@
   <form id="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus()">
     <div class="row" style="padding-bottom: 5px"><br>
       <div class="col-xs-12"><span class="error"> * required field.</span></div>
-      <div class="col-xs-2">First Name: <input class="form-control" type="text" id="FirstName" name="FirstName" value="">
+      <div class="col-xs-2">First Name: <input class="form-control" type="text" id="FirstName" name="FirstName" value=<?php echo $FirstName;?>>
       <span class="error" id="fnerror">* <?php echo $fnerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-2">Last Name: <input class="form-control" type="text" id="LastName" name="LastName" value="">
+      <div class="col-xs-2">Last Name: <input class="form-control" type="text" id="LastName" name="LastName" value=<?php echo $LastName;?>>
       <span class="error">* <?php echo $lnerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-2">Height (in): <input class="form-control" type="number" id="height" name="height" min="1" value="">
+      <div class="col-xs-2">Height (in): <input class="form-control" type="number" id="height" name="height" min="1" value=<?php echo $height;?>>
       <span class="error">* <?php echo $heighterr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-2">Weight: <input class="form-control" type="number" id="weight" name="weight" min="1" value="">
+      <div class="col-xs-2">Weight: <input class="form-control" type="number" id="weight" name="weight" min="1" value=<?php echo $weight;?>>
       <span class="error">* <?php echo $weighterr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-2">Age: <input class="form-control" type="number" id="age" name="age" min="1" value="">
+      <div class="col-xs-2">Age: <input class="form-control" type="number" id="age" name="age" min="1" value=<?php echo $age;?>>
       <span class="error">* <?php echo $ageerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
       <div class="col-xs-1">Gender: 
-        <br>Female<input class="form-control" type="radio" id="gender_female" name="gender" value="female">
-        Male<input class="form-control" type="radio" id="gender_male" name="gender" value="male">
+        <br>Female<input class="form-control" type="radio" id="gender_female" name="gender" value="female" <?php echo ($gender=='female')?'checked':'' ?>>
+        Male<input class="form-control" type="radio" id="gender_male" name="gender" value="male" <?php echo ($gender=='male')?'checked':'' ?>>
         <span class="error">* <?php echo $gendererr;?></span>
       </div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-2">Body Fat Percentage: <input class="form-control" type="number" id="bfp" name="bfp" min="1" value="">
+      <div class="col-xs-2">Body Fat Percentage: <input class="form-control" type="number" id="bfp" name="bfp" min="1" value=<?php echo $bfp;?>>
       <span class="error"> <?php echo $bfperr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
       <div class="col-xs-8">Goal:</div>
-      <div class="col-xs-8"><textarea id="goal" name="goal" rows="2" cols="40"></textarea></div>
+      <div class="col-xs-8"><textarea id="goal" name="goal" rows="2" cols="40"><?php echo $goal;?></textarea></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
       <input type="hidden" id="fbuid" name="fbuid" value="">
@@ -413,7 +413,7 @@ echo $goal;
     console.log(row);
     console.log(row[1]["facebook_uid"]);
     console.log(Object.keys(row).length);
-    for(var i = 0; i < Object.keys(row).length; i++){
+    /*for(var i = 0; i < Object.keys(row).length; i++){
       if( row[i]["facebook_uid"] == fbuid){
         foundUserFlag = true;
         console.log("FirstName: "+row[i]["first_name"]);
@@ -432,7 +432,7 @@ echo $goal;
         document.getElementById("goal").value = row[i]["goal"];
         document.getElementById("fbuid").value = row[i]["facebook_uid"];
       }
-    }
+    }*/
   }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

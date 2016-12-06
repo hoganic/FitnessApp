@@ -135,37 +135,37 @@
     <div id="profilePic" class="col-xs-4"></div>
   </div>
   <style>.error {color: #FF0000;}</style>
-  <form id="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus('teststr')">
+  <form id="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus()">
     <div class="row" style="padding-bottom: 5px"><br>
-      <div class="col-xs-8"><span class="error"> * required field.</span></div>
-      <div class="col-xs-8">First Name: <input type="text" id="FirstName" name="FirstName" value="">
-      <span class="error">* <?php echo $fnerr;?></span></div>
+      <div class="col-xs-12"><span class="error"> * required field.</span></div>
+      <div class="col-xs-2">First Name: <input class="form-control" type="text" id="FirstName" name="FirstName" value="">
+      <span class="error" id="fnerror">* <?php echo $fnerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Last Name: <input type="text" id="LastName" name="LastName" value="">
+      <div class="col-xs-2">Last Name: <input class="form-control" type="text" id="LastName" name="LastName" value="">
       <span class="error">* <?php echo $lnerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Height (in): <input type="number" id="height" name="height" min="1" value="">
+      <div class="col-xs-2">Height (in): <input class="form-control" type="number" id="height" name="height" min="1" value="">
       <span class="error">* <?php echo $heighterr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Weight: <input type="number" id="weight" name="weight" min="1" value="">
+      <div class="col-xs-2">Weight: <input class="form-control" type="number" id="weight" name="weight" min="1" value="">
       <span class="error">* <?php echo $weighterr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Age: <input type="number" id="age" name="age" min="1" value="">
+      <div class="col-xs-2">Age: <input class="form-control" type="number" id="age" name="age" min="1" value="">
       <span class="error">* <?php echo $ageerr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Gender: 
-        <input type="radio" id="gender_female" name="gender" value="female">Female
-        <input type="radio" id="gender_male" name="gender" value="male">Male
+      <div class="col-xs-1">Gender: 
+        <br>Female<input class="form-control" type="radio" id="gender_female" name="gender" value="female">
+        Male<input class="form-control" type="radio" id="gender_male" name="gender" value="male">
         <span class="error">* <?php echo $gendererr;?></span>
       </div>
     </div>
     <div class="row" style="padding-bottom: 5px">
-      <div class="col-xs-8">Body Fat Percentage: <input type="number" id="bfp" name="bfp" min="0" value="">
+      <div class="col-xs-2">Body Fat Percentage: <input class="form-control" type="number" id="bfp" name="bfp" min="1" value="">
       <span class="error"> <?php echo $bfperr;?></span></div>
     </div>
     <div class="row" style="padding-bottom: 5px">
@@ -246,6 +246,32 @@ echo $goal;
     console.log("userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew);
     xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
     xmlhttp.send();
+
+    if(!(/^[A-Za-z\s]+$/.test(document.getElementById("FirstName").value))){
+      logState = false;
+    }
+    if(!(/^[A-Za-z\s]+$/.test(document.getElementById("LastName").value))){
+      logState = false;
+    }
+    if(document.getElementById("height").value < 1){
+      logState = false;
+    }
+    if(document.getElementById("weight").value < 1){
+      logState = false;
+    }
+    if(document.getElementById("weight").value < 1){
+      logState = false;
+    }
+    if(document.getElementById("age").value < 1){
+      logState = false;
+    }
+    if(!document.querySelector('input[name="gender"]:checked').value){
+      logState = false;
+    }
+    if(document.getElementById("bfp").value < 1){
+      logState = false;
+    }
+
 
     return logState;
   }
@@ -399,8 +425,8 @@ echo $goal;
         if(row[i]["gender"] == "male"){
           document.getElementById("gender_male").checked = true;
         }
-        if(row[i]["gender"] == "female"){
-          document.getElementById("gender_female").checked = false;
+        if(row[i]["gender"] == "femal"){
+          document.getElementById("gender_female").checked = true;
         }
         document.getElementById("bfp").value = row[i]["bfp"];
         document.getElementById("goal").value = row[i]["goal"];

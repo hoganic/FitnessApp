@@ -33,6 +33,9 @@ Test
   echo $go;
   $createNew = $_GET["usertype"];
 
+  $fbuid_meals = $fbuid."_meals";
+  $fbuid_saved = $fbuid."_saved";
+
   $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
   $username = "db_user";
   $password = "fitgoapp";
@@ -52,6 +55,19 @@ Test
   }
 
   $result = mysqli_query($con,$sql);
+  #mysqli_close($con);
+
+  #$dbname = "meal_db";
+  #$con = mysqli_connect($servername, $username, $password, $dbname);
+  mysqli_select_db($con, "meal_db");
+
+  if($createNew == "yes"){
+    $sql = "CREATE TABLE $fbuid_meals ( food_item varchar(250), serving_size int(11), serving_units varchar(25), user_amount int(11), carbs int(11), protein int(11), fat int(11), calories int(11), tags varchar(2000) )";
+    $results1 = mysqli_query($con,$sql);
+    
+    $sql = "CREATE TABLE $fbuid_saved ( food_item varchar(250), serving_size int(11), serving_units varchar(25), user_amount int(11), carbs int(11), protein int(11), fat int(11), calories int(11), tags varchar(2000) )";
+    $results2 = mysqli_query($con,$sql);
+  }
 
   mysqli_close($con);
 ?>

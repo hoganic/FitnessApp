@@ -2,7 +2,7 @@ function addRow() {
     
     var mealno = document.getElementById("mealno");      
     var myFood = document.getElementById("food");
-    var serving_size_unit = document.getElementById("serving_size_unit");
+    var serving_size_unit = document.getElementById("servings");
     var amount = document.getElementById("amount");
     var carbs = document.getElementById("carbs");
     var protein = document.getElementById("protein");

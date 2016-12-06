@@ -95,6 +95,14 @@
         <td><input type="text" id="food" value="" ></td>
     </tr>
     <tr>
+        <td> Serving Sizes:</td>
+        <td><select id="serving_size" onchange="updateText('serving_size')">
+          <option value="serving_size_unit">Unit</option>
+          <option value="serving_size_container">Container</option>
+          <option value="serving_size_grams">Grams</option>
+          </select></td>
+    </tr>
+    <tr>
         <td>Serving Size (Units):</td>
         <td><input type="text" id="serving_size_unit" value=""></td>
     </tr>
@@ -167,7 +175,12 @@
 &nbsp;
  
 </div>  
-
+  <script>
+        function updateText(type) {
+             var id = type+'Text';
+             document.getElementByID(id).value = document.getElementById(type).value;
+        }
+  </script>
   <script>
         var totals = [0,0,0,0];
     $(document).ready(function () {

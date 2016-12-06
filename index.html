@@ -8,6 +8,10 @@
 
 	<title>FitGo App</title>
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
 	<!--     Fonts and icons     -->
@@ -26,7 +30,7 @@
 
 <body class="index-page">
 <!-- Navbar -->
-<nav class="navbar navbar-transparent navbar-fixed-top">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">
         <div class="navbar-header">
 	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
@@ -38,45 +42,37 @@
 	    	<a href="index.html">
 	        	<div class="logo-container">
 	                <div class="logo">
-	                    <img src="./logo.jpeg" alt="FitGo Logo" rel="tooltip" title="<b>FitGo App</b>" data-placement="bottom" data-html="true">
+	                    <img src="./logo_home.jpeg" alt="Circle Image" class="img-circle img-responsive" rel="tooltip" title="<b>FitGo App</b>" data-placement="bottom" data-html="true">
 	                </div>
-	                <div class="brand">
-	                    Home Page
-	                </div>
-				</div>
+			</div>
 	      	</a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="profile.php" target="_blank">
+					<a href="profile.php">
 						<i class="material-icons">face</i> Profile
 					</a>
 				</li>
 				<li>
-					<a href="api.php" target="_blank">
+					<a href="api.php">
 						<i class="material-icons">unarchive</i> Nutrionix
 					</a>
 				</li>
 				<li>
-					<a href="people.html" target="_blank">
+					<a href="people.html">
 						<i class="material-icons">dashboard</i> Meal Planning
 					</a>
 				</li>
 				<li>
-					<a href="about.html" target="_blank">
+					<a href="about.html">
 						<i class="material-icons">group</i> About
 					</a>
 				</li>
 				<li>
-					<a rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-						<i class="fa fa-facebook-square"></i>
+					<a> <span class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope="public_profile,email,user_friends" onlogin="checkLoginState();"></span>
 					</a>
-				</li>
-		    	<li>
-		    		<a><span class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope="public_profile,email,user_friends" onlogin="checkLoginState();"></span>
-		    		</a>
 				</li>
 
 	    	</ul>
@@ -86,33 +82,51 @@
 <!-- End Navbar -->
 
 <div class="wrapper">
-	<div style="background-image:url(./food_image_1740x900.jpeg);height: 360px;background-repeat:no-repeat;background-position:center;background-color:rgb(51,51,51);position:relative;">
-	<img id="logo" src="./logo.png">
-	<style>
-	#logo {
-	  height:100px;
-	  display:block;
-	  margin:0;
-	  position:absolute;
-	  top:50%;
-	  left:50%;
-	  -ms-transform:translate(-160%, -90%) rotate(-14deg);
-	  -webkit-transform:rotate(-14deg);
-	  transform:translate(-160%, -90%) rotate(-14deg);
-	}
-	</style>
+	<div class="header" style="background-image:url(./food_image_1740x900.jpeg);background-repeat:no-repeat;background-position:center;background-color:rgb(51,51,51);position:relative;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="brand">
-						<h1>Welcome to FitGo</h1>
-						<h3>Macronutrition brought to the masses. We make nutrition simple so all you have to worry about, is working out!</h3>
+						<img id="logo" src="./logo.png">
+						<style>
+					    #logo {
+					      height:150px;
+					    }
+					  </style>
 					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
+
+	<div class="main main-raised">
+		<div class="section section-basic">
+	    	<div class="container">
+	            <div class="col-md-8 col-md-offset-2 text-center">
+	                <h2>Welcome to FitGo</h2>
+	                <h4>Macronutrition brought to the masses.<br>
+	                We make nutrition simple so all you have to worry about, is working out!
+	                </h4>
+	            </div>
+	    	</div>
+	    </div>	     
+
+		<div id="images">
+            <div class="row">
+				<div class="col-md-2 col-md-offset-3">
+                    <a href="calculatorTemplateUI.html"><img src="./boy.png" alt="Thumbnail Image" class="img-circle img-raised img-responsive center-block">
+                    <h4><a href="calculatorTemplateUI.html">Male Calculator</a></h4>
+                </div>
+                <div class="col-md-2 col-md-offset-2">
+                    <a href="femalecalcUI.html"><img src="./girl.png" alt="Thumbnail Image" class="img-circle img-raised img-responsive center-block">
+                    <h4><a href="femalecalcUI.html">Female Calculator</a></h4>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
 
 		<div class="section section-tabs">
 			<div class="container">
@@ -144,19 +158,16 @@
 							<div class="content">
 								<div class="tab-content text-center">
 									<div class="tab-pane active" id="profile">
-										<li>Learn how much food you should eat daily to achieve your goals </li><br>
-										<li>Utilize "Flexible Dieting" not limiting what different foods you can eat </li><br>
-										<li>As long as the foods match your Macros (Protein, Carbs, Fats) it's in the "Diet" </li><br>
-										<li>Learn about Macros and become more conscious of you are actually eating </li>
+									    <p class="text-danger">
+									    Learn about Macros and become more conscious of you are actually eating</p>				
+									    <p class="text-success">
+									    As long as the foods match your Macros (Protein, Carbs, Fats) it's in the "Diet"</p>
 										<p class="text-primary">
 									    Learn how much food you should eat daily to achieve your goals</p>
 									    <p class="text-info">
 									    Utilize "Flexible Dieting" not limiting what different foods you can eat</p>
-									    <p class="text-success">
-									    As long as the foods match your Macros (Protein, Carbs, Fats) it's in the "Diet"</p>
-									    <p class="text-danger">
-									    Learn about Macros and become more conscious of you are actually eating</p>
 									</div>
+
 									<div class="tab-pane" id="messages">
 										<p class="text-primary">
 										Sign up and create an account using Facebook</p>
@@ -166,10 +177,6 @@
 									    Set a goal. Do you want to build ten pounds of lean mass or lose 5 pounds of fat for beach season? It's up to you.</p>
 									    <p class="text-danger">
 									    If you're ready to get started you can sign up here, or feel free to look around the website to learn what it is we do and how we do it to help you reach your goals.</p>
-										<li>Sign up and create an account using Facebook</li><br>
-										<li>Enter you current information into the calculator<br>(Don't worry if you don't know, or know how to get, all your information. We can walk you through it.)</li><br>
-										<li>Set a goal. Do you want to build ten pounds of lean mass or lose 5 pounds of fat for beach season? It's up to you.</li><br>
-										<li>If you're ready to get started you can sign up here, or feel free to look around the website to learn what it is we do and how we do it to help you reach your goals.</li><br>
 									</div>
 								</div>
 							</div>
@@ -208,28 +215,103 @@
 	</footer>
 </div>
 
-<!-- Sart Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					<i class="material-icons">clear</i>
-				</button>
-				<h4 class="modal-title">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-				</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default btn-simple">Nice Button</button>
-				<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
+<div id="status">
 </div>
-<!--  End Modal -->
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1169538589774243',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+  
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      //document.getElementById('status').innerHTML =
+      //  'Thanks for logging in, ' + response.name + '!';
+    });
+    //FB.api('/me/picture?width=180&height=180', function (response) {
+    //  console.log(response);
+    //  $('<img>', {
+    //    src: response.data.url
+    //  }).appendTo('body');
+    //});
+  }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 
 </body>

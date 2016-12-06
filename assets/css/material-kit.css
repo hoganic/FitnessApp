@@ -3560,7 +3560,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .main {
-  background: #FFFFFF;
+  background: #EEEEEE;
   position: relative;
   z-index: 3;
 }
@@ -3657,10 +3657,10 @@ h2.title {
   padding-top: 15px;
 }
 .index-page .header-filter:after {
-  background: rgba(101, 47, 142, 0.64);
-  background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-  background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-  background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
+  background: rgba(135, 206, 250, 0.64);
+  background: linear-gradient(45deg, rgba(135, 206, 250, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
+  background: -moz-linear-gradient(135deg, rgba(135, 206, 250, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(135, 206, 250, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
 }
 
 .landing-page .header {

@@ -96,7 +96,7 @@
     </tr>
     <tr>
         <td> Serving Sizes:</td>
-        <td><select id="serving_size" onchange="updateText('serving_size')">
+        <td><select id="serving_size" onchange="updateText()">
           <option value="serving_size_unit">Unit</option>
           <option value="serving_size_container">Container</option>
           <option value="serving_size_grams">Grams</option>
@@ -180,8 +180,7 @@
 </div>  
   <script>
         function updateText(type) {
-             var id = 'servings';
-             document.getElementByID(id).value = document.getElementById(type).value;
+             document.getElementByID("servings").value = document.getElementById("serving_size").value;
         }
   </script>
   <script>

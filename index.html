@@ -26,7 +26,7 @@
 
 <body class="index-page">
 <!-- Navbar -->
-<nav class="navbar navbar-transparent navbar-fixed-top">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">
         <div class="navbar-header">
 	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
@@ -38,10 +38,10 @@
 	    	<a href="index.html">
 	        	<div class="logo-container">
 	                <div class="logo">
-	                    <img src="./logo.jpeg" alt="FitGo Logo" rel="tooltip" title="<b>FitGo App</b>" data-placement="bottom" data-html="true">
+	                    <img src="./logo.jpeg" alt="Circle Image" class="img-circle img-responsive" rel="tooltip" title="<b>FitGo App</b>" data-placement="bottom" data-html="true">
 	                </div>
 	                <div class="brand">
-	                    Home Page
+	                    Home
 	                </div>
 				</div>
 	      	</a>
@@ -50,22 +50,22 @@
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="profile.php" target="_blank">
+					<a href="profile.php">
 						<i class="material-icons">face</i> Profile
 					</a>
 				</li>
 				<li>
-					<a href="api.php" target="_blank">
+					<a href="api.php">
 						<i class="material-icons">unarchive</i> Nutrionix
 					</a>
 				</li>
 				<li>
-					<a href="people.html" target="_blank">
+					<a href="people.html">
 						<i class="material-icons">dashboard</i> Meal Planning
 					</a>
 				</li>
 				<li>
-					<a href="about.html" target="_blank">
+					<a href="about.html">
 						<i class="material-icons">group</i> About
 					</a>
 				</li>
@@ -86,33 +86,42 @@
 <!-- End Navbar -->
 
 <div class="wrapper">
-	<div style="background-image:url(./food_image_1740x900.jpeg);height: 360px;background-repeat:no-repeat;background-position:center;background-color:rgb(51,51,51);position:relative;">
-	<img id="logo" src="./logo.png">
-	<style>
-	#logo {
-	  height:100px;
-	  display:block;
-	  margin:0;
-	  position:absolute;
-	  top:50%;
-	  left:50%;
-	  -ms-transform:translate(-160%, -90%) rotate(-14deg);
-	  -webkit-transform:rotate(-14deg);
-	  transform:translate(-160%, -90%) rotate(-14deg);
-	}
-	</style>
+	<div class="header" style="background-image:url(./food_image_1740x900.jpeg);background-repeat:no-repeat;background-position:center;background-color:rgb(51,51,51);position:relative;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="brand">
-						<h1>Welcome to FitGo</h1>
-						<h3>Macronutrition brought to the masses. We make nutrition simple so all you have to worry about, is working out!</h3>
+						<img id="logo" src="./logo.png">
+							<style>
+							#logo {
+							  height:100px;
+							  display:block;
+							  margin:0;
+							  position:absolute;
+							  top:50%;
+							  left:50%;
+							  -ms-transform:translate(-160%, -90%) rotate(-14deg);
+							  -webkit-transform:rotate(-14deg);
+							  transform:translate(-160%, -90%) rotate(-14deg);
+							}
+							</style>
 					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
+
+		<div class="section">
+	        <div class="container text-center">
+	            <div class="row">
+	                <div class="col-md-8 col-md-offset-2 text-center">
+	                    <h2>Welcome to FitGo</h2>
+	                    <h4>Macronutrition brought to the masses. We make nutrition simple so all you have to worry about, is working out!</h4>
+	                </div>
+	            </div>
+			</div>
+		</div>
 
 		<div class="section section-tabs">
 			<div class="container">
@@ -144,10 +153,7 @@
 							<div class="content">
 								<div class="tab-content text-center">
 									<div class="tab-pane active" id="profile">
-										<li>Learn how much food you should eat daily to achieve your goals </li><br>
-										<li>Utilize "Flexible Dieting" not limiting what different foods you can eat </li><br>
-										<li>As long as the foods match your Macros (Protein, Carbs, Fats) it's in the "Diet" </li><br>
-										<li>Learn about Macros and become more conscious of you are actually eating </li>
+										
 										<p class="text-primary">
 									    Learn how much food you should eat daily to achieve your goals</p>
 									    <p class="text-info">
@@ -156,6 +162,7 @@
 									    As long as the foods match your Macros (Protein, Carbs, Fats) it's in the "Diet"</p>
 									    <p class="text-danger">
 									    Learn about Macros and become more conscious of you are actually eating</p>
+
 									</div>
 									<div class="tab-pane" id="messages">
 										<p class="text-primary">
@@ -166,10 +173,6 @@
 									    Set a goal. Do you want to build ten pounds of lean mass or lose 5 pounds of fat for beach season? It's up to you.</p>
 									    <p class="text-danger">
 									    If you're ready to get started you can sign up here, or feel free to look around the website to learn what it is we do and how we do it to help you reach your goals.</p>
-										<li>Sign up and create an account using Facebook</li><br>
-										<li>Enter you current information into the calculator<br>(Don't worry if you don't know, or know how to get, all your information. We can walk you through it.)</li><br>
-										<li>Set a goal. Do you want to build ten pounds of lean mass or lose 5 pounds of fat for beach season? It's up to you.</li><br>
-										<li>If you're ready to get started you can sign up here, or feel free to look around the website to learn what it is we do and how we do it to help you reach your goals.</li><br>
 									</div>
 								</div>
 							</div>

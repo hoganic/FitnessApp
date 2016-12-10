@@ -136,13 +136,13 @@
 																		<div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Height(cm)</label>
+                                                <label>Height(inches)</label>
                                                 <input type="number" class="form-control" id="height" placeholder="Height">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Weight(kg)</label>
+                                                <label>Weight(pounds)</label>
                                                 <input type="number" class="form-control" id="weight" placeholder="Weight">
                                             </div>
                                         </div>

@@ -28,13 +28,13 @@ function addRow() {
     cell8.className = 'colTotal';
 	
     cell0.innerHTML= '<input type="button" value = "Delete" id="delete" onClick="Javacsript:deleteRow(this)">';
-    cell1.innerHTML= mealno.value.toFixed(0);
-    cell2.innerHTML= myFood.value.toFixed(0);
-    cell3.innerHTML= serving_size_unit.value.toFixed(0);
-    cell4.innerHTML= amount.value.toFixed(0);
-    cell5.innerHTML= carbs.value*amount.value.toFixed(0);
-    cell6.innerHTML= protein.value*amount.value.toFixed(0);
-    cell7.innerHTML= fat.value*amount.value.toFixed(0);
+    cell1.innerHTML= mealno.value;
+    cell2.innerHTML= myFood.value;
+    cell3.innerHTML= serving_size_unit.value;
+    cell4.innerHTML= amount.value;
+    cell5.innerHTML= carbs.value*amount.value;
+    cell6.innerHTML= protein.value*amount.value;
+    cell7.innerHTML= fat.value*amount.value;
     cell8.innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 function finishTable() {

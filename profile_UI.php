@@ -47,19 +47,19 @@
 
             <ul class="nav">
                  <li class="active">
-                    <a href="peopleUI.html">
+                    <a href="peopleUI.php">
                         <i class="pe-7s-graph"></i> 
 			    <p>Meal Planner</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="calculatorTemplateUI.html">
+                    <a href="calculatorTemplateUI.php">
                         <i class="pe-7s-calculator"></i>
                         <p>Male Calculator</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="femalecalcUI.html">
+                    <a href="femalecalcUI.php">
                         <i class="pe-7s-calculator"></i>
                         <p>Female Calculator</p>
                     </a>

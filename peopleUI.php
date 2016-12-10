@@ -42,7 +42,7 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="peopleUI.html">
+                    <a href="peopleUI.php">
                         <i class="pe-7s-graph"></i> 
 			    <p>Meal Planner</p>
                     </a>

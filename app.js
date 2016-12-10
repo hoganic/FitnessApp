@@ -35,7 +35,7 @@ function addRow() {
     cell5.innerHTML= carbs.value*amount.value.toFixed(0);
     cell6.innerHTML= protein.value*amount.value.toFixed(0);
     cell7.innerHTML= fat.value*amount.value.toFixed(0);
-    cell8.innerHTML= (fat.value.toFixed(0)*9 + carbs.value.toFixed(0)*4 + protein.value.toFixed(0)*4)*amount.value;
+    cell8.innerHTML= (fat.value*9 + carbs.value*4 + protein.value*4)*amount.value;
 }
 function finishTable() {
     var tableElemName = "myTableData";

@@ -136,13 +136,13 @@
 																		<div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Height(inches)</label>
+                                                <label>Height(in)</label>
                                                 <input type="number" class="form-control" id="height" placeholder="Height">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Weight(pounds)</label>
+                                                <label>Weight(lb)</label>
                                                 <input type="number" class="form-control" id="weight" placeholder="Weight">
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Body Fat Persentage(%)</label>
+                                                <label>Body Fat Percentage(%)</label>
                                                 <input type="number" class="form-control" id="bfp" placeholder="Body Fat Percentage">
                                             </div>
                                         </div>

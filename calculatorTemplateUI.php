@@ -176,7 +176,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>
 
  <?php
-     if (isset($_POST['submit'])):
+     /*if (isset($_POST['submit'])):
        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
        $username = "db_user";
        $password = "fitgoapp";
@@ -199,7 +199,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
        } else {
          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
        }
-       mysqli_close($conn);
+       mysqli_close($conn);*/
    ?>
    
 

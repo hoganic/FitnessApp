@@ -79,7 +79,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Plan your Meal for today</a>
+                    <a class="navbar-brand" href="#">Plan Your Meal for Today</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -108,6 +108,9 @@
             <div class="container-fluid">
                 <div class="row">
                 <div class="fixed">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Food Search</h4>
                 <form>
     Food Search <input type="text" name="query" id="query">
     <input type="Submit" value="Search" onClick="return search_request()">

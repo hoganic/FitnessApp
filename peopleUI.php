@@ -1,33 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Meal Planning Page</title>
+	<title>Meal Planning Page</title>
     <script type="text/javascript" src="app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-  function search_request(){
-    var query=document.getElementById('query').value;
-    var dataString = 'Query=' + query;
-    console.log(query);
-    $.ajax({
-      type:"POST",
-      url: "food.php",
-      data:dataString,
-      cache:false,
-      success: function(html){
-          $('#mealPlan').html(html);
-      }
-    });
-    return false;
-  }
-  </script>
 
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
 
@@ -59,12 +42,29 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="#">
-                        <i class="pe-7s-graph"></i>
-                        <p>Meal Planner</p>
+                    <a href="peopleUI.php">
+                        <i class="pe-7s-graph"></i> 
+			    <p>Meal Planner</p>
                     </a>
                 </li>
-
+                <li class="active">
+                    <a href="calculatorTemplateUI.php">
+                        <i class="pe-7s-calculator"></i>
+                        <p>Male Calculator</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="femalecalcUI.php">
+                        <i class="pe-7s-calculator"></i>
+                        <p>Female Calculator</p>
+                    </a>
+                </li>
+		<li class="active">
+                    <a href="profile_UI.php">
+                        <i class="pe-7s-user"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -270,4 +270,3 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 </html>
-

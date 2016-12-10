@@ -114,7 +114,7 @@
             <div class="container-fluid">
                 <div class="row">
 <body>
-<form onsubmit="return false" onchange="BMR.value=((66+(6.23*weight.valueAsNumber)+(12.7*height.valueAsNumber)-(6.8*age.valueAsNumber))*activity.value).toFixed(0);
+<form onsubmit="return checkfbstatus()" onchange="BMR.value=((66+(6.23*weight.valueAsNumber)+(12.7*height.valueAsNumber)-(6.8*age.valueAsNumber))*activity.value).toFixed(0);
 protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.value*9)/4).toFixed(0);
@@ -233,6 +233,53 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
     </div>
 </div>
 
+<script>
+
+  var logState = false;
+
+  function checkfbstatus(){
+    console.log('checkfbstatus');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback2(response);
+    });
+
+    return logState;
+  }
+
+  function statusChangeCallback2(response) {
+    console.log('statusChangeCallback2');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      logState = true;
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      logState = false;
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      logState = false;
+    }
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1169538589774243',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
 
 </body>
 

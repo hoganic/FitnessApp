@@ -38,7 +38,9 @@
   $sql = "INSERT INTO user_macro (fbuid, bmr, protein, carbs, fat, calories) VALUES ($fbuid, $bmr, $pro, $car, $fat, $cal);";
 
   $result = mysqli_query($con,$sql);
-
+  echo "<br><br>result";
+  echo $result;
+  
   mysqli_close($con);
 ?>
 </body>

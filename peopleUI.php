@@ -224,6 +224,7 @@
 &nbsp;
  
 </div>  
+<p><button onclick="buildSubmit()">Save your meals to your profile.</button></p>
   <script>
         function updateText() {
              document.getElementById("servings").value = document.getElementById("serving_size").value;
@@ -245,7 +246,7 @@
                   });
               });
               $("#myTableData td.totalC").each(function(i){
-                  $(this).html("Total:"+totals[i]);
+                  $(this).html("Total:"+totals[i].toFixed(2));
               });
           });
     });
@@ -272,6 +273,136 @@
       });
       return false;
     }
+</script>
+
+<script>
+
+  var logState = false;
+  var fbuid = 0;
+  var linkVar = "";
+
+  function buildSubmit(){
+    var table = document.getElementById("myTableData");
+    for(var i = 2; i < table.rows.length; i++){
+        linkVar = linkVar+"&mealNum"+i+"="+table.rows[i].cells[1].innerHTML;
+        linkVar = linkVar+"&food"+i+"="+encodeURIComponent(table.rows[i].cells[2].innerHTML);
+        linkVar = linkVar+"&servSize"+i+"="+encodeURIComponent(table.rows[i].cells[3].innerHTML);
+        linkVar = linkVar+"&amount"+i+"="+table.rows[i].cells[4].innerHTML;
+        linkVar = linkVar+"&carbs"+i+"="+table.rows[i].cells[5].innerHTML;
+        linkVar = linkVar+"&prot"+i+"="+table.rows[i].cells[6].innerHTML;
+        linkVar = linkVar+"&fat"+i+"="+table.rows[i].cells[7].innerHTML;
+        linkVar = linkVar+"&calor"+i+"="+table.rows[i].cells[8].innerHTML;
+    }
+    console.log(linkVar.substring(1));
+    checkfbstatus();
+  }
+
+  function checkfbstatus(){
+    console.log('checkfbstatus');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback2(response);
+    });
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    console.log("meal.php?"+linkVar.substring(1)+"&fbuid="+fbuid)
+    xmlhttp.open("GET", "meal.php?"+linkVar.substring(1)+"&fbuid="+fbuid,true);
+    xmlhttp.send();
+
+    return logState;
+  }
+
+  function statusChangeCallback2(response) {
+    console.log('statusChangeCallback2');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      logState = true;
+      fbuid = response.authResponse.userID;
+      row = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, bmr, protein, carbs, fat, calories FROM user_macro";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row);
+      var user;
+      for(x in row){
+        if(row[x]["facebook_uid"] == fbuid){
+            user = row[x];
+        }
+      }
+      console.log(user["facebook_uid"]);
+      document.getElementById("UserCalories").value = user["calories"];
+      document.getElementById("UserFat").value = user["fat"];
+      document.getElementById("UserProtein").value = user["protein"];
+      document.getElementById("UserCarbs").value = user["carbs"];
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      logState = false;
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      logState = false;
+    }
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1169538589774243',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback2(response);
+  });
+  };
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

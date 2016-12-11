@@ -178,36 +178,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 	
 
   <!-- If submit, push the data into mysql database -->
- <p><input type="submit" name="submit" value="Save Your Macros" /></p>
-
- <?php
-     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-       $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
-       $username = "db_user";
-       $password = "fitgoapp";
-       $dbname = "user_db";
- 
-       $conn = mysqli_connect($servername, $username, $password, $dbname);
-       if (!$conn) {
-         die("Connection failed: " . mysqli_connect_error());
-       }
- 
-       $bmr = $_POST['BMR'];
-       $protein = $_POST['protein'];
-       $carbs = $_POST['carbs'];
-       $fat = $_POST['fat'];
-       $calories = $_POST['calories'];
-       $fbuid = $_POST['fbuid'];
-       $sql = "INSERT INTO user_macro (fbuid, bmr, protein, carbs, fat, calories) VALUES ($fbuid, $bmr, $protein, $carbs, $fat, $calories);";
-       if (mysqli_query($conn, $sql)) {
-         echo "Your macros have been saved successfully!";
-       } else {
-         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-       }
-       mysqli_close($conn);
-    }
-   ?>
-   
+ <p><input type="submit" name="submit" value="Save Your Macros" /></p>  
 
 </form>
 
@@ -248,6 +219,21 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
     FB.getLoginStatus(function(response) {
       statusChangeCallback2(response);
     });
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    console.log("macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value)
+    xmlhttp.open("GET", "macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value,true);
+    xmlhttp.send();
 
     return logState;
   }

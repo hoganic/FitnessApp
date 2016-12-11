@@ -282,7 +282,8 @@
   var linkVar = "";
 
   function buildSubmit(){
-    var testVar = tableCells(myTableData)
+    var testVar = tableCells(myTableData);
+    console.log(testVar);
     /*var table = document.getElementById("myTableData");
     for(var i = 0, row; row = table.rows[i]; i++){
         for(var j = 0, col; col = row.cell[j]; j++){

@@ -117,7 +117,12 @@
 fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.value*9)/4).toFixed(0); calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 ">
-
+	<legend>Intro:</legend>
+	<p> The Female Macro Calculator is specifically designed for the female user using the specific BMR calculation.</p>
+	<p> Once all the User Input is complete the Macro Calculator will display how many grams of Protein, Carbohydrates, and Fats that
+		are recommended for the user to consume every day to achieve your goal. </p>
+	<p> It is not needed to eat strictly healthy and "clean" in order to achieve your goal, as long as the macros are fulfilled change 
+		will come.</p>
 
   <legend>Female Macro Calculator</legend>
 

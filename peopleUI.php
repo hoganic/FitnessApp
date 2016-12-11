@@ -284,7 +284,7 @@
   function buildSubmit(){
     var table = document.getElementById("myTableData");
     for(var i = 0, row; row = table.rows[i]; i++){
-        for(var j = 0, col; col = row.cell[j]; j++){
+        for(var j = 1, col; col = row.cell[j]; j++){
             if(j==1){
                 link = link+"&mealNum="+col;
             } else if (j==2){

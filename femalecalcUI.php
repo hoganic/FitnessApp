@@ -113,7 +113,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-<form onsubmit="return false" onchange="BMR.value=((655+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber))*activity.value).toFixed(0); protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus()" onchange="BMR.value=((655+(4.35*weight.valueAsNumber)+(4.7*height.valueAsNumber)-(4.7*age.valueAsNumber))*activity.value).toFixed(0); protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.value*9)/4).toFixed(0); calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 ">
@@ -159,7 +159,7 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
   <p><input type="radio" id="activity" value=1.55 name="activity">Moderate exercise/sports 3-5 days/week</p>
   <p><input type="radio" id="activity" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
  <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
-
+  <input type="hidden" id="fbuid" name="fbuid" value="">
 
   <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age activity">0</output></strong></p>
 
@@ -202,6 +202,73 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
     </div>
 </div>
 
+<script>
+
+  var logState = false;
+
+  function checkfbstatus(){
+    console.log('checkfbstatus');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback2(response);
+    });
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    console.log("macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value)
+    xmlhttp.open("GET", "macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value,true);
+    xmlhttp.send();
+
+    return logState;
+  }
+
+  function statusChangeCallback2(response) {
+    console.log('statusChangeCallback2');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      logState = true;
+      document.getElementById("fbuid").value = response.authResponse.userID;
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      logState = false;
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      logState = false;
+    }
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1169538589774243',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback2(response);
+  });
+  };
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
 
 </body>
 

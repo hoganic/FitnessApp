@@ -278,27 +278,23 @@
 <script>
 
   var logState = false;
-
+  var fbuid = 0;
   var linkVar = "";
 
   function buildSubmit(){
     var table = document.getElementById("myTableData");
-    for(var i = 0, row; row = table.rows[i]; i++){
-        for(var j = 1, col; col = row.cell[j]; j++){
-            if(j==1){
-                link = link+"&mealNum="+col;
-            } else if (j==2){
-                link = link+"&food="+col;
-            } else if (j==3){
-                link = link+"&servSize="+col;
-            } else if (j==4){
-                link = link+"&amount="+col;
-            } else if (j==5){
-                link = link+"&carbs="+col;
-            }
-        }
+    for(var i = 2; i < table.rows.length; i++){
+        linkVar = linkVar+"&mealNum"+i+"="+table.rows[i].cells[1].innerHTML;
+        linkVar = linkVar+"&food"+i+"="+encodeURIComponent(table.rows[i].cells[2].innerHTML);
+        linkVar = linkVar+"&servSize"+i+"="+encodeURIComponent(table.rows[i].cells[3].innerHTML);
+        linkVar = linkVar+"&amount"+i+"="+table.rows[i].cells[4].innerHTML;
+        linkVar = linkVar+"&carbs"+i+"="+table.rows[i].cells[5].innerHTML;
+        linkVar = linkVar+"&prot"+i+"="+table.rows[i].cells[6].innerHTML;
+        linkVar = linkVar+"&fat"+i+"="+table.rows[i].cells[7].innerHTML;
+        linkVar = linkVar+"&calor"+i+"="+table.rows[i].cells[8].innerHTML;
     }
-    console.log(table)
+    console.log(linkVar.substring(1));
+    checkfbstatus();
   }
 
   function checkfbstatus(){
@@ -318,9 +314,9 @@
         //If I need to add a response from PHP
       }
     };
-    console.log("macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value)
-    //xmlhttp.open("GET", "macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value,true);
-    //xmlhttp.send();
+    console.log("meal.php?"+linkVar.substring(1)+"&fbuid="+fbuid)
+    xmlhttp.open("GET", "meal.php?"+linkVar.substring(1)+"&fbuid="+fbuid,true);
+    xmlhttp.send();
 
     return logState;
   }

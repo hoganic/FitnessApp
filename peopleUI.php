@@ -245,7 +245,7 @@
                   });
               });
               $("#myTableData td.totalC").each(function(i){
-                  $(this).html("Total:"+totals[i].toFixed(0));
+                  $(this).html("Total:"+totals[i]);
               });
           });
     });

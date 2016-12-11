@@ -2,35 +2,35 @@
 <html>
 <body>
 
-Test
+
 <?php
   $fbuid = intval($_GET["fbuid"]);
-  echo "<br><br>fbuid found "; 
-  echo $fbuid;
+  //echo "<br><br>fbuid found "; 
+  //echo $fbuid;
   $fn = $_GET["fn"];
-  echo "<br><br>first name found ";
-  echo $fn;
+  //echo "<br><br>first name found ";
+  //echo $fn;
   $ln = $_GET["ln"];
-  echo "<br><br>last name found ";
-  echo $ln;
+  //echo "<br><br>last name found ";
+  //echo $ln;
   $h = intval($_GET["h"]);
-  echo "<br><br>height found ";
-  echo $h;
+  //echo "<br><br>height found ";
+  //echo $h;
   $w = intval($_GET["w"]);
-  echo "<br><br>weight found ";
-  echo $w;
+  //echo "<br><br>weight found ";
+  //echo $w;
   $a = intval($_GET["a"]);
-  echo "<br><br>age found ";
-  echo $a;
+  //echo "<br><br>age found ";
+  //echo $a;
   $ge = $_GET["ge"];
-  echo "<br><br>gender found ";
-  echo $ge;
+  //echo "<br><br>gender found ";
+  //echo $ge;
   $b = intval($_GET["b"]);
-  echo "<br><br>bfp found ";
-  echo $b;
+  //echo "<br><br>bfp found ";
+  //echo $b;
   $go = $_GET["go"];
-  echo "<br><br>goal found ";
-  echo $go;
+  //echo "<br><br>goal found ";
+  //echo $go;
   $createNew = $_GET["usertype"];
 
   $fbuid_meals = $fbuid."_meals";

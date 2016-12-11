@@ -181,7 +181,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>
 
  <?php
-     if ($_SERVER["REQUEST_METHOD"] == "POST"){
+     /*if ($_SERVER["REQUEST_METHOD"] == "POST"){
        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
        $username = "db_user";
        $password = "fitgoapp";
@@ -193,9 +193,6 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
        }
  
        $bmr = $_POST['BMR'];
-       echo "Found bmr was: ";
-       echo $bmr;
-       echo ".";
        $protein = $_POST['protein'];
        $carbs = $_POST['carbs'];
        $fat = $_POST['fat'];
@@ -207,7 +204,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
        } else {
          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
        }
-       mysqli_close($conn);
+       mysqli_close($conn);*/
     }
    ?>
    
@@ -251,6 +248,20 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
     FB.getLoginStatus(function(response) {
       statusChangeCallback2(response);
     });
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    xmlhttp.open("GET", "macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value,true);
+    xmlhttp.send();
 
     return logState;
   }

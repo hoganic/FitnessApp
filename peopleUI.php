@@ -127,6 +127,16 @@
 			</div>
 			<div class="card">
 				<div class="header">
+					<h4 class="title">Macros</h4>
+				</div>
+				<form>
+					User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">
+					<input type="text" name="UserProtein" id="UserProtein" value="0">
+					<input type="text" name="UserFat" id="Userfat" value="0">
+					<input type="text" name="UserCalories" id="UserCalories" value="0">
+				</form>
+					
+				<div class="header">
 					<h4 class="title">Food Search</h4>
                 <form>
     Food Search <input type="text" name="query" id="query">
@@ -223,7 +233,11 @@
         var totals = [0,0,0,0];
     $(document).ready(function () {
         $(document).click(function(){
-              var totals = [0,0,0,0];
+	      var UserCarbs = document.getElementById("UserCarbs").value;
+	      var UserProtein = document.getElementById("UserProtein").value;
+	      var UserFat = document.getElementById("UserFat").value;
+	      var UserCalories = document.getElementById("UserCalories").value;
+              var totals = [UserCarbs,UserProtein,UserFat,UserCalories];
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               $dataRows.each(function() {
                   $(this).find('.colTotal').each(function(i){

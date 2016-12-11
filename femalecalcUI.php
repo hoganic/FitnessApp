@@ -171,6 +171,7 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 
   <p>Calories: <strong><output style="display:inline" name="calories" for="carbs fat protein">0</output></strong></p>
 
+ <p><input type="submit" name="submit" value="Save Your Macros" /></p>  
 
 </form>
 

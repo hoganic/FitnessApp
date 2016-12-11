@@ -132,7 +132,7 @@
 				<form>
 					User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">
 					<input type="text" name="UserProtein" id="UserProtein" value="0">
-					<input type="text" name="UserFat" id="Userfat" value="0">
+					<input type="text" name="UserFat" id="UserFat" value="0">
 					<input type="text" name="UserCalories" id="UserCalories" value="0">
 				</form>
 					
@@ -237,7 +237,8 @@
 	      var UserProtein = document.getElementById("UserProtein").value;
 	      var UserFat = document.getElementById("UserFat").value;
 	      var UserCalories = document.getElementById("UserCalories").value;
-              var totals = [UserCarbs,UserProtein,UserFat,UserCalories];
+	      console.log(document.getElementById("UserCarbs").value);
+              //var totals = [UserCarbs,UserProtein,UserFat,UserCalories];
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               $dataRows.each(function() {
                   $(this).find('.colTotal').each(function(i){

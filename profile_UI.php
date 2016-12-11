@@ -97,9 +97,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">
-                                Log out
-                            </a>
+                            <a><span class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope="public_profile,email,user_friends" onlogin="checkLoginState();"></span></a>
                         </li>
                     </ul>
                 </div>
@@ -178,12 +176,12 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>My Goal</label>
-                                                <textarea rows="5" class="form-control" placeholder="My goal" value="Mike"></textarea>
+                                                <textarea rows="5" id="goal" class="form-control" placeholder="My goal" value="Mike"></textarea>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-info btn-fill pull-right" id="submitButton">Update Profile</button>
+                                    <button type="submit" onsubmit="return checkfbstatus()" class="btn btn-info btn-fill pull-right" id="submitButton">Update Profile</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -197,7 +195,7 @@
                             <div class="content">
                                 <div class="author">
                                      <a href="#">
-                                    <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
+                                    <img class="avatar border-gray" id="profilePic" src="assets/img/faces/face-3.jpg" alt="..."/>
 
                                       <h4 class="title">Your name<br />
                                          <small>Your FBid</small>
@@ -237,6 +235,227 @@
     </div>
 </div>
 
+<script>
+
+  var foundUserFlag = false;
+  var logState = false;
+  var fbuid;
+  var row;
+
+  function checkfbstatus(){
+    console.log('checkfbstatus');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback2(response);
+    });
+    console.log(logState);
+    var createNew;
+    if(foundUserFlag){
+      createNew = "no";
+    }else{
+      createNew = "yes";
+    }
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    console.log("This is what the link is building to...");
+    console.log("userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew);
+    xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
+    xmlhttp.send();
+
+    if(!(/^[A-Za-z\s]+$/.test(document.getElementById("FirstName").value))){
+      logState = false;
+    }
+    if(!(/^[A-Za-z\s]+$/.test(document.getElementById("LastName").value))){
+      logState = false;
+    }
+    if(document.getElementById("height").value < 1){
+      logState = false;
+    }
+    if(document.getElementById("weight").value < 1){
+      logState = false;
+    }
+    if(document.getElementById("weight").value < 1){
+      logState = false;
+    }
+    if(document.getElementById("age").value < 1){
+      logState = false;
+    }
+    if(!document.querySelector('input[name="gender"]:checked').value){
+      logState = false;
+    }
+    if(document.getElementById("bfp").value < 1){
+      logState = false;
+    }
+
+
+    return logState;
+  }
+
+  function statusChangeCallback2(response) {
+    console.log('statusChangeCallback2');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      logState = true;
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      logState = false;
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      logState = false;
+    }
+  }
+
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      fbuid = response.authResponse.userID;
+      console.log("Found fbuid of "+fbuid);
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1169538589774243',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+  
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Resonse: ' + response);
+      //document.getElementById('status').innerHTML =
+      //  'Thanks for logging in, ' + response.name + '!';
+    });
+
+    FB.api('/me/picture?width=180&height=180', function (response) {
+      console.log(response);
+      //$('<img>', {
+      //  src: response.data.url
+      //}).appendTo('body');
+      var pP = document.getElementById('profilePic');
+      pP.innerHTML = '<img alt=' + response.data.url + '>';
+    });
+
+    row = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row);
+      var user;
+      for(x in row){
+        if(row[x]["facebook_uid"] == fbuid){
+            user = row[x];
+        }
+      }
+      document.getElementById("FirstName").value = user["first_name"];
+      document.getElementById("LastName").value = user["last_name"];
+      document.getElementById("height").value = user["height"];
+      document.getElementById("weight").value = user["weight"];
+      document.getElementById("age").value = user["age"];
+      if(user["gender"] == "male"){
+        document.getElementById("gender_male").checked = true;
+      }
+      if(user["gender"] == "femal"){
+        document.getElementById("gender_female").checked = true;
+      }
+      document.getElementById("bfp").value = user["bfp"];
+      document.getElementById("goal").value = user["goal"];
+  }
+</script>
 
 </body>
 

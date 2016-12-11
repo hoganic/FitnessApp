@@ -238,7 +238,7 @@
 	      var UserFat = document.getElementById("UserFat").value;
 	      var UserCalories = document.getElementById("UserCalories").value;
 	      console.log(document.getElementById("UserCarbs").value);
-              //var totals = [UserCarbs,UserProtein,UserFat,UserCalories];
+              var totals = [UserCarbs,UserProtein,UserFat,UserCalories];
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               $dataRows.each(function() {
                   $(this).find('.colTotal').each(function(i){

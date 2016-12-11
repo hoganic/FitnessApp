@@ -242,7 +242,7 @@
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               $dataRows.each(function() {
                   $(this).find('.colTotal').each(function(i){
-                      totals[i]-=parseFloat( $(this).html());
+                      totals[i]-=parseFloat( $(this).html()).toFixed(6);
                   });
               });
               $("#myTableData td.totalC").each(function(i){

@@ -350,7 +350,7 @@
       }
       console.log(user["facebook_uid"]);
       document.getElementById("UserCalories").value = user["calories"];
-      document.getElementById("UserFat").vlaue = user["fat"];
+      document.getElementById("UserFat").value = user["fat"];
       document.getElementById("UserProtein").value = user["protein"];
       document.getElementById("UserCarbs").value = user["carbs"];
     } else if (response.status === 'not_authorized') {

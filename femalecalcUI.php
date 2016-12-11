@@ -161,15 +161,15 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
  <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
   <input type="hidden" id="fbuid" name="fbuid" value="">
 
-  <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age activity">0</output></strong></p>
+  <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 
-  <p>Protein: <strong><output style="display:inline" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
+  <p>Protein: <strong><output style="display:inline" id="protein" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
 
-  <p>Fat: <strong><output style="display:inline" name="fat" for="fatMult bodyfat weight">0</output></strong></p>
+  <p>Fat: <strong><output style="display:inline" id="fat" name="fat" for="fatMult bodyfat weight">0</output></strong></p>
 
-  <p>Carbs: <strong><output style="display:inline" name="carbs" for="BMR fat protein goal">0</output></strong></p>
+  <p>Carbs: <strong><output style="display:inline" id="carbs" name="carbs" for="BMR fat protein goal">0</output></strong></p>
 
-  <p>Calories: <strong><output style="display:inline" name="calories" for="carbs fat protein">0</output></strong></p>
+  <p>Calories: <strong><output style="display:inline" id="calories" name="calories" for="carbs fat protein">0</output></strong></p>
 
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>  
 

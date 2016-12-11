@@ -115,15 +115,14 @@
 					   follow this pattern. The number of meals per today is based on the number of macros the user
 						requires and how much the user wants to eat per meal, generally 3 to 6 meals. </p>
 					<p> Meal Creation:</p>
-					<p> 1) Choose a protein to search for in the search bar. i.e. Chicken, Steak, Pork, etc.
-					    2) Change quantity based on desired amount and to fit macros.
-					    3) Repeat these steps for desired carbohydrate (bread, pasta, potatoes, quinoa, rice) and vegtables
-					</p>
+					<p> 1) Choose a protein to search for in the search bar. i.e. Chicken, Steak, Pork, etc. </p>
+					<p> 2) Change quantity based on desired amount and to fit macros. </p>
+					<p> 3) Repeat these steps for desired carbohydrate (bread, pasta, potatoes, quinoa, rice) and vegtables.</p>
 					<p> Snacks </p>
 					<p> A snack is considered a meal and should be numbered as the next meal, however generally a snack is 
-						small consisting of only a singular or few foods </p>
-					<p> A snack can range from a piece of fruit to chips or any desired snack food </p>
-					<p> As long as it fits in the macros, it is in your diet </p>
+						small consisting of only a singular or few foods. </p>
+					<p> A snack can range from a piece of fruit to chips or any desired snack food. </p>
+					<p> As long as it fits in the macros, it is in your diet. </p>
 					   
 			</div>
 			<div class="card">

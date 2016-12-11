@@ -349,7 +349,10 @@
         }
       }
       console.log(user["facebook_uid"]);
-      //document.getElementById("UserCalories").value = row[fbuid]
+      document.getElementById("UserCalories").value = user["calories"];
+      document.getElementById("UserFat").vlaue = user["fat"];
+      document.getElementById("UserProtein").value = user["protein"];
+      document.getElementById("UserCarbs").value = user["carbs"];
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       logState = false;

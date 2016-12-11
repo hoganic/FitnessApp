@@ -274,6 +274,107 @@
     }
 </script>
 
+<script>
+
+  var logState = false;
+
+  function checkfbstatus(){
+    console.log('checkfbstatus');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback2(response);
+    });
+
+    if(window.XMLHttpRequest){
+      xmlhttp = new XMLHttpRequest();
+    }else{
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200){
+        //If I need to add a response from PHP
+      }
+    };
+    console.log("macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value)
+    //xmlhttp.open("GET", "macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value,true);
+    //xmlhttp.send();
+
+    return logState;
+  }
+
+  function statusChangeCallback2(response) {
+    console.log('statusChangeCallback2');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      logState = true;
+      row = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, bmr, protein, carbs, fat, calories FROM user_macro";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row);
+      console.log(row[1]["facebook_uid"]);
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      logState = false;
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      logState = false;
+    }
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1169538589774243',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback2(response);
+  });
+  };
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../../dist/js/bootstrap.min.js"></script>

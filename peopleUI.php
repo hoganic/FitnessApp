@@ -130,10 +130,10 @@
 					<h4 class="title">Macros</h4>
 				</div>
 				<form>
-					User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">
-					<input type="text" name="UserProtein" id="UserProtein" value="0">
-					<input type="text" name="UserFat" id="UserFat" value="0">
-					<input type="text" name="UserCalories" id="UserCalories" value="0">
+					User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
+					<input type="text" name="UserProtein" id="UserProtein" value="0">Protein
+					<input type="text" name="UserFat" id="UserFat" value="0">Fat
+					<input type="text" name="UserCalories" id="UserCalories" value="0">Calories
 				</form>
 					
 				<div class="header">

@@ -233,11 +233,10 @@
         var totals = [0,0,0,0];
     $(document).ready(function () {
         $(document).click(function(){
-	      var UserCarbs = document.getElementById("UserCarbs").value;
-	      var UserProtein = document.getElementById("UserProtein").value;
-	      var UserFat = document.getElementById("UserFat").value;
-	      var UserCalories = document.getElementById("UserCalories").value;
-	      console.log(document.getElementById("UserCarbs").value);
+	      var UserCarbs = parseFloat(document.getElementById("UserCarbs").value);
+	      var UserProtein = parseFloat(document.getElementById("UserProtein").value);
+	      var UserFat = parseFloat(document.getElementById("UserFat").value);
+	      var UserCalories = parseFloat(document.getElementById("UserCalories").value);
               var totals = [UserCarbs,UserProtein,UserFat,UserCalories];
               var $dataRows=$("#myTableData tr:not('.totals, .title')");
               $dataRows.each(function() {

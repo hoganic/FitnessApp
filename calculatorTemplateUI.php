@@ -260,6 +260,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
         //If I need to add a response from PHP
       }
     };
+    console.log("macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value)
     xmlhttp.open("GET", "macro.php?fbuid="+document.getElementById("fbuid").value+"&bmr="+document.getElementById("BMR").value+"&pro="+document.getElementById("protein").value+"&car="+document.getElementById("carbs").value+"&fat="+document.getElementById("fat").value+"&cal="+document.getElementById("calories").value,true);
     xmlhttp.send();
 

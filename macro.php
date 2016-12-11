@@ -5,23 +5,23 @@
 
 <?php
   $fbuid = intval($_GET["fbuid"]);
-  //echo "<br><br>fbuid found "; 
-  //echo $fbuid;
+  echo "<br><br>fbuid found "; 
+  echo $fbuid;
   $bmr = intval($_GET["bmr"]);
-  //echo "<br><br>bmr found ";
-  //echo $bmr;
+  echo "<br><br>bmr found ";
+  echo $bmr;
   $pro = intval($_GET["pro"]);
-  //echo "<br><br>protein found ";
-  //echo $pro;
+  echo "<br><br>protein found ";
+  echo $pro;
   $car = intval($_GET["car"]);
-  //echo "<br><br>carbs found ";
-  //echo $car;
+  echo "<br><br>carbs found ";
+  echo $car;
   $fat = intval($_GET["fat"]);
-  //echo "<br><br>fat found ";
-  //echo $fat;
+  echo "<br><br>fat found ";
+  echo $fat;
   $cal = intval($_GET["cal"]);
-  //echo "<br><br>calories found ";
-  //echo $cal;
+  echo "<br><br>calories found ";
+  echo $cal;
   
   $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
   $username = "db_user";

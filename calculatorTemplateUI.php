@@ -269,7 +269,11 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
       version    : 'v2.7'
     });
     FB.AppEvents.logPageView();
-  }
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback2(response);
+  });
+  };
   // Load the SDK asynchronously
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];

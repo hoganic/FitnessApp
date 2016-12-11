@@ -224,7 +224,7 @@
 &nbsp;
  
 </div>  
-<p><input type="submit" name="submit" value="Save Your Macros" /></p>
+<p><input type="submit" name="submit" value="Save your meals to your profile." /></p>
   <script>
         function updateText() {
              document.getElementById("servings").value = document.getElementById("serving_size").value;

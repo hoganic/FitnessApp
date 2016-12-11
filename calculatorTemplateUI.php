@@ -193,6 +193,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
        }
  
        $bmr = $_POST['BMR'];
+       echo $bmr;
        $protein = $_POST['protein'];
        $carbs = $_POST['carbs'];
        $fat = $_POST['fat'];

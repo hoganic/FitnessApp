@@ -224,7 +224,7 @@
 &nbsp;
  
 </div>  
-<p><input type="submit" name="submit" value="Save your meals to your profile." /></p>
+<p><button onclick="buildSubmit()">Save your meals to your profile.</button></p>
   <script>
         function updateText() {
              document.getElementById("servings").value = document.getElementById("serving_size").value;
@@ -278,6 +278,35 @@
 <script>
 
   var logState = false;
+
+  var linkVar = "";
+
+  function buildSubmit(){
+    var testVar = tableCells(myTableData)
+    /*var table = document.getElementById("myTableData");
+    for(var i = 0, row; row = table.rows[i]; i++){
+        for(var j = 0, col; col = row.cell[j]; j++){
+            if(j==1){
+                link = link+"&mealNum="+col;
+            } else if (j==2){
+                link = link+"&food="+col;
+            } else if (j==3){
+                link = link+"&servSize="+col;
+            } else if (j==4){
+                link = link+"&amount="+col;
+            } else if (j==5){
+                link = link+"&carbs="+col;
+            }
+        }
+    }*/
+        function tableCells(t){
+            if(t.cells) return t.cells; // use internal routine when supported
+            for(var a=[], r=t.rows, y=0, c, x; t=r[y++];){
+                for(c=t.cells, x=0; t=c[x++]; a.push(t));
+            } 
+            return a;
+        }
+  }
 
   function checkfbstatus(){
     console.log('checkfbstatus');

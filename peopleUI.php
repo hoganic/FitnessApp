@@ -308,6 +308,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       logState = true;
+      fbuid = response.authResponse.userID;
       row = <?php 
         $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
         $username = "db_user";
@@ -341,7 +342,14 @@
         ?>;
       console.log("test print row")
       console.log(row);
-      console.log(row[1]["facebook_uid"]);
+      var user;
+      for(x in row){
+        if(row[x]["facebook_uid"] == fbuid){
+            user = row[x];
+        }
+      }
+      console.log(user["facebook_uid"]);
+      //document.getElementById("UserCalories").value = row[fbuid]
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       logState = false;

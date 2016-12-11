@@ -114,7 +114,7 @@
             <div class="container-fluid">
                 <div class="row">
 <body>
-<form onsubmit="return checkfbstatus()" onchange="BMR.value=((66+(6.23*weight.valueAsNumber)+(12.7*height.valueAsNumber)-(6.8*age.valueAsNumber))*activity.value).toFixed(0);
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return checkfbstatus()" onchange="BMR.value=((66+(6.23*weight.valueAsNumber)+(12.7*height.valueAsNumber)-(6.8*age.valueAsNumber))*activity.value).toFixed(0);
 protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.value*9)/4).toFixed(0);
@@ -137,38 +137,38 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
   <input type="number" min="0" id="bodyfat" value=0 name="bodyfat"></p>
 
   <p><label for="proteinMult">Protein Multiplier:</label>
-  <input type="radio" id="proteinMult" value=1 name="proteinMult">1g
-  <input type="radio" id="proteinMult" value=1.5 name="proteinMult">1.5g</p>
+  <input type="radio" id="proteinMult1" value=1 name="proteinMult">1g
+  <input type="radio" id="proteinMult2" value=1.5 name="proteinMult">1.5g</p>
 
   <p><label for="fatMult">Fat Multiplier:</label>
-  <input type="radio" id="fatMult" value=.35 name="fatMult">.35g
-  <input type="radio" id="fatMult" value=.5 name="fatMult">.5g</p>
+  <input type="radio" id="fatMult1" value=.35 name="fatMult">.35g
+  <input type="radio" id="fatMult2" value=.5 name="fatMult">.5g</p>
 
    <p><label for="goal">Goal:</label>
-  <p><input type="radio" id="goal" value=-500 name="goal">Lose 1 pound/week</p>
-  <p><input type="radio" id="goal" value=-250 name="goal">Lose .5 pound/week</p>
-  <p><input type="radio" id="goal" value=0 name="goal">Maintain</p>
-  <p><input type="radio" id="goal" value=250 name="goal">Gain .5 pound/week</p>
- <p><input type="radio" id="goal" value=500 name="goal">Gain 1 pound/week</p>
+  <p><input type="radio" id="goal1" value=-500 name="goal">Lose 1 pound/week</p>
+  <p><input type="radio" id="goal2" value=-250 name="goal">Lose .5 pound/week</p>
+  <p><input type="radio" id="goal3" value=0 name="goal">Maintain</p>
+  <p><input type="radio" id="goal4" value=250 name="goal">Gain .5 pound/week</p>
+ <p><input type="radio" id="goal5" value=500 name="goal">Gain 1 pound/week</p>
 
    <p><label for="activity">Level of Activity:</label>
-  <p><input type="radio" id="activity" value=1.2 name="activity">Little or No exercise</p>
-  <p><input type="radio" id="activity" value=1.375 name="activity">Light exercise/sports 1-3 days/week</p>
-  <p><input type="radio" id="activity" value=1.55 name="activity">Moderate exercise/sports 3-5 days/week</p>
-  <p><input type="radio" id="activity" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
- <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
+  <p><input type="radio" id="activity1" value=1.2 name="activity">Little or No exercise</p>
+  <p><input type="radio" id="activity2" value=1.375 name="activity">Light exercise/sports 1-3 days/week</p>
+  <p><input type="radio" id="activity3" value=1.55 name="activity">Moderate exercise/sports 3-5 days/week</p>
+  <p><input type="radio" id="activity4" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
+ <p><input type="radio" id="activity5" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
+  <input type="hidden" id="fbuid" name="fbuid" value="">
 
 
+  <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 
-  <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age activity">0</output></strong></p>
+  <p>Protein: <strong><output style="display:inline" id="protein" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
 
-  <p>Protein: <strong><output style="display:inline" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
+  <p>Fat: <strong><output style="display:inline" id="fat" name="fat" for="fatMult bodyfat weight">0</output></strong></p>
 
-  <p>Fat: <strong><output style="display:inline" name="fat" for="fatMult bodyfat weight">0</output></strong></p>
+  <p>Carbs: <strong><output style="display:inline" id="carbs" name="carbs" for="BMR fat protein goal">0</output></strong></p>
 
-  <p>Carbs: <strong><output style="display:inline" name="carbs" for="BMR fat protein goal">0</output></strong></p>
-
-  <p>Calories: <strong><output style="display:inline" name="calories" for="carbs fat protein">0</output></strong></p>
+  <p>Calories: <strong><output style="display:inline" id="calories" name="calories" for="carbs fat protein">0</output></strong></p>
 	
 	
 
@@ -176,7 +176,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>
 
  <?php
-     /*if (isset($_POST['submit'])):
+     if ($_SERVER["REQUEST_METHOD"] == "POST"){
        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
        $username = "db_user";
        $password = "fitgoapp";
@@ -192,14 +192,15 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
        $carbs = $_POST['carbs'];
        $fat = $_POST['fat'];
        $calories = $_POST['calories'];
-       $sql = "INSERT INTO user_macro (bmr, protein, carbs, fat, calories)
-       VALUES ($bmr, $protein, $carbs, $fat, $calories)";
+       $fbuid = $_POST['fbuid'];
+       $sql = "INSERT INTO user_macro (fbuid, bmr, protein, carbs, fat, calories) VALUES ($fbuid, $bmr, $protein, $carbs, $fat, $calories);";
        if (mysqli_query($conn, $sql)) {
-         echo "New record created successfully";
+         echo "Your macros have been saved successfully!";
        } else {
          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
        }
-       mysqli_close($conn);*/
+       mysqli_close($conn);
+    }
    ?>
    
 
@@ -252,6 +253,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       logState = true;
+      document.getElementById("fbuid").value = response.authResponse.userID;
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       logState = false;

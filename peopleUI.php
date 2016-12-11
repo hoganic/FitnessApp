@@ -282,9 +282,7 @@
   var linkVar = "";
 
   function buildSubmit(){
-    var testVar = tableCells(myTableData);
-    console.log(testVar);
-    /*var table = document.getElementById("myTableData");
+    var table = document.getElementById("myTableData");
     for(var i = 0, row; row = table.rows[i]; i++){
         for(var j = 0, col; col = row.cell[j]; j++){
             if(j==1){
@@ -299,14 +297,8 @@
                 link = link+"&carbs="+col;
             }
         }
-    }*/
-        function tableCells(t){
-            if(t.cells) return t.cells; // use internal routine when supported
-            for(var a=[], r=t.rows, y=0, c, x; t=r[y++];){
-                for(c=t.cells, x=0; t=c[x++]; a.push(t));
-            } 
-            return a;
-        }
+    }
+    console.log(table)
   }
 
   function checkfbstatus(){

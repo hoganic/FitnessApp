@@ -85,7 +85,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Calculate your Macros</a>
+			<a class="navbar-brand" href="#"><b>Calculate your Macros</b></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">

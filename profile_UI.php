@@ -200,10 +200,10 @@
                                       <h4 class="title" id="FB_name">Your name<br />
                                          <small>Macros</small><br>
                                       </h4>
-                                      <h5>Fat: </h5><<h5 id="FB_fat"> </h5><br>
-                                      <h5>Carbs: </h5><h5 id="FB_protein"> </h5><br>
-                                      <h5>Protein: </h5><h5 id="FB_protein"> </h5><br>
-                                      <h5>Calories: </h5><h5 id="FB_calories"> </h5>
+                                      <h5 id="FB_fat"> </h5><br>
+                                      <h5 id="FB_carbs"> </h5><br>
+                                      <h5 id="FB_protein"> </h5><br>
+                                      <h5 id="FB_calories"> </h5>
                                     </a>
                                 </div>
                             </div>
@@ -510,10 +510,10 @@
         }
       }
       console.log(user2["facebook_uid"]);
-      document.getElementById("FB_calories").innerHTML = user2["calories"];
-      document.getElementById("FB_fat").innerHTML = user2["fat"];
-      document.getElementById("FB_protein").innerHTML = user2["protein"];
-      document.getElementById("FB_carbs").innerHTML = user2["carbs"];
+      document.getElementById("FB_calories").innerHTML = "Calories: "+user2["calories"];
+      document.getElementById("FB_fat").innerHTML = "Fat: "+user2["fat"];
+      document.getElementById("FB_protein").innerHTML = "Protein: "+user2["protein"];
+      document.getElementById("FB_carbs").innerHTML = "Carbs: "+user2["carbs"];
   }
 </script>
 

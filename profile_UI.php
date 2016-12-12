@@ -399,7 +399,7 @@
       console.log('Resonse: ' + response);
       //document.getElementById('status').innerHTML =
       //  'Thanks for logging in, ' + response.name + '!';
-      document.getElementById('FB_name').value = response.name;
+      document.getElementById('FB_name').innerHTML = response.name;
     });
 
     FB.api('/me/picture?width=180&height=180', function (response) {

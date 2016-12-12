@@ -5,7 +5,7 @@
 
 <?php
   $mealNum = array();
-  $servSize = array();
+  $servUnits = array();
   $amount = array();
   $carbs = array();
   $prot = array();
@@ -24,7 +24,7 @@
     } else if ($key == "food") {
       array_push($food, $value);
     } else if ($key == "servSize") {
-      array_push($servSize, $value);
+      array_push($servUnits, $value);
     } else if ($key == "amount") {
       array_push($amount, $value);
     } else if ($key == "carbs") {
@@ -39,7 +39,7 @@
   }
 
   for ($i = 0; $i<count($mealNum); $i++) {
-    echo "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]." %%% ".$today.");";
+    echo "INSERT INTO $fbuid_meals (food_item, serving_units, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servUnits[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]." %%% ".$today.");";
   }
   
   $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
@@ -56,7 +56,7 @@
 
   $sql = "";
   for ($i = 0; $i<count($mealNum); $i++) {
-    $sql .= "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]." %%% ".$today."); ";
+    $sql .= "INSERT INTO $fbuid_meals (food_item, serving_units, user_amount, carbs, protein, fat, calories, tags) VALUES ('$food[$i]', '$servUnits[$i]', $amount[$i], $carbs[$i], $prot[$i], $fat[$i], $calor[$i], '$mealNum[$i] %%% $today'); ";
   }
 
   $result = mysqli_multi_query($con,$sql);

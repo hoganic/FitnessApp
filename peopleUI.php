@@ -79,7 +79,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Plan Your Meal for Today</a>
+			<a class="navbar-brand" href="#"><strong>Plan Your Meal for Today</strong></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -110,43 +110,52 @@
                 <div class="fixed">
 			<div class="card">
 				<div class="header">
-					<h4 class="title">Instructions</h4>
-					<p> Each meal should contain a source Protein, Carbs, and a Vegtable and meal creation will 
+					<h4 class="title"><strong>Instructions:</strong></h4>
+					&nbsp;
+					<p> Each meal should contain a source Protein, Carbs, and a Vegetable and meal creation will 
 					   follow this pattern. The number of meals per today is based on the number of macros the user
 						requires and how much the user wants to eat per meal, generally 3 to 6 meals. </p>
-					<p> Meal Creation:</p>
+					&nbsp;
+					
+					<h5><b> Meal Creation:</b></h5>
 					<p> 1) Choose a protein to search for in the search bar. i.e. Chicken, Steak, Pork, etc. </p>
 					<p> 2) Change quantity based on desired amount and to fit macros. </p>
 					<p> 3) Repeat these steps for desired carbohydrate (bread, pasta, potatoes, quinoa, rice) and vegtables.</p>
-					<p> Snacks </p>
+					&nbsp;
+					
+					<h5><b> Snacks: </b></h5>
 					<p> A snack is considered a meal and should be numbered as the next meal, however generally a snack is 
 						small consisting of only a singular or few foods. </p>
 					<p> A snack can range from a piece of fruit to chips or any desired snack food. </p>
 					<p> As long as it fits in the macros, it is in your diet. </p>
-					   
+			&nbsp;
+					&nbsp;
 			</div>
 			<div class="card">
 				<div class="header">
-					<h4 class="title">Macros</h4>
+					<h4 class="title"><strong>Macros:</strong></h4>
+					&nbsp;
 				</div>
 				<form>
-					User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
-					<input type="text" name="UserProtein" id="UserProtein" value="0">Protein
-					<input type="text" name="UserFat" id="UserFat" value="0">Fat
-					<input type="text" name="UserCalories" id="UserCalories" value="0">Calories
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>User Macros:</b> &nbsp;&nbsp; Carbs: <input type="text" name="UserCarbs" id="UserCarbs" value="0"> &nbsp;&nbsp;Protein:
+					<input type="text" name="UserProtein" id="UserProtein" value="0">&nbsp;&nbsp;Fat:
+					<input type="text" name="UserFat" id="UserFat" value="0">&nbsp;&nbsp;Calories:
+					<input type="text" name="UserCalories" id="UserCalories" value="0">
 				</form>
 					
+				<hr>
 				<div class="header">
-					<h4 class="title">Food Search</h4>
+					<h4 class="title"><strong>Food Search:</strong></h4>
+					&nbsp;
                 <form>
-    Food Search <input type="text" name="query" id="query">
+    Food Search: <input type="text" name="query" id="query">
     <input type="Submit" value="Search" onClick="return search_request()">
 </form>
 <p id="mealPlan"></p>   
     
 <table>
     <tr>
-        <td>Meal Number</td>
+        <td>Meal Number:</td>
         <td><input type="text" id="mealno"></td>
     </tr>
 
@@ -158,7 +167,7 @@
         <td> Serving Sizes:
         <select id="serving_size" onchange="updateText()">
           <option id ="serving_size_unit" value=''>Unit</option>
-          <option id ="serving_size_container" value=''>Container</option>
+          <!--<option id ="serving_size_container" value=''>Container</option>-->
           <option id ="serving_size_grams" value=''>Grams</option>
           </select></td>
         <td><input type="text" value="" id="servings"></td> 
@@ -194,8 +203,8 @@
 </div>
 
 <div id="mydata">
-<b>Your Current Plan</b>
-<table id="myTableData"  border="1" cellpadding="2">
+&nbsp;&nbsp;<b>Your Current Plan</b>
+&nbsp;&nbsp;<table id="myTableData"  border="1" cellpadding="2">
   <tbody>
     <tr class="title">
         <td>&nbsp;</td>
@@ -224,7 +233,7 @@
 &nbsp;
  
 </div>  
-<p><button onclick="buildSubmit()">Save your meals to your profile.</button></p>
+&nbsp; &nbsp;<p><button onclick="buildSubmit()">Save your meals to your profile.</button></p>
   <script>
         function updateText() {
              document.getElementById("servings").value = document.getElementById("serving_size").value;
@@ -264,7 +273,7 @@
               console.log(data["hits"][0]["fields"]["nf_serving_size_unit"]);
               document.getElementById("food").value = data["hits"][0]["fields"]["item_name"];
               document.getElementById("serving_size_grams").value = data["hits"][0]["fields"]["nf_serving_weight_grams"];
-              document.getElementById("serving_size_container").value = data["hits"][0]["fields"]["nf_servings_per_container"];
+              //document.getElementById("serving_size_container").value = data["hits"][0]["fields"]["nf_servings_per_container"];
               document.getElementById("serving_size_unit").value = data["hits"][0]["fields"]["nf_serving_size_unit"];
               document.getElementById("carbs").value = data["hits"][0]["fields"]["nf_total_carbohydrate"];
               document.getElementById("protein").value = data["hits"][0]["fields"]["nf_protein"];

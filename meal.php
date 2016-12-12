@@ -24,10 +24,11 @@
     } else if ($key == "food") {
       array_push($food, $value);
     } else if ($key == "servSize") {
+      $temp = '';
       if (is_int($value)) {
-        $value = strval($value)." Grams";
+        $temp = strval($value)." Grams";
       }
-      array_push($servUnits, $value);
+      array_push($servUnits, $temp);
     } else if ($key == "amount") {
       array_push($amount, $value);
     } else if ($key == "carbs") {

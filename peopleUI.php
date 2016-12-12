@@ -136,7 +136,7 @@
 					&nbsp;
 				</div>
 				<form>
-					&nbsp;&nbsp;<b>User Macros:</b> &nbsp;&nbsp; Carbs: <input type="text" name="UserCarbs" id="UserCarbs" value="0"> &nbsp;&nbsp;Protein:
+					&nbsp;&nbsp;&nbsp;<b>User Macros:</b> &nbsp;&nbsp; Carbs: <input type="text" name="UserCarbs" id="UserCarbs" value="0"> &nbsp;&nbsp;Protein:
 					<input type="text" name="UserProtein" id="UserProtein" value="0">&nbsp;&nbsp;Fat:
 					<input type="text" name="UserFat" id="UserFat" value="0">&nbsp;&nbsp;Calories:
 					<input type="text" name="UserCalories" id="UserCalories" value="0">
@@ -201,8 +201,8 @@
 </div>
 
 <div id="mydata">
-<b>Your Current Plan</b>
-<table id="myTableData"  border="1" cellpadding="2">
+&nbsp;&nbsp;<b>Your Current Plan</b>
+&nbsp;&nbsp;<table id="myTableData"  border="1" cellpadding="2">
   <tbody>
     <tr class="title">
         <td>&nbsp;</td>

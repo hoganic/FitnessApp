@@ -37,7 +37,9 @@
     }
   }
 
-  echo $mealNum[0];
+  for ($i = 0; $i<count($mealNum); $i++) {
+    echo "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]."\n".$today).";";
+  }
   /*$servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
   $username = "db_user";
   $password = "fitgoapp";

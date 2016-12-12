@@ -197,8 +197,8 @@
                                      <a href="#">
                                     <img class="avatar border-gray" id="profilePic" src="assets/img/faces/face-3.jpg" alt="..."/>
 
-                                      <h4 class="title">Your name<br />
-                                         <small>Your FBid</small>
+                                      <h4 class="title" id="FB_name">Your name<br />
+                                         <small id="FB_id">Your FBid</small>
                                       </h4>
                                     </a>
                                 </div>
@@ -399,6 +399,7 @@
       console.log('Resonse: ' + response);
       //document.getElementById('status').innerHTML =
       //  'Thanks for logging in, ' + response.name + '!';
+      document.getElementById('FB_name').value = response.name;
     });
 
     FB.api('/me/picture?width=180&height=180', function (response) {

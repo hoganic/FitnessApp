@@ -166,7 +166,10 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
   <p><input type="radio" id="activity4" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
  <p><input type="radio" id="activity5" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
   <input type="hidden" id="fbuid" name="fbuid" value="">
-
+	
+   &nbsp;
+	&nbsp;
+	&nbsp;
 
   <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 

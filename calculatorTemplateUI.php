@@ -172,6 +172,8 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
    &nbsp;
 	&nbsp;
 	&nbsp;
+	
+		<p><strong> OUTPUT: </strong></p>
 
   <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 
@@ -186,7 +188,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 	&nbsp;
 	&nbsp;
 	
-	<p><strong> OUTPUT: </strong></p>
+
 
   <!-- If submit, push the data into mysql database -->
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>  

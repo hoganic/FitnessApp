@@ -205,6 +205,7 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 
 <script>
 
+  var fbuid;
   var logState = false;
 
   function checkfbstatus(){
@@ -236,6 +237,7 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      fbuid = response.authResponse.userID;
       logState = true;
       document.getElementById("fbuid").value = response.authResponse.userID;
       row = <?php 

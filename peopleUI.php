@@ -136,9 +136,9 @@
 					&nbsp;
 				</div>
 				<form>
-					&nbsp;User Macros:&nbsp; Carbs: <input type="text" name="UserCarbs" id="UserCarbs" value="0"> &nbsp;Protein:
-					<input type="text" name="UserProtein" id="UserProtein" value="0">&nbsp;Fat:
-					<input type="text" name="UserFat" id="UserFat" value="0">&nbsp;Calories:
+					&nbsp;&nbsp;<b>User Macros:</b> &nbsp;&nbsp; Carbs: <input type="text" name="UserCarbs" id="UserCarbs" value="0"> &nbsp;&nbsp;Protein:
+					<input type="text" name="UserProtein" id="UserProtein" value="0">&nbsp;&nbsp;Fat:
+					<input type="text" name="UserFat" id="UserFat" value="0">&nbsp;&nbsp;Calories:
 					<input type="text" name="UserCalories" id="UserCalories" value="0">
 				</form>
 					&nbsp;

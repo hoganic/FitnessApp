@@ -243,6 +243,7 @@
   var row;
 
   function checkfbstatus(){
+    console.log("I made it here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     console.log('checkfbstatus');
     FB.getLoginStatus(function(response) {
       statusChangeCallback2(response);

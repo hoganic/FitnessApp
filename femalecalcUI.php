@@ -166,6 +166,7 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 
 	&nbsp;
 	&nbsp;
+	<p><strong> OUTPUT: </strong></p>
   <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 
   <p>Protein: <strong><output style="display:inline" id="protein" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
@@ -178,6 +179,9 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 
 	&nbsp;
 	&nbsp;
+	&nbsp;
+	
+
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>  
 
 </form>

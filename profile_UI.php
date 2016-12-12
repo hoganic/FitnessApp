@@ -275,7 +275,7 @@
     }
     console.log("This is what the link is building to...");
     console.log("userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+gender+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew);
-    xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
+    xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+gender+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
     xmlhttp.send();
 
     if(!(/^[A-Za-z\s]+$/.test(document.getElementById("FirstName").value))){
@@ -296,9 +296,9 @@
     if(document.getElementById("age").value < 1){
       logState = false;
     }
-    if(!document.querySelector('input[name="gender"]:checked').value){
-      logState = false;
-    }
+    //if(!document.querySelector('input[name="gender"]:checked').value){
+    //  logState = false;
+    //}
     if(document.getElementById("bfp").value < 1){
       logState = false;
     }

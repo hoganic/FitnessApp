@@ -54,13 +54,12 @@
 
   mysqli_select_db($con,"meal_db");
 
+  $sql = "";
   for ($i = 0; $i<count($mealNum); $i++) {
-    $sql = "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]." %%% ".$today.");";
-
-    $result = mysqli_query($con,$sql);
+    $sql .= "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]." %%% ".$today."); ";
   }
 
-  
+  $result = mysqli_multi_query($con,$sql);
 
   mysqli_close($con);
 ?>

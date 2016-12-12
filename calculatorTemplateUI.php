@@ -212,6 +212,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 
 <script>
 
+  var fbuid;
   var logState = false;
 
   function checkfbstatus(){
@@ -243,8 +244,53 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      fbuid = response.authResponse.userID;
       logState = true;
       document.getElementById("fbuid").value = response.authResponse.userID;
+      row = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row);
+      var user;
+      for(x in row){
+        if(row[x]["facebook_uid"] == fbuid){
+            user = row[x];
+        }
+      }
+      console.log(user);
+      document.getElementById("height").value = user["height"];
+      document.getElementById("weight").value = user["weight"];
+      document.getElementById("age").value = user["age"];
+      document.getElementById("bodyfat").value = user["bfp"];
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       logState = false;

@@ -24,8 +24,8 @@
     } else if ($key == "food") {
       array_push($food, $value);
     } else if ($key == "servSize") {
-      $temp = '';
-      if (is_int($value)) {
+      $temp = "";
+      if (is_int(intval($value))) {
         $temp = strval($value)." Grams";
       }
       array_push($servUnits, $temp);

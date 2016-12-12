@@ -181,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    <button onclick="return checkfbstatus()" class="btn btn-info btn-fill pull-right" id="submitButton">Update Profile</button>
+                                    <button type="button" onclick="return checkfbstatus()" class="btn btn-info btn-fill pull-right" id="submitButton">Update Profile</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

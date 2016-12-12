@@ -127,6 +127,8 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 		are recommended for the user to consume every day to achieve your goal. </p>
 	<p> It is not needed to eat strictly healthy and "clean" in order to achieve your goal, as long as the macros are fulfilled change 
 		will come.</p>
+	<p> Below you will see a Fat and a Protein Multiplyer. These percentage derive from minimum and maximum recommended percentages
+		for fat and protein, respectively, in respect to the User's lean body mass. </p>
 	&nbsp;
 	&nbsp;
 	&nbsp;
@@ -181,7 +183,8 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 
   <p>Calories: <strong><output style="display:inline" id="calories" name="calories" for="carbs fat protein">0</output></strong></p>
 	
-	
+	&nbsp;
+	&nbsp;
 
   <!-- If submit, push the data into mysql database -->
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>  

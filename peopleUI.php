@@ -112,7 +112,7 @@
 				<div class="header">
 					<h4 class="title"><strong>Instructions:</strong></h4>
 					&nbsp;
-					<p> Each meal should contain a source Protein, Carbs, and a Vegtable and meal creation will 
+					<p> Each meal should contain a source Protein, Carbs, and a Vegetable and meal creation will 
 					   follow this pattern. The number of meals per today is based on the number of macros the user
 						requires and how much the user wants to eat per meal, generally 3 to 6 meals. </p>
 					&nbsp;

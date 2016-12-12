@@ -123,6 +123,8 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 		are recommended for the user to consume every day to achieve your goal. </p>
 	<p> It is not needed to eat strictly healthy and "clean" in order to achieve your goal, as long as the macros are fulfilled change 
 		will come.</p>
+	<p> Below you will see a Fat and a Protein Multiplyer. These percentage derive from minimum and maximum recommended percentages
+		for fat and protein, respectively, in respect to the User's lean body mass. </p>
 
   <legend>Female Macro Calculator</legend>
 

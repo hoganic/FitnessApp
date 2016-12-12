@@ -14,6 +14,7 @@
   $food = array();
   $fbuid = intval($_GET["fbuid"]);
   $fbuid_meals = $fbuid."_meals";
+  date_default_timezone_set("America/New_York");
   $today = date("m.d.y");
 
   foreach ($_GET as $key => $value) {
@@ -36,6 +37,10 @@
       array_push($calor, $value);
     }
   }
+
+  /*for ($i = 0; $i<count($mealNum); $i++) {
+    echo "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]."\n".$today.");";
+  }*/
   
   $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
   $username = "db_user";
@@ -50,7 +55,7 @@
   mysqli_select_db($con,"meal_db");
 
   for ($i = 0; $i<count($mealNum); $i++) {
-    $sql = "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES ($food[$i], $servSize[$i], $amount[$i], $carbs[$i], $prot[$i], $fat[$i], $calor[$i], $mealNum[$i].\"\n\".$today);";
+    $sql = "INSERT INTO $fbuid_meals (food_item, serving_size, user_amount, carbs, protein, fat, calories, tags) VALUES (".$food[$i].", ".$servSize[$i].", ".$amount[$i].", ".$carbs[$i].", ".$prot[$i].", ".$fat[$i].", ".$calor[$i].", ".$mealNum[$i]."\n".$today.");";
   }
 
   $result = mysqli_query($con,$sql);

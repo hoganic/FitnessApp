@@ -85,7 +85,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Calculate your Macros</a>
+			<a class="navbar-brand" href="#"><b>Calculate your Macros</b></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -121,13 +121,18 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 ">
 
- <legend>Intro:</legend>
+	<legend><strong>Introduction:</strong></legend>
 	<p> The Male Macro Calculator is specifically designed for the male user using the specific BMR calculation.</p>
 	<p> Once all the User Input is complete the Macro Calculator will display how many grams of Protein, Carbohydrates, and Fats that
 		are recommended for the user to consume every day to achieve your goal. </p>
 	<p> It is not needed to eat strictly healthy and "clean" in order to achieve your goal, as long as the macros are fulfilled change 
 		will come.</p>
-  <legend>Male Macro Calculator</legend>
+	<p> Below you will see a Fat and a Protein Multiplyer. These percentage derive from minimum and maximum recommended percentages
+		for fat and protein, respectively, in respect to the User's lean body mass. </p>
+	&nbsp;
+	&nbsp;
+	&nbsp;
+	<legend><strong>Male Macro Calculator</strong></legend>
 
   <p><label for="height">Your height (inches):</label>
   <input type="number" min="0" id="height" value=0 name="height"></p>
@@ -163,7 +168,10 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
   <p><input type="radio" id="activity4" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
  <p><input type="radio" id="activity5" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
   <input type="hidden" id="fbuid" name="fbuid" value="">
-
+	
+   &nbsp;
+	&nbsp;
+	&nbsp;
 
   <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 
@@ -175,7 +183,8 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 
   <p>Calories: <strong><output style="display:inline" id="calories" name="calories" for="carbs fat protein">0</output></strong></p>
 	
-	
+	&nbsp;
+	&nbsp;
 
   <!-- If submit, push the data into mysql database -->
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>  
@@ -212,6 +221,7 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 
 <script>
 
+  var fbuid;
   var logState = false;
 
   function checkfbstatus(){
@@ -243,8 +253,53 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      fbuid = response.authResponse.userID;
       logState = true;
       document.getElementById("fbuid").value = response.authResponse.userID;
+      row = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, first_name, last_name, height, weight, age, gender, bfp, goal FROM user_profile";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row);
+      var user;
+      for(x in row){
+        if(row[x]["facebook_uid"] == fbuid){
+            user = row[x];
+        }
+      }
+      console.log(user);
+      document.getElementById("height").value = user["height"];
+      document.getElementById("weight").value = user["weight"];
+      document.getElementById("age").value = user["age"];
+      document.getElementById("bodyfat").value = user["bfp"];
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       logState = false;

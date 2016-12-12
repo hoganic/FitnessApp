@@ -194,12 +194,16 @@
                             </div>
                             <div class="content">
                                 <div class="author">
-                                     <a href="#">
+                                     <a href="peopleUI.php">
                                     <img class="avatar border-gray" id="profilePic" src="assets/img/faces/face-3.jpg" alt="..."/>
 
                                       <h4 class="title" id="FB_name">Your name<br />
-                                         <small id="FB_id">Your FBid</small>
+                                         <small>Macros</small><br>
                                       </h4>
+                                      <h1>Fat: </h1><<h1 id="FB_fat"> </h1><br>
+                                      <h1>Carbs: </h1><h1 id="FB_protein"> </h1><br>
+                                      <h1>Protein: </h1><h1 id="FB_protein"> </h1><br>
+                                      <h1>Calories: </h1><h1 id="FB_calories"> </h1>
                                     </a>
                                 </div>
                             </div>
@@ -465,6 +469,51 @@
       }
       document.getElementById("bfp").value = user["bfp"];
       document.getElementById("goal").value = user["goal"];
+
+      row2 = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, bmr, protein, carbs, fat, calories FROM user_macro";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row2);
+      var user2;
+      for(x in row2){
+        if(row2[x]["facebook_uid"] == fbuid){
+            user2 = row2[x];
+        }
+      }
+      console.log(user2["facebook_uid"]);
+      document.getElementById("FB_calories").innerHTML = user2["calories"];
+      document.getElementById("FB_fat").innerHTML = user2["fat"];
+      document.getElementById("FB_protein").innerHTML = user2["protein"];
+      document.getElementById("FB_carbs").innerHTML = user2["carbs"];
   }
 </script>
 

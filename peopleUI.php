@@ -128,7 +128,8 @@
 						small consisting of only a singular or few foods. </p>
 					<p> A snack can range from a piece of fruit to chips or any desired snack food. </p>
 					<p> As long as it fits in the macros, it is in your diet. </p>
-					   
+			&nbsp;
+					&nbsp;
 			</div>
 			<div class="card">
 				<div class="header">

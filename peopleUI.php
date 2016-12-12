@@ -111,18 +111,19 @@
 			<div class="card">
 				<div class="header">
 					<h4 class="title"><strong>Instructions:</strong></h4>
+					&nbsp;
 					<p> Each meal should contain a source Protein, Carbs, and a Vegtable and meal creation will 
 					   follow this pattern. The number of meals per today is based on the number of macros the user
 						requires and how much the user wants to eat per meal, generally 3 to 6 meals. </p>
 					&nbsp;
 					&nbsp;
-					<p><b> Meal Creation:</b></p>
+					<h3><b> Meal Creation:</b></h3>
 					<p> 1) Choose a protein to search for in the search bar. i.e. Chicken, Steak, Pork, etc. </p>
 					<p> 2) Change quantity based on desired amount and to fit macros. </p>
 					<p> 3) Repeat these steps for desired carbohydrate (bread, pasta, potatoes, quinoa, rice) and vegtables.</p>
 					&nbsp;
 					&nbsp;
-					<p><b> Snacks: </b></p>
+					<h3><b> Snacks: </b></h3>
 					<p> A snack is considered a meal and should be numbered as the next meal, however generally a snack is 
 						small consisting of only a singular or few foods. </p>
 					<p> A snack can range from a piece of fruit to chips or any desired snack food. </p>
@@ -135,14 +136,14 @@
 					&nbsp;
 				</div>
 				<form>
-					&nbsp; User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
+					&nbsp;&nbsp; User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
 					<input type="text" name="UserProtein" id="UserProtein" value="0">Protein
 					<input type="text" name="UserFat" id="UserFat" value="0">Fat
 					<input type="text" name="UserCalories" id="UserCalories" value="0">Calories
 				</form>
 					
 				<div class="header">
-					<h4 class="title">Food Search</h4>
+					<h4 class="title"><strong>Food Search</strong></h4>
                 <form>
     Food Search <input type="text" name="query" id="query">
     <input type="Submit" value="Search" onClick="return search_request()">
@@ -151,7 +152,7 @@
     
 <table>
     <tr>
-        <td>Meal Number</td>
+        <td>Meal Number:</td>
         <td><input type="text" id="mealno"></td>
     </tr>
 

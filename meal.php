@@ -37,7 +37,7 @@
     }
   }
 
-  echo $mealNum;
+  print_r($mealNum);
   /*$servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
   $username = "db_user";
   $password = "fitgoapp";

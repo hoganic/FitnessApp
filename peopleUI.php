@@ -143,6 +143,7 @@
 					<input type="text" name="UserCalories" id="UserCalories" value="0">
 				</form>
 					&nbsp;
+				<hr>
 				<div class="header">
 					<h4 class="title"><strong>Food Search:</strong></h4>
 					&nbsp;

@@ -36,8 +36,9 @@
       array_push($calor, $value);
     }
   }
-  
-  $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+
+  echo $mealNum;
+  /*$servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
   $username = "db_user";
   $password = "fitgoapp";
   $dbname = "meal_db";
@@ -55,7 +56,7 @@
 
   $result = mysqli_query($con,$sql);
 
-  mysqli_close($con);
+  mysqli_close($con);*/
 ?>
 </body>
 </html>

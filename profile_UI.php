@@ -406,8 +406,9 @@
       //$('<img>', {
       //  src: response.data.url
       //}).appendTo('body');
-      var pP = document.getElementById('profilePic');
-      pP.innerHTML = '<img alt=' + response.data.url + '>';
+      //var pP = document.getElementById('profilePic');
+      //pP.innerHTML = '<img alt=' + response.data.url + '>';
+      document.getElementById('profilePic').src = response.data.url;
     });
 
     row = <?php 

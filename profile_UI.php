@@ -181,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" onsubmit="return checkfbstatus()" class="btn btn-info btn-fill pull-right" id="submitButton">Update Profile</button>
+                                    <button type="button" onclick="return checkfbstatus()" class="btn btn-info btn-fill pull-right" id="submitButton">Update Profile</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -194,12 +194,16 @@
                             </div>
                             <div class="content">
                                 <div class="author">
-                                     <a href="#">
+                                     <a href="peopleUI.php">
                                     <img class="avatar border-gray" id="profilePic" src="assets/img/faces/face-3.jpg" alt="..."/>
 
-                                      <h4 class="title">Your name<br />
-                                         <small>Your FBid</small>
+                                      <h4 class="title" id="FB_name">Your name<br />
+                                         <small>Macros</small><br><br
                                       </h4>
+                                      <h5 id="FB_fat"> </h5>
+                                      <h5 id="FB_carbs"> </h5>
+                                      <h5 id="FB_protein"> </h5>
+                                      <h5 id="FB_calories"> </h5>
                                     </a>
                                 </div>
                             </div>
@@ -243,6 +247,7 @@
   var row;
 
   function checkfbstatus(){
+    console.log("I made it here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     console.log('checkfbstatus');
     FB.getLoginStatus(function(response) {
       statusChangeCallback2(response);
@@ -275,7 +280,7 @@
     }
     console.log("This is what the link is building to...");
     console.log("userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+gender+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew);
-    xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+document.querySelector('input[name="gender"]:checked').value+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
+    xmlhttp.open("GET", "userprofile.php?fbuid="+fbuid+"&fn="+document.getElementById("FirstName").value+"&ln="+document.getElementById("LastName").value+"&h="+document.getElementById("height").value+"&w="+document.getElementById("weight").value+"&a="+document.getElementById("age").value+"&ge="+gender+"&b="+document.getElementById("bfp").value+"&go="+encodeURIComponent(document.getElementById("goal").value)+"&usertype="+createNew,true);
     xmlhttp.send();
 
     if(!(/^[A-Za-z\s]+$/.test(document.getElementById("FirstName").value))){
@@ -296,9 +301,9 @@
     if(document.getElementById("age").value < 1){
       logState = false;
     }
-    if(!document.querySelector('input[name="gender"]:checked').value){
-      logState = false;
-    }
+    //if(!document.querySelector('input[name="gender"]:checked').value){
+    //  logState = false;
+    //}
     if(document.getElementById("bfp").value < 1){
       logState = false;
     }
@@ -398,6 +403,7 @@
       console.log('Resonse: ' + response);
       //document.getElementById('status').innerHTML =
       //  'Thanks for logging in, ' + response.name + '!';
+      document.getElementById('FB_name').innerHTML = response.name+"<br><small>Macros</small><br>";
     });
 
     FB.api('/me/picture?width=180&height=180', function (response) {
@@ -405,8 +411,9 @@
       //$('<img>', {
       //  src: response.data.url
       //}).appendTo('body');
-      var pP = document.getElementById('profilePic');
-      pP.innerHTML = '<img alt=' + response.data.url + '>';
+      //var pP = document.getElementById('profilePic');
+      //pP.innerHTML = '<img alt=' + response.data.url + '>';
+      document.getElementById('profilePic').src = response.data.url;
     });
 
     row = <?php 
@@ -445,6 +452,7 @@
       var user;
       for(x in row){
         if(row[x]["facebook_uid"] == fbuid){
+            foundUserFlag = true;
             user = row[x];
         }
       }
@@ -461,6 +469,51 @@
       }
       document.getElementById("bfp").value = user["bfp"];
       document.getElementById("goal").value = user["goal"];
+
+      row2 = <?php 
+        $servername = "db-instance.cx5wifjnzcok.us-west-2.rds.amazonaws.com";
+        $username = "db_user";
+        $password = "fitgoapp";
+        $dbname = "user_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        try {
+            $sql = "SELECT facebook_uid, bmr, protein, carbs, fat, calories FROM user_macro";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                $sql_out = "{";
+                $counter = 0;
+                $row = $result->fetch_assoc();
+                $sql_out = $sql_out.$counter.": ".json_encode($row);
+                $counter = $counter + 1;
+                while($row = $result->fetch_assoc()){
+                  $sql_out = $sql_out.",".$counter.": ".json_encode($row);
+                  $counter = $counter + 1;
+                }
+              }
+              $sql_out = $sql_out."}";
+        } catch (Exception $e) {
+
+        }
+        echo $sql_out;
+        ?>;
+      console.log("test print row")
+      console.log(row2);
+      var user2;
+      for(x in row2){
+        if(row2[x]["facebook_uid"] == fbuid){
+            user2 = row2[x];
+        }
+      }
+      console.log(user2["facebook_uid"]);
+      document.getElementById("FB_calories").innerHTML = "Calories: "+user2["calories"];
+      document.getElementById("FB_fat").innerHTML = "Fat: "+user2["fat"];
+      document.getElementById("FB_protein").innerHTML = "Protein: "+user2["protein"];
+      document.getElementById("FB_carbs").innerHTML = "Carbs: "+user2["carbs"];
   }
 </script>
 

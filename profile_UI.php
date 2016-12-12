@@ -200,10 +200,10 @@
                                       <h4 class="title" id="FB_name">Your name<br />
                                          <small>Macros</small><br>
                                       </h4>
-                                      <h1>Fat: </h1><<h1 id="FB_fat"> </h1><br>
-                                      <h1>Carbs: </h1><h1 id="FB_protein"> </h1><br>
-                                      <h1>Protein: </h1><h1 id="FB_protein"> </h1><br>
-                                      <h1>Calories: </h1><h1 id="FB_calories"> </h1>
+                                      <h5>Fat: </h5><<h5 id="FB_fat"> </h5><br>
+                                      <h5>Carbs: </h5><h5 id="FB_protein"> </h5><br>
+                                      <h5>Protein: </h5><h5 id="FB_protein"> </h5><br>
+                                      <h5>Calories: </h5><h5 id="FB_calories"> </h5>
                                     </a>
                                 </div>
                             </div>

@@ -132,21 +132,21 @@
 			</div>
 			<div class="card">
 				<div class="header">
-					<h4 class="title"><strong>Macros</strong></h4>
+					<h4 class="title"><strong>Macros:</strong></h4>
 					&nbsp;
 				</div>
 				<form>
-					&nbsp;&nbsp; User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
-					<input type="text" name="UserProtein" id="UserProtein" value="0">Protein
-					<input type="text" name="UserFat" id="UserFat" value="0">Fat
-					<input type="text" name="UserCalories" id="UserCalories" value="0">Calories
+					&nbsp;&nbsp; User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">&nbsp;Carbs
+					<input type="text" name="UserProtein" id="UserProtein" value="0">&nbsp;Protein
+					<input type="text" name="UserFat" id="UserFat" value="0">&nbsp;Fat
+					<input type="text" name="UserCalories" id="UserCalories" value="0">&nbsp;Calories
 				</form>
-					
+					&nbsp;
 				<div class="header">
-					<h4 class="title"><strong>Food Search</strong></h4>
+					<h4 class="title"><strong>Food Search:</strong></h4>
 					&nbsp;
                 <form>
-    Food Search <input type="text" name="query" id="query">
+    Food Search: <input type="text" name="query" id="query">
     <input type="Submit" value="Search" onClick="return search_request()">
 </form>
 <p id="mealPlan"></p>   

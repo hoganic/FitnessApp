@@ -264,7 +264,7 @@
               console.log(data["hits"][0]["fields"]["nf_serving_size_unit"]);
               document.getElementById("food").value = data["hits"][0]["fields"]["item_name"];
               document.getElementById("serving_size_grams").value = data["hits"][0]["fields"]["nf_serving_weight_grams"];
-              document.getElementById("serving_size_container").value = data["hits"][0]["fields"]["nf_servings_per_container"];
+              //document.getElementById("serving_size_container").value = data["hits"][0]["fields"]["nf_servings_per_container"];
               document.getElementById("serving_size_unit").value = data["hits"][0]["fields"]["nf_serving_size_unit"];
               document.getElementById("carbs").value = data["hits"][0]["fields"]["nf_total_carbohydrate"];
               document.getElementById("protein").value = data["hits"][0]["fields"]["nf_protein"];

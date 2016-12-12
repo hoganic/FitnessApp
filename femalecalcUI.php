@@ -277,6 +277,7 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
             user = row[x];
         }
       }
+      console.log(user);
       document.getElementById("height").value = user["height"];
       document.getElementById("weight").value = user["weight"];
       document.getElementById("age").value = user["age"];

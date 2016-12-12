@@ -446,6 +446,7 @@
       var user;
       for(x in row){
         if(row[x]["facebook_uid"] == fbuid){
+            foundUserFlag = true;
             user = row[x];
         }
       }

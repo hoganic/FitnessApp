@@ -79,7 +79,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Plan Your Meal for Today</a>
+			<a class="navbar-brand" href="#"><strong>Plan Your Meal for Today</strong></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -110,15 +110,19 @@
                 <div class="fixed">
 			<div class="card">
 				<div class="header">
-					<h4 class="title">Instructions</h4>
+					<h4 class="title"><strong>Instructions:</strong></h4>
 					<p> Each meal should contain a source Protein, Carbs, and a Vegtable and meal creation will 
 					   follow this pattern. The number of meals per today is based on the number of macros the user
 						requires and how much the user wants to eat per meal, generally 3 to 6 meals. </p>
-					<p> Meal Creation:</p>
+					&nbsp;
+					&nbsp;
+					<p><b> Meal Creation:</b></p>
 					<p> 1) Choose a protein to search for in the search bar. i.e. Chicken, Steak, Pork, etc. </p>
 					<p> 2) Change quantity based on desired amount and to fit macros. </p>
 					<p> 3) Repeat these steps for desired carbohydrate (bread, pasta, potatoes, quinoa, rice) and vegtables.</p>
-					<p> Snacks </p>
+					&nbsp;
+					&nbsp;
+					<p><b> Snacks: </b></p>
 					<p> A snack is considered a meal and should be numbered as the next meal, however generally a snack is 
 						small consisting of only a singular or few foods. </p>
 					<p> A snack can range from a piece of fruit to chips or any desired snack food. </p>
@@ -127,10 +131,11 @@
 			</div>
 			<div class="card">
 				<div class="header">
-					<h4 class="title">Macros</h4>
+					<h4 class="title"><strong>Macros</strong></h4>
+					&nbsp;
 				</div>
 				<form>
-					User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
+					&nbsp; User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
 					<input type="text" name="UserProtein" id="UserProtein" value="0">Protein
 					<input type="text" name="UserFat" id="UserFat" value="0">Fat
 					<input type="text" name="UserCalories" id="UserCalories" value="0">Calories

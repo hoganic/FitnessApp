@@ -127,6 +127,9 @@ calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 		are recommended for the user to consume every day to achieve your goal. </p>
 	<p> It is not needed to eat strictly healthy and "clean" in order to achieve your goal, as long as the macros are fulfilled change 
 		will come.</p>
+	&nbsp;
+	&nbsp;
+	&nbsp;
 	<legend><strong>Male Macro Calculator</strong></legend>
 
   <p><label for="height">Your height (inches):</label>

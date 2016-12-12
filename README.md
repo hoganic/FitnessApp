@@ -1,4 +1,24 @@
-# FitnessApp
-Fitness Application 
+![alt tag](./frontpic.JPG)
+# Fitness Application
+**BOSTON UNIVERSITY: EC601 Product Design**
 
-.gittest--sam
+# About FitGo
+It is Macronutrition brought to the masses. We talk Nutrition and Fitness. 
+Its an application which allows you to make your own profile - login through facebook, calculate your macros (Protein,fats and carbs) and calories by providing information about yourself to our calculator (Male/Female) and we allow YOU to decide what YOU want in your meals for the day. As long as your food matches your macros its in your "diet" ;)
+
+You can view the application at: (http://ec2-54-187-168-33.us-west-2.compute.amazonaws.com/)
+
+## Developers
+
+- Ian Hogan
+- Samuel Arwood
+- Aastha Anand
+- Yannan Bai
+- You Han
+
+## Credits
+
+We sincerely thank Professor Osama and our classmates for their valuable feedback during the creation of this application.
+
+# STAY HEALTHY STAY HAPPY!
+

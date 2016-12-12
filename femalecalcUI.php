@@ -85,7 +85,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Calculate your Macros</a>
+			<a class="navbar-brand" href="#"><strong>Calculate your Macros</strong></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -117,7 +117,7 @@
 fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
 carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.value*9)/4).toFixed(0); calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
 ">
-	<legend>Intro:</legend>
+	<legend>Introduction:</legend>
 	<p> The Female Macro Calculator is specifically designed for the female user using the specific BMR calculation.</p>
 	<p> Once all the User Input is complete the Macro Calculator will display how many grams of Protein, Carbohydrates, and Fats that
 		are recommended for the user to consume every day to achieve your goal. </p>
@@ -125,7 +125,8 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 		will come.</p>
 	<p> Below you will see a Fat and a Protein Multiplyer. These percentage derive from minimum and maximum recommended percentages
 		for fat and protein, respectively, in respect to the User's lean body mass. </p>
-
+	&nbsp;
+	&nbsp;
   <legend>Female Macro Calculator</legend>
 
   <p><label for="height">Your height (inches):</label>
@@ -163,6 +164,8 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
  <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
   <input type="hidden" id="fbuid" name="fbuid" value="">
 
+	&nbsp;
+	&nbsp;
   <p>BMR: <strong><output style="display:inline" id="BMR" name="BMR" for="weight height age activity">0</output></strong></p>
 
   <p>Protein: <strong><output style="display:inline" id="protein" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
@@ -173,6 +176,8 @@ carbs.value=((parseFloat(goal.value)+parseFloat(BMR.value)-protein.value*4-fat.v
 
   <p>Calories: <strong><output style="display:inline" id="calories" name="calories" for="carbs fat protein">0</output></strong></p>
 
+	&nbsp;
+	&nbsp;
  <p><input type="submit" name="submit" value="Save Your Macros" /></p>  
 
 </form>

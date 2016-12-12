@@ -158,7 +158,7 @@
         <td> Serving Sizes:
         <select id="serving_size" onchange="updateText()">
           <option id ="serving_size_unit" value=''>Unit</option>
-          <option id ="serving_size_container" value=''>Container</option>
+          <!--<option id ="serving_size_container" value=''>Container</option>-->
           <option id ="serving_size_grams" value=''>Grams</option>
           </select></td>
         <td><input type="text" value="" id="servings"></td> 

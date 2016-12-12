@@ -136,10 +136,10 @@
 					&nbsp;
 				</div>
 				<form>
-					&nbsp;&nbsp; User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">&nbsp;Carbs
-					<input type="text" name="UserProtein" id="UserProtein" value="0">&nbsp;Protein
-					<input type="text" name="UserFat" id="UserFat" value="0">&nbsp;Fat
-					<input type="text" name="UserCalories" id="UserCalories" value="0">&nbsp;Calories
+					&nbsp;User Macros <input type="text" name="UserCarbs" id="UserCarbs" value="0">Carbs
+					<input type="text" name="UserProtein" id="UserProtein" value="0">Protein
+					<input type="text" name="UserFat" id="UserFat" value="0">Fat
+					<input type="text" name="UserCalories" id="UserCalories" value="0">Calories
 				</form>
 					&nbsp;
 				<div class="header">

@@ -11,6 +11,7 @@ Whatever you decide, we let you achieve
 And as long as your food matches your macros its in your "diet" ;)
 
 You can view the application at: (http://ec2-54-187-168-33.us-west-2.compute.amazonaws.com/)
+For now the application is in the development mode and you will not be provided the capability to login through facebook. (In case you want to login and use the app - give us a mail we might add you in)
 
 ## Developers
 
